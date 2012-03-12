@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  status_id: 1
+  descripcion: MyText
+  functionpts: 1
+  prioridad: MyString
+  usuario: MyString
+
+two:
+  name: MyString
+  status_id: 1
+  descripcion: MyText
+  functionpts: 1
+  prioridad: MyString
+  usuario: MyString
