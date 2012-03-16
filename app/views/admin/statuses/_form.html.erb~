@@ -1,0 +1,26 @@
+<%= form_for([:admin, @status],:html => { :class => "form-horizontal"}) do |f| %>
+  <% if @status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
+
+      <ul>
+      <% @status.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :nombre %>
+  <div class="controls">
+    <%= f.text_field :descripcion %>
+  </div>
+</div>
+ <div class="form-actions">
+<%= link_to 'Cancelar'.html_safe, admin_statuses_path, :class => 'btn btn-danger' %>
+<%= link_to_function "Guardar",
+"javascript:document.getElementById(\"new_story\").submit(); return
+false",:class => 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,4 @@
+<h1>Nuevo Estatus</h1></br>
+
+<%= render 'form' %>
+<%= link_to '<i class="icon-chevron-left"></i> Lista de Estatus'.html_safe, admin_statuses_path, :class => 'btn btn-info' %>

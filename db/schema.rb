@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312225058) do
+ActiveRecord::Schema.define(:version => 20120316225034) do
 
   create_table "statuses", :force => true do |t|
     t.string   "descripcion"
@@ -21,13 +21,14 @@ ActiveRecord::Schema.define(:version => 20120312225058) do
 
   create_table "stories", :force => true do |t|
     t.string   "name"
-    t.integer  "status_id"
+    t.integer  "status_id",   :default => 1
     t.text     "descripcion"
     t.integer  "functionpts"
     t.string   "prioridad"
     t.string   "usuario"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+    t.text     "comentarios"
   end
 
 end

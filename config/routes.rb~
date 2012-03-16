@@ -1,8 +1,8 @@
 Rem2::Application.routes.draw do
+  resources :statuses
 
 namespace :admin do
   resources :stories
-  resources :statuses
 end
 
 namespace :cliente do

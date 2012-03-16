@@ -1,0 +1,7 @@
+            <ul class="nav">
+
+              <li class="active"><a href="#">Avance Grupal</a></li>
+              <li><a href="#about">Administración de usuarios</a></li>
+              <li><a href="#contact">Reportes</a></li>
+              <li><a href="#contact">Logout</a></li>
+            </ul>

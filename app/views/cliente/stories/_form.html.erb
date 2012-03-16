@@ -1,0 +1,66 @@
+<%= form_for([:cliente, @story],:html => { :class => "form-horizontal"} ) do |f|%>
+  <% if @story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
+      <ul>
+      <% @story.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+</br>
+  <div class="control-group">
+    <%= f.label :Nombre , :class=>"control-label"%>
+   <div class="controls">
+    <%= f.text_field :name %>
+  </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Descripción %>
+   <div class="controls">
+    <%= f.text_area :descripcion ,:rows=>6 %>
+  </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :usuario %>
+   <div class="controls">
+    <%= f.text_field :usuario %>
+  </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :prioridad %>
+   <div class="controls">
+    <%= f.text_field :prioridad %>
+  </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Puntos_función %>
+   <div class="controls">
+    <%= f.number_field :functionpts %>
+  </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Estatus %>
+   <div class="controls">
+    <%= select("story", "status_id", Status.all.collect {|p| [ p.descripcion, p.id ] })%>
+  </div>
+</div>
+  <div class="control-group">
+    <%= f.label :Comentarios %>
+   <div class="controls">
+    <%= f.text_area :comentarios ,:rows=>6 %>
+  </div>
+  </div>
+ <div class="form-actions">
+
+<%= link_to 'Cancelar'.html_safe, cliente_stories_path, :class => 'btn btn-danger' %>
+
+<%= link_to_function "Guardar",
+"javascript:document.getElementById(\"new_story\").submit(); return
+false",:class => 'btn btn-primary' %>
+
+  </div>
+
+<% end %>

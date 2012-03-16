@@ -1,0 +1,6 @@
+<h1>Editar Story</h1>
+
+<%= render 'form' %>
+
+<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, cliente_stories_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-file icon-white"></i> Mostrar'.html_safe, [:cliente, @story], :class => 'btn btn-info' %>

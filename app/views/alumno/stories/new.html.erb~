@@ -1,0 +1,5 @@
+<h1>Nueva Story</h1>
+
+<%= render 'form' %>
+
+<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, alumno_stories_path, :class => 'btn btn-info' %>

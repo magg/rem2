@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @story.name %>
+</h1>
+</br>
+<table>
+<tr>
+<td>
+  <b>Descripción:</b>
+<td>
+
+</td>
+</tr>
+<tr>
+<td>
+  <b>Usuario:</b>
+</td>
+<td>
+  <%= @story.usuario %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Prioridad:</b>
+</td>
+<td>
+  <%= @story.prioridad %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Puntos Función:</b>
+</td>
+<td>
+  <%= @story.functionpts %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Estatus:</b>
+</td>
+<td>
+  <%= @stat %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Comentarios:</b>
+</td>
+<td>
+  <%= @story.comentarios %>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td>
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, alumno_stories_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_alumno_story_path(@story), :class => 'btn btn-info' %>
+</div>
+</td>
+</tr>
+</table>
+
+

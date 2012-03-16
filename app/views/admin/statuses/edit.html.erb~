@@ -1,0 +1,10 @@
+<h1>Editar Estatus</h1></br>
+
+<%= render 'form' %>
+
+
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Lista de Estatus'.html_safe, admin_statuses_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-edit icon-white"></i> Mostrar'.html_safe, [:admin, @status], :class => 'btn btn-info' %>
+</div>
+
