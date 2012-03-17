@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bootstrap-sass'
 gem 'rails', '3.2.2'
 
 # Bundle edge Rails instead:
@@ -19,7 +20,6 @@ end
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'sass-rails',   '~> 3.2.3'
-  gem 'bootstrap-sass'
   gem 'jquery-rails'
   
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
