@@ -2,4 +2,25 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+    activerecord:
+      models:
+        story:       "story"
+      attributes:
+        story:
+          descripcion: "Description"
+          usuario: "User"
+          prioridad: "Priority"
+          Nombre: "Name"
+          Puntos_función: "Function points"
+          Descripción: "Description"
+      errors:
+        template:
+          body:    "There were problems with the following fields:"          
+          header:
+            one:   "1 error prohibited this %{model} from being saved"
+            other: "%{count} errors prohibited this %{model} from being saved"
+#START:layout
+    layouts:
+      application:
+        login:         "Logged in as"
+#END:layout

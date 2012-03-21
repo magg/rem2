@@ -1,11 +1,12 @@
 <%= form_for([:admin, @status],:html => { :class => "form-horizontal"}) do |f| %>
   <% if @status.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
-
+      <h2><%= t('errors.template.header', :count=>@status.errors.size,
+        :model=>t('activerecord.models.status')) %>.</h2>
+      <p><%= t('errors.template.body') %></p>
       <ul>
       <% @status.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><%= raw msg %></li>
       <% end %>
       </ul>
     </div>

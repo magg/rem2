@@ -1,16 +1,17 @@
 Rem2::Application.routes.draw do
+scope '(:locale)' do
+  namespace :admin do
+    resources :stories
+    resources :statuses
+  end
 
-namespace :admin do
-  resources :stories
-  resources :statuses
-end
+  namespace :cliente do
+    resources :stories
+  end
 
-namespace :cliente do
-  resources :stories
-end
-
-namespace :alumno do
-  resources :stories
+  namespace :alumno do
+    resources :stories
+  end
 end
 
   # The priority is based upon order of creation:
