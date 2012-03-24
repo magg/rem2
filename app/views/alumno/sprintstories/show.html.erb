@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sprint:</b>
+  <%= @sprintstory.sprint_id %>
+</p>
+
+<p>
+  <b>Story:</b>
+  <%= @sprintstory.story_id %>
+</p>
+
+<p>
+  <b>Fechainicio:</b>
+  <%= @sprintstory.fechainicio %>
+</p>
+
+<p>
+  <b>Fechafin:</b>
+  <%= @sprintstory.fechafin %>
+</p>
+
+
+<%= link_to 'Edit', edit_sprintstory_path(@sprintstory) %> |
+<%= link_to 'Back', sprintstories_path %>
