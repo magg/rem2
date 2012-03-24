@@ -1,16 +1,26 @@
 Rem2::Application.routes.draw do
+ 
 scope '(:locale)' do
   namespace :admin do
     resources :stories
     resources :statuses
+    resources :students
+    resources :sprints
+    resources :workdetails
   end
 
   namespace :cliente do
     resources :stories
+    resources :criterios
   end
 
   namespace :alumno do
     resources :stories
+    resources :workdetails
+    resources :tasks
+    resources :sprintstories
+    resources :sprints
+    resources :criterios
   end
 end
 

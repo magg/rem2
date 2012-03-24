@@ -1,0 +1,21 @@
+<h1>Listing sprints</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sprints.each do |sprint| %>
+  <tr>
+    <td><%= link_to 'Show', sprint %></td>
+    <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
+    <td><%= link_to 'Destroy', sprint, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sprint', new_alumno_sprint_path %>

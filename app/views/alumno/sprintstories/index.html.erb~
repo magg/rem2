@@ -1,0 +1,29 @@
+<h1>Listing sprintstories</h1>
+
+<table>
+  <tr>
+    <th>Sprint</th>
+    <th>Story</th>
+    <th>Fechainicio</th>
+    <th>Fechafin</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sprintstories.each do |sprintstory| %>
+  <tr>
+    <td><%= sprintstory.sprint_id %></td>
+    <td><%= sprintstory.story_id %></td>
+    <td><%= sprintstory.fechainicio %></td>
+    <td><%= sprintstory.fechafin %></td>
+    <td><%= link_to 'Show', sprintstory %></td>
+    <td><%= link_to 'Edit', edit_sprintstory_path(sprintstory) %></td>
+    <td><%= link_to 'Destroy', sprintstory, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sprintstory', new_alumno_sprintstory_path %>

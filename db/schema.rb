@@ -11,7 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316225034) do
+ActiveRecord::Schema.define(:version => 20120324193242) do
+
+  create_table "criterios", :force => true do |t|
+    t.text     "descripcion"
+    t.integer  "story_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "sprints", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "sprintstories", :force => true do |t|
+    t.integer  "sprint_id"
+    t.integer  "story_id"
+    t.date     "fechainicio"
+    t.date     "fechafin"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "statuses", :force => true do |t|
     t.string   "descripcion"
@@ -29,6 +50,31 @@ ActiveRecord::Schema.define(:version => 20120316225034) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.text     "comentarios"
+  end
+
+  create_table "students", :force => true do |t|
+    t.string   "nombre"
+    t.string   "rol"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.text     "descripcion"
+    t.integer  "estimadoinicial"
+    t.string   "status"
+    t.integer  "story_id"
+    t.integer  "student_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "workdetails", :force => true do |t|
+    t.integer  "task_id"
+    t.integer  "hrstrabajadas"
+    t.integer  "hrsporterminar"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

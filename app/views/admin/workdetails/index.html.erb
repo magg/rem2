@@ -1,0 +1,27 @@
+<h1>Listing workdetails</h1>
+
+<table>
+  <tr>
+    <th>Task</th>
+    <th>Hrstrabajadas</th>
+    <th>Hrsporterminar</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @workdetails.each do |workdetail| %>
+  <tr>
+    <td><%= workdetail.task_id %></td>
+    <td><%= workdetail.hrstrabajadas %></td>
+    <td><%= workdetail.hrsporterminar %></td>
+    <td><%= link_to 'Show', workdetail %></td>
+    <td><%= link_to 'Edit', edit_workdetail_path(workdetail) %></td>
+    <td><%= link_to 'Destroy', workdetail, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Workdetail', new_admin_workdetail_path %>

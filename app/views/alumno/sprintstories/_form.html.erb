@@ -1,0 +1,33 @@
+<%= form_for(@sprintstory) do |f| %>
+  <% if @sprintstory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sprintstory.errors.count, "error") %> prohibited this sprintstory from being saved:</h2>
+
+      <ul>
+      <% @sprintstory.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sprint_id %><br />
+    <%= f.number_field :sprint_id %>
+  </div>
+  <div class="field">
+    <%= f.label :story_id %><br />
+    <%= f.number_field :story_id %>
+  </div>
+  <div class="field">
+    <%= f.label :fechainicio %><br />
+    <%= f.date_select :fechainicio %>
+  </div>
+  <div class="field">
+    <%= f.label :fechafin %><br />
+    <%= f.date_select :fechafin %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
