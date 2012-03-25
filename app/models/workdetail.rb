@@ -1,3 +1,3 @@
 class Workdetail < ActiveRecord::Base
-   has_one :task
+ has_one :task
 end

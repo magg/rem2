@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120324193242) do
+ActiveRecord::Schema.define(:version => 20120325092113) do
 
   create_table "criterios", :force => true do |t|
     t.text     "descripcion"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120324193242) do
   end
 
   create_table "sprints", :force => true do |t|
+    t.string   "comentario"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

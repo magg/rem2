@@ -1,3 +1,2 @@
 class Workdetail < ActiveRecord::Base
-   has_one :tasks
 end

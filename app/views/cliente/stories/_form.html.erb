@@ -1,12 +1,11 @@
 <%= form_for([:cliente, @story],:html => { :class => "form-horizontal"} ) do |f|%>
   <% if @story.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t('errors.template.header', :count=>@story.errors.size,
-        :model=>t('activerecord.models.story')) %>.</h2>
-      <p><%= t('errors.template.body') %></p>
+      <h2><%= pluralize(@story.errors.count, "error") %> prohibited this story from being saved:</h2>
+
       <ul>
       <% @story.errors.full_messages.each do |msg| %>
-        <li><%= raw msg %></li>
+        <li><%= msg %></li>
       <% end %>
       </ul>
     </div>

@@ -1,0 +1,29 @@
+<%= form_for([:admin, @workdetail],:html => { :class => "form-horizontal"}) do |f| %>
+  <% if @workdetail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@workdetail.errors.count, "error") %> prohibited this workdetail from being saved:</h2>
+
+      <ul>
+      <% @workdetail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :task_id %><br />
+    <%= f.number_field :task_id %>
+  </div>
+  <div class="field">
+    <%= f.label :hrstrabajadas %><br />
+    <%= f.number_field :hrstrabajadas %>
+  </div>
+  <div class="field">
+    <%= f.label :hrsporterminar %><br />
+    <%= f.number_field :hrsporterminar %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

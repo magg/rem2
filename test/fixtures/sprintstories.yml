@@ -3,11 +3,11 @@
 one:
   sprint_id: 1
   story_id: 1
-  fechainicio: 2012-03-24
-  fechafin: 2012-03-24
+  fechainicio: 2012-03-25
+  fechafin: 2012-03-25
 
 two:
   sprint_id: 1
   story_id: 1
-  fechainicio: 2012-03-24
-  fechafin: 2012-03-24
+  fechainicio: 2012-03-25
+  fechafin: 2012-03-25
