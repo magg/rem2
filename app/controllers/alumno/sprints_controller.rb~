@@ -1,4 +1,4 @@
-class SprintsController < ApplicationController
+class Alumno::SprintsController < ApplicationController
   # GET /sprints
   # GET /sprints.json
   def index

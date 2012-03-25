@@ -1,5 +1,2 @@
 class Task < ActiveRecord::Base
-   has_one :stories
-   has_one :students
-   has_many :workdetails
 end

@@ -1,4 +1,4 @@
-class CriteriosController < ApplicationController
+class Alumno::CriteriosController < ApplicationController
   # GET /criterios
   # GET /criterios.json
   def index

@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Comentario</th>
     <th></th>
     <th></th>
     <th></th>
@@ -9,6 +10,7 @@
 
 <% @sprints.each do |sprint| %>
   <tr>
+    <td><%= sprint.comentario %></td>
     <td><%= link_to 'Show', sprint %></td>
     <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
     <td><%= link_to 'Destroy', sprint, confirm: 'Are you sure?', method: :delete %></td>
