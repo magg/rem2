@@ -21,17 +21,17 @@
   <div class="control-group">
     <%= f.label :Descripción %>
    <div class="controls">
-    <%= f.text_area :descripcion ,:rows=>6 %>
+    <%= f.text_area :descripcion,:cols => 20, :rows => 10%>
   </div>
   </div>
   <div class="control-group">
-    <%= f.label :usuario %>
+    <%= f.label :Usuario , :class=>"control-label"%>
    <div class="controls">
     <%= f.text_field :usuario %>
   </div>
   </div>
   <div class="control-group">
-    <%= f.label :prioridad %>
+    <%= f.label :Prioridad , :class=>"control-label"%>
    <div class="controls">
     <%= f.text_field :prioridad %>
   </div>
@@ -55,13 +55,9 @@
   </div>
   </div>
  <div class="form-actions">
-
 <%= link_to 'Cancelar'.html_safe, cliente_stories_path, :class => 'btn btn-danger' %>
-
 <%= link_to_function "Guardar",
 "javascript:document.getElementById(\"new_story\").submit(); return
 false",:class => 'btn btn-primary' %>
-
   </div>
-
 <% end %>

@@ -1,5 +1,9 @@
-<h1>Editar Story</h1>
+<div id="contenido">
+	<div id="encabezado">
+	<h1 align="center">Nueva Story</h1></br>
+	</div>
+	<div id="cuerpo">
+	<%= render 'form_edit' %>
+	</div>
+</div>
 
-<%= render 'form_edit' %>
-<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, alumno_stories_path, :class => 'btn btn-info' %>
-<%= link_to '<i class="icon-file icon-white"></i> Mostrar'.html_safe, [:alumno, @story], :class => 'btn btn-info' %>

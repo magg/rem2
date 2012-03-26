@@ -1,18 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<h1>
-  <%= @story.name %>
-</h1>
-</br>
-<table>
-<tr>
-<td>
-  <b>Estatus:</b>
-</td>
-<td>
-  <%= @stat %>
-</td>
-</tr>
+<div id="contenido">
+	<div id="encabezado">
+		<p id="notice"><%= notice %></p>
+		<h1>
+  		<%= @story.name %>
+		</h1>
+		</br>
+	</div>
+<div id="cuerpo">
+<table style="table-layout:fixed;word-wrap:break-word;">
 <tr>
 <td>
   <b>Descripción:</b>
@@ -22,15 +17,12 @@
 </tr>
 <tr>
 <td>
-<tr>
-<td>
-  <b>Puntos Función:</b>
+  <b>Usuario:</b>
 </td>
 <td>
-  <%= @story.functionpts %>
+  <%= @story.usuario %>
 </td>
 </tr>
-
 <tr>
 <td>
   <b>Prioridad:</b>
@@ -41,10 +33,26 @@
 </tr>
 <tr>
 <td>
-  <b>Usuario:</b>
+  <b>Puntos Función:</b>
 </td>
 <td>
-  <%= @story.usuario %>
+  <%= @story.functionpts %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Estatus:</b>
+</td>
+<td>
+  <%= @stat %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Comentarios:</b>
+</td>
+<td>
+  <%= @story.comentarios %>
 </td>
 </tr>
 </table>
@@ -58,5 +66,5 @@
 </td>
 </tr>
 </table>
-
+</div>
 
