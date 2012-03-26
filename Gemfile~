@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
 gem 'rails', '3.2.2'
+gem 'heroku'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,6 +13,7 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
+  #gem "rake", "0.8.7"
 end
 
 
