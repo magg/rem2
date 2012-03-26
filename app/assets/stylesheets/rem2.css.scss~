@@ -16,7 +16,7 @@ width:61%;
 }
 
 #layout{
-        padding-top: 60px;}
+        padding-top: 10px;}
 
 #contenido{
 	margin-left: auto;
