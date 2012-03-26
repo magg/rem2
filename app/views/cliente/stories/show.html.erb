@@ -1,10 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<h1>
-  <%= @story.name %>
-</h1>
-</br>
-<table>
+<div id="contenido">
+	<div id="encabezado">
+		<p id="notice"><%= notice %></p>
+		<h1>
+  		<%= @story.name %>
+		</h1>
+		</br>
+	</div>
+<div id="cuerpo">
+<table style="width:100px;table-layout:fixed;word-wrap:break-word;">
 <tr>
 <td>
   <b>Descripción:</b>
@@ -63,5 +66,5 @@
 </td>
 </tr>
 </table>
-
+</div>
 

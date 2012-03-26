@@ -1,3 +1,9 @@
-<h1>Nueva Story</h1>
+<div id="contenido">
+	<div id="encabezado">
+	<h1 align="center">Nueva Story</h1></br>
+	</div>
+	<div id="cuerpo" align="center">
+	<%= render 'form' %>
+	</div>
+</div>
 
-<%= render 'form' %>
