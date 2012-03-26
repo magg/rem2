@@ -1,4 +1,4 @@
-<%= form_for(@task) do |f| %>
+<%= form_for([:alumno, @task],:html => { :class => "form-horizontal"} ) do |f|%>
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+</br>
   <div class="field">
     <%= f.label :descripcion %><br />
     <%= f.text_area :descripcion %>
@@ -31,7 +31,11 @@
     <%= f.label :student_id %><br />
     <%= f.number_field :student_id %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+ <div class="form-actions">
+<%= link_to 'Cancelar'.html_safe, alumno_tasks_path, :class => 'btn btn-danger' %>
+<%= link_to_function "Guardar",
+"javascript:document.getElementById(\"new_story\").submit(); return
+false",:class => 'btn btn-primary' %>
   </div>
+
 <% end %>

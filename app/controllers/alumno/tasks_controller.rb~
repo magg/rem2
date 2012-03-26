@@ -1,4 +1,4 @@
-class TasksController < ApplicationController
+class Alumno::TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index

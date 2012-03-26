@@ -1,4 +1,4 @@
-class Cliente::TasksController < ApplicationController
+class Admin::TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index

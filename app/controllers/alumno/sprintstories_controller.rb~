@@ -1,4 +1,4 @@
-class SprintstoriesController < ApplicationController
+class Alumno::SprintstoriesController < ApplicationController
   # GET /sprintstories
   # GET /sprintstories.json
   def index

@@ -16,9 +16,9 @@
     <%= f.text_field :comentario %>
   </div>
  <div class="form-actions">
-<%= link_to 'Cancelar'.html_safe, admin_statuses_path, :class => 'btn btn-danger' %>
+<%= link_to 'Cancelar'.html_safe, admin_sprints_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",
-"javascript:document.getElementById(\"new_status\").submit(); return
+"javascript:document.getElementById(\"new_sprint\").submit(); return
 false",:class => 'btn btn-primary' %>
   </div>
 <% end %>
