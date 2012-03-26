@@ -60,7 +60,7 @@ class Admin::CriteriosController < ApplicationController
 
     respond_to do |format|
       if @criterio.update_attributes(params[:criterio])
-        format.html { redirect_to @criterio, notice: 'Criterio was successfully updated.' }
+        format.html { redirect_to [:admin, @criterio], notice: 'Criterio was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

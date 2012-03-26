@@ -44,7 +44,7 @@ class Alumno::CriteriosController < ApplicationController
 
     respond_to do |format|
       if @criterio.save
-        format.html { redirect_to @criterio, notice: 'Criterio was successfully created.' }
+        format.html { redirect_to [:alumno, @criterio], notice: 'Criterio was successfully created.' }
         format.json { render json: @criterio, status: :created, location: @criterio }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Alumno::CriteriosController < ApplicationController
 
     respond_to do |format|
       if @criterio.update_attributes(params[:criterio])
-        format.html { redirect_to @criterio, notice: 'Criterio was successfully updated.' }
+        format.html { redirect_to [:alumno, @criterio], notice: 'Criterio was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

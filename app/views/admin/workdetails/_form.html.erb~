@@ -23,7 +23,10 @@
     <%= f.label :hrsporterminar %><br />
     <%= f.number_field :hrsporterminar %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+ <div class="form-actions">
+<%= link_to 'Cancelar'.html_safe, admin_statuses_path, :class => 'btn btn-danger' %>
+<%= link_to_function "Guardar",
+"javascript:document.getElementById(\"new_status\").submit(); return
+false",:class => 'btn btn-primary' %>
   </div>
 <% end %>

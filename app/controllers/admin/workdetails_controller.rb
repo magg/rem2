@@ -44,7 +44,7 @@ class Admin::WorkdetailsController < ApplicationController
 
     respond_to do |format|
       if @workdetail.save
-        format.html { redirect_to @workdetail, notice: 'Workdetail was successfully created.' }
+        format.html { redirect_to [:admin, @workdetail], notice: 'Workdetail was successfully created.' }
         format.json { render json: @workdetail, status: :created, location: @workdetail }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Admin::WorkdetailsController < ApplicationController
 
     respond_to do |format|
       if @workdetail.update_attributes(params[:workdetail])
-        format.html { redirect_to @workdetail, notice: 'Workdetail was successfully updated.' }
+        format.html { redirect_to [:admin, @workdetail], notice: 'Workdetail was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

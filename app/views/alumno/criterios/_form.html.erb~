@@ -20,9 +20,9 @@
     <%= f.number_field :story_id %>
   </div>
   <div class="form-actions">
-<%= link_to 'Cancelar'.html_safe, alumno_stories_path, :class => 'btn btn-danger' %>
+<%= link_to 'Cancelar'.html_safe, alumno_criterios_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",
-"javascript:document.getElementById(\"new_story\").submit(); return
+"javascript:document.getElementById(\"new_criterio\").submit(); return
 false",:class => 'btn btn-primary' %>
   </div>
 

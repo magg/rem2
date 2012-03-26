@@ -44,7 +44,7 @@ class Alumno::SprintstoriesController < ApplicationController
 
     respond_to do |format|
       if @sprintstory.save
-        format.html { redirect_to @sprintstory, notice: 'Sprintstory was successfully created.' }
+        format.html { redirect_to [:alumno, @sprintstory], notice: 'Sprintstory was successfully created.' }
         format.json { render json: @sprintstory, status: :created, location: @sprintstory }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Alumno::SprintstoriesController < ApplicationController
 
     respond_to do |format|
       if @sprintstory.update_attributes(params[:sprintstory])
-        format.html { redirect_to @sprintstory, notice: 'Sprintstory was successfully updated.' }
+        format.html { redirect_to [:alumno, @sprintstory], notice: 'Sprintstory was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
