@@ -5,7 +5,7 @@
 		:model=>t('activerecord.models.story')) %>.</h2> <p><%= t('errors.template.body') %></p>
       <ul>
       <% @story.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><%= raw msg %></li>
       <% end %>
       </ul>
     </div>

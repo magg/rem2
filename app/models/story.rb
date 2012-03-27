@@ -1,8 +1,9 @@
 class Story < ActiveRecord::Base
 # validation stuff...
  has_one :status
- has_many :sprintstories
- has_many :sprints :through => :sprintstories
+ has_and_belongs_to_many :sprints
+ 
+ 
  validates :name, :descripcion, :prioridad, :usuario, :presence => true
  validates :functionpts, :numericality => true
  validates :name, :uniqueness => true, :length => { 
