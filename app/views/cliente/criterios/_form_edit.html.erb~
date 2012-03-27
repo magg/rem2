@@ -1,4 +1,4 @@
-<%= form_for([:alumno, @criterio],:html => { :class => "form-horizontal"} ) do |f|%>
+<%= form_for([:cliente, @criterio],:html => { :class => "form-horizontal"}) do |f| %>
   <% if @criterio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@criterio.errors.count, "error") %> prohibited this criterio from being saved:</h2>
@@ -10,20 +10,18 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :descripcion %><br />
+</br>
+  <div class="control-group">
+    <%= f.label :descripción %>
+    <div class="controls">
     <%= f.text_area :descripcion %>
   </div>
-  <div class="field">
-    <%= f.label :story_id %><br />
-    <%= f.number_field :story_id %>
   </div>
-  <div class="form-actions">
-<%= link_to 'Cancelar'.html_safe, alumno_criterios_path, :class => 'btn btn-danger' %>
+ <div class="form-actions">
+<%= link_to 'Cancelar', [:cliente,Story.where(:id => @criterio.story_id).first]  %>
+    <%= f.hidden_field :story_id %>
 <%= link_to_function "Guardar",
-"javascript:document.getElementById(\"new_criterio\").submit(); return
+"javascript:document.getElementById(\"edit_criterio_#{@criterio.id}\").submit(); return
 false",:class => 'btn btn-primary' %>
   </div>
-
 <% end %>
