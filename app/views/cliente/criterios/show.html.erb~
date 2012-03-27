@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+
+<table style="width:500px;table-layout:fixed;word-wrap:break-word;">
+<tr>
+<td>
+  <b>Descripcion:</b></td><td>
+  <%= @criterio.descripcion %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Story:</b>
+</td>
+<td>
+  <%= @criterio.story_id %>
+</td>
+</tr>
+</table>
+
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Lista de Criterios'.html_safe, cliente_criterios_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_cliente_criterio_path(@criterio), :class => 'btn btn-info' %>
+</div>

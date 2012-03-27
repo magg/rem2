@@ -46,6 +46,12 @@
 </tr>
 <tr>
 <td>
+  <b>Comentarios:</b>
+</td>
+<td>
+  <%= @story.comentarios %>
+</td>
+</tr>
 </table>
 <table>
 <tr>
@@ -55,5 +61,26 @@
 </div>
 </td>
 </tr>
+</table>
+</br>
+	<div id="encabezado">
+		<h3>
+  		Criterios de Aceptación
+		</h3>
+	</div>
+</br>
+<table class="table table-striped table-bordered table-condensed" style="width:500px;table-layout:fixed;word-wrap:break-word;">
+<thead>
+  <tr>
+    <th style="text-align:center">Descripción</th>
+  </tr>
+</thead>
+<tbody>
+<% @criterios.each do |criterio| %>
+  <tr>
+    <td>@criterio.descripcion</td>
+  </tr>
+<% end %>
+</tbody>
 </table>
 

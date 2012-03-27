@@ -15,9 +15,11 @@ class Cliente::StoriesController < ApplicationController
   def show
     @story = Story.find(params[:id])
     @stat = Status.where(:id => @story.status_id).first.descripcion
+    @criterios = Criterio.where(:story_id => @story.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @story }
+      format.json { render json: @criterios}
     end
   end
 
