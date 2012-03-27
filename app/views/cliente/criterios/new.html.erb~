@@ -1,5 +1,10 @@
-<h1>New criterio</h1>
+<div id="contenido">
+	<div id="encabezado">
+	<h1>Nuevo Criterio</h1></br>
+	</div>
+	<div id="cuerpo">
+	<%= render 'form' %>
+	</div>
+</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Back', criterios_path %>

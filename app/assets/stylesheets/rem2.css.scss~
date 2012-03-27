@@ -2,12 +2,12 @@
 @import 'bootstrap-responsive';
 
 
-textarea#story_descripcion {
+textarea{
   height:200px;
 }
 
 input#story_name,#story_usuario,#story_descripcion,#story_prioridad,#story_comentarios,
-#story_functionpts,#story_descripcion{
+#story_functionpts,#story_descripcion,#criterio_descripcion,#criterio_story_id{
     width: 60%;
 }
 
@@ -16,7 +16,7 @@ width:61%;
 }
 
 #layout{
-        padding-top: 10px;}
+        padding-top: 60px;}
 
 #contenido{
 	margin-left: auto;
