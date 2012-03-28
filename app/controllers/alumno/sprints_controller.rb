@@ -83,4 +83,15 @@ class Alumno::SprintsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def addsprint
+    @stories = Story.find(params[:story])
+    @sprint = Sprint.find(params[:id])
+    @sprint.stories << @stories
+    
+    respond_to do |format|
+      format.html { redirect_to [:alumno, @sprint], notice: 'El Sprint se actualizo lol.' }
+      format.json { head :no_content }
+    end
+  end
 end

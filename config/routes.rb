@@ -21,7 +21,11 @@ namespace :alumno do
   resources :tasks
   resources :workdetails
   resources :criterios
-  resources :sprints
+  resources :sprints do
+    collection do
+        get 'addsprint'
+    end
+  end
   resources :sprintstories
 end
 end

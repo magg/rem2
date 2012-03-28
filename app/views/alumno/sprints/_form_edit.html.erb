@@ -21,6 +21,7 @@
   <div class="control-group">
     <%= f.label :fechainicio, :class=>"control-label" %>
    <div class="controls">
+
     <%= f.date_select :fechainicio %>
   </div>
 </div>
@@ -31,10 +32,12 @@
     <%= f.date_select :fechafin %>
   </div>
 </div>
+
+
  <div class="form-actions">
 <%= link_to 'Cancelar'.html_safe, alumno_sprints_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",
-"javascript:document.getElementById(\"new_sprint\").submit(); return
+"javascript:document.getElementById(\"edit_sprint_#{@sprint.id}\").submit(); return
 false",:class => 'btn btn-primary' %>
   </div>
 

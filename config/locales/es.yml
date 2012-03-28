@@ -65,8 +65,9 @@ es:
 #START:errors
   activerecord:
     models:
-      story:       "story"
+      story:        "story"
       status:       "estatus"
+      sprint:       "sprint"
     attributes:
       story:
         name: "Nombre"
@@ -75,6 +76,8 @@ es:
         #pay_type:  "Forma de pago"
       status:
         descripcion: "Nombre"
+      sprint:
+        comentario: "Descripción"
 #END:errors
 #END:model
 #START:errors

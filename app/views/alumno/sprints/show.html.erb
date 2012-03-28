@@ -4,6 +4,9 @@
 		<h1> Sprint
   		<%= @sprint.id %>
 		</h1>
+		<h3> de <%= l @sprint.fechainicio, :format => :short %> a
+			<%= l @sprint.fechafin, :format => :short %>
+	   </h3>
 		</br>
 	</div>
 <div id="cuerpo">
@@ -11,36 +14,12 @@
 <table style="width:500px;table-layout:fixed;word-wrap:break-word;">
 <tr>
 <td>
-  <b>ID:</b>
-<td>
-  <%= @sprint.id %>
-</td>
-</tr>
-<tr>
-<td>
-  <b>Comentario:</b>
+  <b>Descripción:</b>
 </td>
 <td>
   <%= @sprint.comentario %>
 </td>
 </tr>
-</tr>
-<tr>
-<td>
-  <b>Fecha inicio:</b>
-</td>
-<td>
-  <%= @sprint.fechainicio %>
-</td>
-</tr>
-</tr>
-<tr>
-<td>
-  <b>Fecha fin:</b>
-</td>
-<td>
-  <%= @sprint.fechafin %>
-</td>
 </tr>
 </table>
 <table>
@@ -48,7 +27,6 @@
 <td>
 <div class="form-actions">
 <%= link_to '<i class="icon-chevron-left"></i> Volver'.html_safe, alumno_sprints_path, :class => 'btn btn-info' %>
-<%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_alumno_sprint_path(@sprint), :class => 'btn btn-info' %>
 </div>
 </td>
 </tr>
@@ -71,22 +49,27 @@
   </tr>
 </thead>
 <tbody>
-	<form action="" method="get" name="sprint-story">
+	<form accept-charset="UTF-8"  method="get" name="addsprint_sprint" id="addsprint_sprint">
 	<% @stories.each do |story| %>
-	  <tr id>
+	  <tr>
 	    <td><%= story.descripcion %></td>
 	    <td><%= story.usuario %></td>
 	    <td><%= story.prioridad %></td>
-	    <td><%= story.functionpts %></td>
-		<td><%= check_box_tag(:add_to_sprint, :yes, true) %></td>
+	    <td class="<%= 'fp'+story.id.to_s %>" ><%= story.functionpts %></td>
+		<td><%= check_box_tag('story['+story.id.to_s+']', story.id, false, :onclick => 'addsprints(this)') %></td>
+		<input type="hidden" value="<%= story.id %>" />
 	  </tr>
 	<% end %>
 	<tr>
 	    <td> </td>
 	    <td> </td>
 	    <td> <b>Total Puntos = </b></td>
-		<td id="fp-tot"> </td>
-		<td> <input type="button" value="Agregar" onclick="" class="btn btn-primary" /> </td>
+		<td id="fp-tot"> 0</td>
+		<td> <%= link_to_function "Asignar",
+		"javascript:document.getElementById(\"addsprint_sprint\").submit(); return
+		false",:class => 'btn btn-primary' %> 
+		
+		</td>
 	</tr> 	
 	</form>
 </tbody>

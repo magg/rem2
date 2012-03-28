@@ -3,8 +3,7 @@
 <table class="table table-striped table-bordered table-condensed" style="table-layout:fixed;word-wrap:break-word;">
 <thead>
   <tr>
-	<th style="text-align:center;">ID</th>
-    <th style="text-align:center;">Comentario</th>
+    <th style="text-align:center;">Descripción</th>
     <th style="text-align:center;">Fecha inicio</th>
     <th style="text-align:center;">Fecha fin</th>
     <th></th>
@@ -14,8 +13,7 @@
 <tbody>
 <% @sprints.each do |sprint| %>
   <tr>
-	<td style="text-align:center;"><%= link_to sprint.id, [:alumno, sprint]  %></td>
-    <td><%= sprint.comentario %></td>
+    <td><%= link_to sprint.comentario, [:alumno, sprint]  %></td>
     <td style="text-align:center;"><%= sprint.fechainicio %></td>
     <td style="text-align:center;"><%= sprint.fechafin %></td>
 	<td><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_alumno_sprint_path(sprint), :class => 'btn btn-info' %></td>
