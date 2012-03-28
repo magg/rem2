@@ -23,7 +23,7 @@ namespace :alumno do
   resources :criterios
   resources :sprints do
     collection do
-        get 'addsprint'
+        post :addsprint
     end
   end
   resources :sprintstories

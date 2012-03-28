@@ -49,15 +49,15 @@
   </tr>
 </thead>
 <tbody>
-	<form accept-charset="UTF-8"  method="get" name="addsprint_sprint" id="addsprint_sprint">
+	<form accept-charset="UTF-8"  method="post" name="addsprint_sprint" id="addsprint_sprint" action="/es/alumno/sprints/addsprint">
 	<% @stories.each do |story| %>
 	  <tr>
 	    <td><%= story.descripcion %></td>
 	    <td><%= story.usuario %></td>
 	    <td><%= story.prioridad %></td>
 	    <td class="<%= 'fp'+story.id.to_s %>" ><%= story.functionpts %></td>
-		<td><%= check_box_tag('story['+story.id.to_s+']', story.id, false, :onclick => 'addsprints(this)') %></td>
-		<input type="hidden" value="<%= story.id %>" />
+		<td><%= check_box_tag('story[]', story.id, false, :onclick => 'addsprints(this)') %></td>
+		<input type="hidden" value="<%= @sprint.id %>" name="sprintid" />
 	  </tr>
 	<% end %>
 	<tr>
@@ -68,6 +68,7 @@
 		<td> <%= link_to_function "Asignar",
 		"javascript:document.getElementById(\"addsprint_sprint\").submit(); return
 		false",:class => 'btn btn-primary' %> 
+				
 		
 		</td>
 	</tr> 	

@@ -13,8 +13,9 @@ class Alumno::SprintsController < ApplicationController
   # GET /sprints/1
   # GET /sprints/1.json
   def show
-    @sprint = Sprint.find(params[:id])
-    @stories = Story.all
+   @sprint = Sprint.find(params[:id])
+   @stat = Status.find(5)
+   @stories = Story.where("status_id = ?", @stat.id)
     
 
     respond_to do |format|
@@ -86,12 +87,15 @@ class Alumno::SprintsController < ApplicationController
   
   def addsprint
     @stories = Story.find(params[:story])
-    @sprint = Sprint.find(params[:id])
+    @sprint = Sprint.find(params[:sprintid])
     @sprint.stories << @stories
+    @stories.each do |story|
+      story.update_attributes(:status_id => 2)
+    end
     
     respond_to do |format|
-      format.html { redirect_to [:alumno, @sprint], notice: 'El Sprint se actualizo lol.' }
-      format.json { head :no_content }
+        format.html # show.html.erb
+        format.json { render json: @stories , notice: 'El Story se actualizo correctamente.' }
     end
   end
 end
