@@ -7,7 +7,7 @@ class Story < ActiveRecord::Base
  validates :name, :descripcion, :prioridad, :usuario, :presence => true
  validates :functionpts, :numericality => true
  validates :name, :uniqueness => true, :length => { 
-   :minimum => 10, 
+   :minimum => 5, 
    :message => :too_short 
  }
 end
