@@ -51,11 +51,6 @@ ActiveRecord::Schema.define(:version => 20120327185527) do
     t.text     "comentarios"
   end
 
-  create_table "stories_sprints", :id => false, :force => true do |t|
-    t.integer "story_id"
-    t.integer "sprint_id"
-  end
-
   create_table "students", :force => true do |t|
     t.string   "nombre"
     t.string   "rol"
