@@ -1,4 +1,6 @@
 Rem2::Application.routes.draw do
+  resources :usuarios
+
 scope '(:locale)' do
 namespace :admin do
   resources :stories
