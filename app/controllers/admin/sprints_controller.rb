@@ -13,7 +13,10 @@ class Admin::SprintsController < ApplicationController
   # GET /sprints/1
   # GET /sprints/1.json
   def show
-    @sprint = Sprint.find(params[:id])
+   @sprint = Sprint.find(params[:id])
+   @stat = Status.find(5)
+   @stories = Story.where("status_id = ?", @stat.id)
+   @examples = @sprint.stories 
 
     respond_to do |format|
       format.html # show.html.erb

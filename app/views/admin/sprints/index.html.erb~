@@ -1,23 +1,26 @@
-<h1>Listing sprints</h1>
-
-<table>
+<h1>SPRINTS</h1>
+</br>
+<table class="table table-striped table-bordered table-condensed" style="table-layout:fixed;word-wrap:break-word;">
+<thead>
   <tr>
-    <th>Comentario</th>
-    <th></th>
+    <th style="text-align:center;">Descripción</th>
+    <th style="text-align:center;">Fecha inicio</th>
+    <th style="text-align:center;">Fecha fin</th>
     <th></th>
     <th></th>
   </tr>
-
+</thead>
+<tbody>
 <% @sprints.each do |sprint| %>
   <tr>
-    <td><%= sprint.comentario %></td>
-    <td><%= link_to 'Show', sprint %></td>
-    <td><%= link_to 'Edit', edit_sprint_path(sprint) %></td>
-    <td><%= link_to 'Destroy', sprint, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to sprint.comentario, [:admin, sprint]  %></td>
+    <td style="text-align:center;"><%= sprint.fechainicio %></td>
+    <td style="text-align:center;"><%= sprint.fechafin %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Sprint', new_admin_sprint_path %>
+<%= link_to '<i class="icon-pencil icon-white"></i> Agregar Sprint'.html_safe, new_admin_sprint_path, :class => 'btn btn-info' %>

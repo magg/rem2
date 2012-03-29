@@ -16,7 +16,7 @@ class Alumno::SprintsController < ApplicationController
    @sprint = Sprint.find(params[:id])
    @stat = Status.find(5)
    @stories = Story.where("status_id = ?", @stat.id)
-    
+   @examples = @sprint.stories 
 
     respond_to do |format|
       format.html # show.html.erb
