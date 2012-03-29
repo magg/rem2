@@ -13,7 +13,10 @@ class Alumno::SprintsController < ApplicationController
   # GET /sprints/1
   # GET /sprints/1.json
   def show
-    @sprint = Sprint.find(params[:id])
+   @sprint = Sprint.find(params[:id])
+   @stat = Status.find(5)
+   @stories = Story.where("status_id = ?", @stat.id)
+   @examples = @sprint.stories 
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +28,7 @@ class Alumno::SprintsController < ApplicationController
   # GET /sprints/new.json
   def new
     @sprint = Sprint.new
+    #@sprint.sprintstories.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +48,7 @@ class Alumno::SprintsController < ApplicationController
 
     respond_to do |format|
       if @sprint.save
-        format.html { redirect_to @sprint, notice: 'Sprint was successfully created.' }
+        format.html { redirect_to [:alumno, @sprint], notice: 'El Sprint se creo correctamente.' }
         format.json { render json: @sprint, status: :created, location: @sprint }
       else
         format.html { render action: "new" }
@@ -60,7 +64,7 @@ class Alumno::SprintsController < ApplicationController
 
     respond_to do |format|
       if @sprint.update_attributes(params[:sprint])
-        format.html { redirect_to @sprint, notice: 'Sprint was successfully updated.' }
+        format.html { redirect_to [:alumno, @sprint], notice: 'El Sprint se actualizo correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,8 +80,22 @@ class Alumno::SprintsController < ApplicationController
     @sprint.destroy
 
     respond_to do |format|
-      format.html { redirect_to sprints_url }
+      format.html { redirect_to alumno_sprints_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def addsprint
+    @stories = Story.find(params[:story])
+    @sprint = Sprint.find(params[:sprintid])
+    @sprint.stories << @stories
+    @stories.each do |story|
+      story.update_attributes(:status_id => 2)
+    end
+    
+    respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @stories , notice: 'El Story se actualizo correctamente.' }
     end
   end
 end
