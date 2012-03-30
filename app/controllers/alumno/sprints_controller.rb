@@ -94,8 +94,8 @@ class Alumno::SprintsController < ApplicationController
     end
     
     respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @stories , notice: 'El Story se actualizo correctamente.' }
+        format.html { render action: "addsprint", notice: 'El Sprint se actualizo correctamente.'}
+        format.json { render json: @stories , notice: 'El Sprint se actualizo correctamente.' }
     end
   end
 end

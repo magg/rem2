@@ -45,3 +45,13 @@ function addsprints(e) {
 			
 	}
 }
+
+function asignarsp(){
+	if (document.getElementById('fp-tot').innerHTML === "0" ) {
+		alert("Seleccione primero alguna Story");
+		return false;
+	} else {			
+		document.getElementById("addsprint_sprint").submit(); 
+		return false;
+	}
+}

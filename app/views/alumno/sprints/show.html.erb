@@ -35,9 +35,10 @@
 		</h3>
 	</div>
 </br>
-<table class="table table-striped table-bordered table-condensed" style="width:500px;table-layout:fixed;word-wrap:break-word;">
+<table class="table table-striped table-bordered table-condensed" style="width:600px;table-layout:fixed;word-wrap:break-word;">
 <thead>
   <tr>
+	<th style="text-align:center">Nombre</th>
     <th style="text-align:center">Descripción</th>
     <th style="text-align:center">Usuario</th>
     <th style="text-align:center">Prioridad</th>
@@ -47,6 +48,7 @@
 <tbody>
 	<% @examples.each do |example| %>
 	  <tr>
+		<td><%= example.name %></td>
 	    <td><%= example.descripcion %></td>
 	    <td><%= example.usuario %></td>
 	    <td><%= example.prioridad %></td>
@@ -70,9 +72,10 @@
 		</h3>
 	</div>
 </br>
-<table class="table table-striped table-bordered table-condensed" style="width:500px;table-layout:fixed;word-wrap:break-word;">
+<table class="table table-striped table-bordered table-condensed" style="width:600px;table-layout:fixed;word-wrap:break-word;">
 <thead>
   <tr>
+	<th style="text-align:center">Nombre</th>
     <th style="text-align:center">Descripción</th>
     <th style="text-align:center">Usuario</th>
     <th style="text-align:center">Prioridad</th>
@@ -84,6 +87,7 @@
 	<form accept-charset="UTF-8"  method="post" name="addsprint_sprint" id="addsprint_sprint" action="/es/alumno/sprints/addsprint">
 	<% @stories.each do |story| %>
 	  <tr>
+		<td><%= story.name %></td>
 	    <td><%= story.descripcion %></td>
 	    <td><%= story.usuario %></td>
 	    <td><%= story.prioridad %></td>
@@ -92,18 +96,18 @@
 		<input type="hidden" value="<%= @sprint.id %>" name="sprintid" />
 	  </tr>
 	<% end %>
+	<table class="table table-striped table-condensed" style="width:600px;table-layout:fixed;word-wrap:break-word;" border="0">
 	<tr>
 	    <td> </td>
 	    <td> </td>
 	    <td> <b>Total Puntos = </b></td>
-		<td id="fp-tot"> 0</td>
-		<td> <%= link_to_function "Asignar",
-		"javascript:document.getElementById(\"addsprint_sprint\").submit(); return
-		false",:class => 'btn btn-primary' %> 
+		<td id="fp-tot">0</td>
+		<td> <%= link_to_function "Asignar","asignarsp()",:class => 'btn btn-primary' %> 
 				
 		
 		</td>
 	</tr> 	
+	</table>
 	</form>
 </tbody>
 </table>
