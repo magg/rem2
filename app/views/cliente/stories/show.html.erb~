@@ -69,7 +69,7 @@
 </table>
 </br>
 	<div id="encabezado">
-		<h3>
+		<h3 align="center">
   		Criterios de Aceptación
 		</h3>
 	</div>
@@ -115,5 +115,9 @@
 <% end %>
 </tbody>
 </table>
+</div>
+</br>
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, admin_stories_path, :class => 'btn btn-info' %>
 </div>
 

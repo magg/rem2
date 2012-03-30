@@ -1,10 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<h1>
-  <%= @story.name %>
-</h1>
+<div id="contenido">
+	<div id="encabezado">
+		<p id="notice"><%= notice %></p>
+		<h1>
+  		<%= @story.name %>
+		</h1>
+		</br>
+	</div>
+<div id="cuerpo">
 </br>
-<table>
+<table style="width:500px;table-layout:fixed;word-wrap:break-word;">
 <tr>
 <td>
   <b>Descripción:</b>
@@ -57,7 +61,6 @@
 <tr>
 <td>
 <div class="form-actions">
-<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, alumno_stories_path, :class => 'btn btn-info' %>
 <%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_alumno_story_path(@story), :class => 'btn btn-info' %>
 </div>
 </td>
@@ -74,8 +77,8 @@
 <thead>
   <tr>
     <th style="text-align:center">Descripción</th>
-    <th></th>
-    <th></th>
+    <th style="width:75px"></th>
+    <th style="width:87px"></th>
   </tr>
 </thead>
 <tbody>
@@ -104,8 +107,8 @@
     <th style="text-align:center">Estatus</th>
     <th style="text-align:center">Responsable</th>
 <% if  @stat != 'Listo' %>
-    <th></th>
-    <th></th>
+    <th style="width:75px"></th>
+    <th style="width:87px"></th>
 <% end %>
   </tr>
 </thead>
@@ -113,9 +116,9 @@
 <% @tasks.each do |task| %>
   <tr>
     <td><%= task.descripcion %></td>
-    <td><%= task.estimadoinicial %></td>
-    <td><%= task.status %></td>
-    <td><%= Status.where(:id => task.student_id).first.nombre %></td>
+    <td style="text-align:center"><%= task.estimadoinicial %></td>
+    <td style="text-align:center"><%= task.status %></td>
+    <td style="text-align:center"><%= Student.where(:id => task.student_id).first.nombre %></td>
 <% if  @stat != 'Listo' %>
     <td><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_alumno_task_path(task), :class => 'btn btn-info' %></td>
     <td><%= link_to '<i class="icon-trash icon-white"></i> Eliminar'.html_safe, alumno_task_path(task), confirm: "¿Desea eliminar: #{task.descripcion}?", method: :delete, :class => 'btn btn-danger' %></td>
@@ -128,5 +131,7 @@
 <%= link_to '<i class="icon-plus-sign"></i>'.html_safe, taskasign_alumno_tasks_path(:id => @story.id), :class => 'btn btn-success' %>
 </br>
 <% end %>
-
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, alumno_stories_path, :class => 'btn btn-info' %>
+</div>
 

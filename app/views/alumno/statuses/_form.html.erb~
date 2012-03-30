@@ -1,0 +1,26 @@
+<%= form_for([:alumno, @status],:html => { :class => "form-horizontal"}) do |f| %>
+  <% if @status.errors.any? %>
+    <div id="error_explanation">
+		<h2><%= t('errors.template.header', :count=>@status.errors.size,
+		:model=>t('activerecord.models.status')) %>.</h2> <p><%= t('errors.template.body') %></p>
+      <ul>
+      <% @status.errors.full_messages.each do |msg| %>
+        <li><%= raw msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :nombre %>
+  <div class="controls">
+    <%= f.text_field :descripcion %>
+  </div>
+</div>
+ <div class="form-actions">
+<%= link_to 'Cancelar'.html_safe, admin_statuses_path, :class => 'btn btn-danger' %>
+<%= link_to_function "Guardar",
+"javascript:document.getElementById(\"new_status\").submit(); return
+false",:class => 'btn btn-primary' %>
+  </div>
+<% end %>

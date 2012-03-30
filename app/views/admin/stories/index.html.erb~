@@ -18,10 +18,10 @@
   <tr>
     <td><%= link_to story.name, [:admin, story]  %></td>
     <td><%= story.descripcion %></td>
-    <td><%= story.usuario %></td>
-    <td><%= story.prioridad %></td>
-    <td><%= story.functionpts %></td>
-    <td><%= Status.where(:id => story.status_id).first.descripcion %></td>
+    <td style="text-align:center;"><%= story.usuario %></td>
+    <td style="text-align:center;"><%= story.prioridad %></td>
+    <td style="text-align:center;"><%= story.functionpts %></td>
+    <td style="text-align:center;"><%= Status.where(:id => story.status_id).first.descripcion %></td>
     <td><%= story.comentarios %></td>
   </tr>
 <% end %>
