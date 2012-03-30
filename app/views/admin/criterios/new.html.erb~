@@ -1,5 +1,0 @@
-<h1>Nuevo Criterio</h1>
-
-<%= render 'form' %>
-
-

@@ -1,0 +1,57 @@
+<div id="contenido">
+	<div id="encabezado">
+	<h1 align="center">Asignación de Tareas</h1></br></div>
+<p id="notice"><%= notice %></p>
+<h2><%= @story.name %></h3>
+<table>
+<tr>
+<td>
+  <b>Descripción:</b>
+<td>
+  <%= @story.descripcion %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Usuario:</b>
+</td>
+<td>
+  <%= @story.usuario %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Prioridad:</b>
+</td>
+<td>
+  <%= @story.prioridad %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Puntos Función:</b>
+</td>
+<td>
+  <%= @story.functionpts %>
+</td>
+</tr>
+<tr>
+<td>
+  <b>Comentarios:</b>
+</td>
+<td>
+  <%= @story.comentarios %>
+</td>
+</tr>
+</table>
+</br>
+	<div id="encabezado">Nueva Tarea</div>
+<div id="cuerpo">
+
+	<%= render 'form' %>
+</div>
+
+</div>
+
+
+

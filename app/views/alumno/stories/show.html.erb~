@@ -65,7 +65,7 @@
 </table>
 </br>
 	<div id="encabezado">
-		<h3>
+		<h3 align="center">
   		Criterios de Aceptación
 		</h3>
 	</div>
@@ -74,15 +74,59 @@
 <thead>
   <tr>
     <th style="text-align:center">Descripción</th>
+    <th></th>
+    <th></th>
   </tr>
 </thead>
 <tbody>
 <% @criterios.each do |criterio| %>
   <tr>
-    <td><%= link_to criterio.descripcion, [:cliente, criterio]  %></td>
+    <td><%= criterio.descripcion %></td>
+    <td><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_alumno_criterio_path(criterio), :class => 'btn btn-info' %></td>
+    <td><%= link_to '<i class="icon-trash icon-white"></i> Eliminar'.html_safe, alumno_criterio_path(criterio), confirm: "¿Desea eliminar: #{criterio.descripcion}?", method: :delete, :class => 'btn btn-danger' %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
+<%= link_to '<i class="icon-plus-sign"></i>'.html_safe, new_alumno_criterio_path(:story_id => @story.id), :class => 'btn btn-success' %>
+</br></br>
+	<div id="encabezado">
+		<h3 align="center">
+  		Tareas
+		</h3>
+	</div>
+</br>
+<table class="table table-striped table-bordered table-condensed" style="width:800px;table-layout:fixed;word-wrap:break-word;">
+<thead>
+  <tr>
+    <th style="text-align:center">Descripción</th>
+    <th style="text-align:center">Estimado Inicial</th>
+    <th style="text-align:center">Estatus</th>
+    <th style="text-align:center">Responsable</th>
+<% if  @stat != 'Listo' %>
+    <th></th>
+    <th></th>
+<% end %>
+  </tr>
+</thead>
+<tbody>
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.descripcion %></td>
+    <td><%= task.estimadoinicial %></td>
+    <td><%= task.status %></td>
+    <td><%= Status.where(:id => task.student_id).first.nombre %></td>
+<% if  @stat != 'Listo' %>
+    <td><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_alumno_task_path(task), :class => 'btn btn-info' %></td>
+    <td><%= link_to '<i class="icon-trash icon-white"></i> Eliminar'.html_safe, alumno_task_path(task), confirm: "¿Desea eliminar: #{task.descripcion}?", method: :delete, :class => 'btn btn-danger' %></td>
+<% end %>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<% if  @stat != 'Listo' %>
+<%= link_to '<i class="icon-plus-sign"></i>'.html_safe, taskasign_alumno_tasks_path(:id => @story.id), :class => 'btn btn-success' %>
+</br>
+<% end %>
 
 

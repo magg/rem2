@@ -16,10 +16,12 @@ class Alumno::StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @stat = Status.where(:id => @story.status_id).first.descripcion
     @criterios = Criterio.where(:story_id => @story.id)
+    @tasks = Task.where(:story_id => @story.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @story }
-      format.json { render json: @criterios}
+      format.json { render json: @criterios }
+      format.json { render json: @tasks }
     end
   end
 

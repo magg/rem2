@@ -30,7 +30,7 @@
 <td>
   <b>Responsable:</b>
 </td><td>
-  <%= @responsable %>
+  <%= @task.student_id %>
 </td></tr></table>
 
 <table>

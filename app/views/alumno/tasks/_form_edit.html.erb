@@ -34,11 +34,10 @@
     <%= select("task", "student_id", Student.all.collect {|p| [ p.nombre, p.id ] })%>
   </div></div>
  <div class="form-actions">
-<%= f.hidden_field :story_id,:value=>@story.id %>
-<%= link_to 'Asignación de tareas'.html_safe, alumno_tasks_path, :class => 'btn btn-danger' %>
-<a href="http://localhost:3000/es/alumno/stories/<%= @story.id %>" class='btn btn-danger'>Asignación de tareas</a>
-<%= link_to_function "Asignar",
-"javascript:document.getElementById(\"new_task\").submit(); return
+<%= f.hidden_field :story_id,:value=>@task.story_id %>
+<%= link_to 'Cancelar'.html_safe, [:alumno,Story.where(:id=>@task.story_id).first], :class => 'btn btn-danger' %>
+<%= link_to_function "Actualizar",
+"javascript:document.getElementById(\"edit_task_#{@task.id}\").submit(); return
 false",:class => 'btn btn-primary' %>
   </div>
 

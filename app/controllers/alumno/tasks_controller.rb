@@ -2,11 +2,12 @@ class Alumno::TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @status_id = Status.where("descripcion = ?",'Listo')
+    @stories = Story.where("status_id != ?", @status_id);
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @tasks }
+      format.json { render json: @stories }
     end
   end
 
@@ -14,20 +15,23 @@ class Alumno::TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
-
+    @storyname = Story.where(:id => @task.story_id).first.name
+    @responsable = Student.where(:id => @task.student_id).first.nombre
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @task }
+      format.json { render json: @storyname }
     end
   end
 
-  # GET /tasks/new
-  # GET /tasks/new.json
-  def new
+  # GET /tasks/taskasign/1
+  # GET /tasks/taskasign/1.json
+  def taskasign
+    @story = Story.find(params[:id])
+    @stat = Status.where(:id => @story.status_id).first.descripcion
     @task = Task.new
-
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # taskasign.html.erb
       format.json { render json: @task }
     end
   end
@@ -60,7 +64,7 @@ class Alumno::TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to [:alumno, @task], notice: 'Task was successfully updated.' }
+        format.html { redirect_to [:alumno, Story.where(:id => @task.story_id).first], notice: 'Task was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +80,7 @@ class Alumno::TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to [:alumno, Story.where(:id => @task.story_id).first] }
       format.json { head :no_content }
     end
   end
