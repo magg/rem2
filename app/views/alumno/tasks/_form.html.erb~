@@ -11,30 +11,34 @@
     </div>
   <% end %>
 </br>
-  <div class="field">
-    <%= f.label :descripcion %><br />
-    <%= f.text_area :descripcion %>
+  <div class="control-group">
+    <%= f.label :descripción %>
+  <div class="controls">
+    <%= f.text_area :descripcion%>
   </div>
-  <div class="field">
-    <%= f.label :estimadoinicial %><br />
+</div>
+  <div class="control-group">
+    <%= f.label :estimado_inicial %>
+  <div class="controls">
     <%= f.number_field :estimadoinicial %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
+  </div></div>
+
+  <div class="control-group">
+    <%= f.label :Estatus %>
+  <div class="controls">
     <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :story_id %><br />
-    <%= f.number_field :story_id %>
-  </div>
-  <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.number_field :student_id %>
-  </div>
+  </div></div>
+  <div class="control-group">
+    <%= f.label :Responsable %>
+  <div class="controls">
+    <%= select("task", "student_id", Student.all.collect {|p| [ p.nombre, p.id ] })%>
+  </div></div>
  <div class="form-actions">
-<%= link_to 'Cancelar'.html_safe, alumno_tasks_path, :class => 'btn btn-danger' %>
-<%= link_to_function "Guardar",
-"javascript:document.getElementById(\"new_story\").submit(); return
+<%= f.hidden_field :story_id,:value=>@story.id %>
+<%= link_to 'Asignación de tareas'.html_safe, alumno_tasks_path, :class => 'btn btn-danger' %>
+<a href="http://localhost:3000/es/alumno/stories/<%= @story.id %>">Asignación de tareas</a>
+<%= link_to_function "Asignar",
+"javascript:document.getElementById(\"new_task\").submit(); return
 false",:class => 'btn btn-primary' %>
   </div>
 

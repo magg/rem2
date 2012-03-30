@@ -1,31 +1,25 @@
-<h1>Listing tasks</h1>
-
-<table>
+<h1>Asignación de Tareas</h1>
+</br>
+<table class="table table-striped table-bordered table-condensed" style="table-layout:fixed;word-wrap:break-word;">
+<thead>
   <tr>
-    <th>Descripcion</th>
-    <th>Estimadoinicial</th>
-    <th>Status</th>
-    <th>Story</th>
-    <th>Student</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th style="text-align:center;">Nombre</th>
+    <th style="text-align:center;">Descripción</th>
+    <th style="text-align:center;">Usuario</th>
+    <th style="text-align:center;">Prioridad</th>
+    <th style="text-align:center;">Puntos función</th>
   </tr>
-
-<% @tasks.each do |task| %>
+</thead>
+<tbody>
+<tbody>
+<% @stories.each do |story| %>
   <tr>
-    <td><%= task.descripcion %></td>
-    <td><%= task.estimadoinicial %></td>
-    <td><%= task.status %></td>
-    <td><%= task.story_id %></td>
-    <td><%= task.student_id %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Edit', edit_task_path(task) %></td>
-    <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to story.name, taskasign_alumno_tasks_path(:id => story.id) %></td>
+    <td><%= story.descripcion %></td>
+    <td style="text-align:center;"><%= story.usuario %></td>
+    <td style="text-align:center;"><%= story.prioridad %></td>
+    <td style="text-align:center;"><%= story.functionpts %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Task', new_alumno_task_path %>

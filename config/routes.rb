@@ -20,7 +20,11 @@ end
 
 namespace :alumno do
   resources :stories
-  resources :tasks
+  resources :tasks do
+  collection do
+    get 'taskasign'
+  end
+end
   resources :workdetails
   resources :criterios
   resources :sprints do

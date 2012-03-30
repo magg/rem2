@@ -1,4 +1,7 @@
 Rem2::Application.routes.draw do
+  resources :usuarios
+
+scope '(:locale)' do
 namespace :admin do
   resources :stories
   resources :statuses
@@ -20,8 +23,13 @@ namespace :alumno do
   resources :tasks
   resources :workdetails
   resources :criterios
-  resources :sprints
+  resources :sprints do
+    collection do
+        post :addsprint
+    end
+  end
   resources :sprintstories
+end
 end
 
   # The priority is based upon order of creation:

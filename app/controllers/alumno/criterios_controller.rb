@@ -1,4 +1,4 @@
-class Cliente::CriteriosController < ApplicationController
+class Alumno::CriteriosController < ApplicationController
   # GET /criterios/new
   # GET /criterios/new.json
   def new
@@ -23,7 +23,7 @@ class Cliente::CriteriosController < ApplicationController
 
     respond_to do |format|
       if @criterio.save
-        format.html { redirect_to [:cliente, Story.where(:id => @criterio.story_id).first], notice: 'Criterio was successfully created.' }
+        format.html { redirect_to [:alumno, Story.where(:id => @criterio.story_id).first], notice: 'Criterio was successfully created.' }
         format.json { render json: @criterio, status: :created, location: @criterio }
       else
         format.html { render action: "new" }
@@ -39,7 +39,7 @@ class Cliente::CriteriosController < ApplicationController
 
     respond_to do |format|
       if @criterio.update_attributes(params[:criterio])
-        format.html { redirect_to [:cliente, Story.where(:id => @criterio.story_id).first], notice: 'Criterio was successfully updated.' }
+        format.html { redirect_to [:alumno, Story.where(:id => @criterio.story_id).first], notice: 'Criterio was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -55,7 +55,7 @@ class Cliente::CriteriosController < ApplicationController
     @criterio.destroy
 
     respond_to do |format|
-      format.html { redirect_to [:cliente, Story.where(:id => @criterio.story_id).first] }
+      format.html { redirect_to [:alumno, Story.where(:id => @criterio.story_id).first] }
       format.json { head :no_content }
     end
   end
