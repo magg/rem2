@@ -77,6 +77,10 @@ class Alumno::SprintsController < ApplicationController
   # DELETE /sprints/1.json
   def destroy
     @sprint = Sprint.find(params[:id])
+    @stories = @sprint.stories
+    @stories.each do |story|
+      story.update_attributes(:status_id => 5)
+    end
     @sprint.destroy
 
     respond_to do |format|
@@ -89,13 +93,15 @@ class Alumno::SprintsController < ApplicationController
     @stories = Story.find(params[:story])
     @sprint = Sprint.find(params[:sprintid])
     @sprint.stories << @stories
+    @notice = 'El Sprint se actualizo correctamente.'
     @stories.each do |story|
       story.update_attributes(:status_id => 2)
     end
     
     respond_to do |format|
-        format.html { render action: "addsprint", notice: 'El Sprint se actualizo correctamente.'}
+        format.html { render action: "addsprint"}
         format.json { render json: @stories , notice: 'El Sprint se actualizo correctamente.' }
+        format.json { render json: @notice }
     end
   end
 end

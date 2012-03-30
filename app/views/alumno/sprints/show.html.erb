@@ -1,25 +1,15 @@
 <div id="contenido">
-	<div id="encabezado">
 		<p id="notice"><%= notice %></p>
-		<h1> Sprint
+		<h1 align="center"> Sprint
   		<%= @sprint.id %>
 		</h1>
 		<h3 align="right"> Del <%= l @sprint.fechainicio, :format => :short,  %> al
 			<%= l @sprint.fechafin, :format => :short%>
 	   </h3>
 		</br>
-	</div>
+		<h3 align="left" ><%= @sprint.comentario %></h3>
 <div id="cuerpo">
 </br>
-<table style="width:500px;table-layout:fixed;word-wrap:break-word;">
-<tr>
-<td>
-  <b><%= @sprint.comentario %></b>
-</td>
-
-</tr>
-</tr>
-</table>
 <table>
 <tr>
 <td>
@@ -48,7 +38,7 @@
 <tbody>
 	<% @examples.each do |example| %>
 	  <tr>
-		<td><%= example.name %></td>
+		<td><%= link_to example.name, [:alumno, example]  %></td>
 	    <td><%= example.descripcion %></td>
 	    <td><%= example.usuario %></td>
 	    <td><%= example.prioridad %></td>
@@ -100,7 +90,7 @@
 	<tr>
 	    <td> </td>
 	    <td> </td>
-	    <td> <b>Total Puntos = </b></td>
+	    <td align="left"> <b>Total Puntos = </b></td>
 		<td id="fp-tot">0</td>
 		<td> <%= link_to_function "Asignar","asignarsp()",:class => 'btn btn-primary' %> 
 				
