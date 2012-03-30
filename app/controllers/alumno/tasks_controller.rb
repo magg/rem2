@@ -45,13 +45,13 @@ class Alumno::TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(params[:task])
-
+    @story = Story.find(@task.story_id)
     respond_to do |format|
       if @task.save
-        format.html { redirect_to [:alumno, @task], notice: 'Task was successfully created.' }
+        format.html { redirect_to [:alumno, @task], notice: 'La tarea se creo correctamente' }
         format.json { render json: @task, status: :created, location: @task }
       else
-        format.html { render action: "new" }
+        format.html { render action: "taskasign" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
@@ -64,7 +64,7 @@ class Alumno::TasksController < ApplicationController
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
-        format.html { redirect_to [:alumno, Story.where(:id => @task.story_id).first], notice: 'Task was successfully updated.' }
+        format.html { redirect_to [:alumno, Story.where(:id => @task.story_id).first], notice: 'La tarea se actualizo correctamente' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

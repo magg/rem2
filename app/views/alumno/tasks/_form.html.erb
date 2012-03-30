@@ -33,13 +33,15 @@
   <div class="controls">
     <%= select("task", "student_id", Student.all.collect {|p| [ p.nombre, p.id ] })%>
   </div></div>
- <div class="form-actions">
-<%= f.hidden_field :story_id,:value=>@story.id %>
-<%= link_to 'Asignación de tareas'.html_safe, alumno_tasks_path, :class => 'btn btn-danger' %>
-<a href="http://localhost:3000/es/alumno/stories/<%= @story.id %>" class='btn btn-danger'>Asignación de tareas</a>
+  <div class="controls">
 <%= link_to_function "Asignar",
 "javascript:document.getElementById(\"new_task\").submit(); return
 false",:class => 'btn btn-primary' %>
+  </div></div>
+ <div class="form-actions">
+<%= f.hidden_field :story_id,:value=>@story.id %>
+<%= link_to '<i class="icon-chevron-left"></i>Volver a Asignación de tareas'.html_safe, alumno_tasks_path, :class => 'btn btn-info' %>
+<a href="http://localhost:3000/es/alumno/stories/<%= @story.id %>" class='btn btn-info'><i class="icon-chevron-left"></i>Volver a Story</a>
   </div>
 
 <% end %>

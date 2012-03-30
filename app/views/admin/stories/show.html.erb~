@@ -1,10 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<h1>
-  <%= @story.name %>
-</h1>
+<div id="contenido">
+	<div id="encabezado">
+		<p id="notice"><%= notice %></p>
+		<h1>
+  		<%= @story.name %>
+		</h1>
+		</br>
+	</div>
+<div id="cuerpo">
 </br>
-<table>
+<table style="width:500px;table-layout:fixed;word-wrap:break-word;">
 <tr>
 <td>
   <b>Descripción:</b>
@@ -53,18 +57,9 @@
 </td>
 </tr>
 </table>
-<table>
-<tr>
-<td>
-<div class="form-actions">
-<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, admin_stories_path, :class => 'btn btn-info' %>
-</div>
-</td>
-</tr>
-</table>
 </br>
 	<div id="encabezado">
-		<h3>
+		<h3 align="center">
   		Criterios de Aceptación
 		</h3>
 	</div>
@@ -110,4 +105,8 @@
 <% end %>
 </tbody>
 </table>
+</br>
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, admin_stories_path, :class => 'btn btn-info' %>
+</div>
 
