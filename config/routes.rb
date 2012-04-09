@@ -1,4 +1,18 @@
 Rem2::Application.routes.draw do
+  resources :clients
+
+  resources :admins
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :projects
+
+  resources :teams
+
   resources :usuarios
 
 scope '(:locale)' do
