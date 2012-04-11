@@ -11,11 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120409221630) do
+ActiveRecord::Schema.define(:version => 20120409224809) do
+
+  create_table "admins", :force => true do |t|
+    t.string   "nombre"
+    t.string   "appat"
+    t.string   "apmat"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "clients", :force => true do |t|
+    t.string   "nombre"
+    t.string   "appat"
+    t.string   "apmat"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "criterios", :force => true do |t|
     t.text     "descripcion"
     t.integer  "story_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "nombre"
+    t.string   "descripcion"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
@@ -67,6 +90,12 @@ ActiveRecord::Schema.define(:version => 20120409221630) do
     t.integer  "student_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "teams", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "usuarios", :force => true do |t|
