@@ -6,7 +6,7 @@ class Task < ActiveRecord::Base
       :minimum => 6, 
       :message => :too_short 
     }
-    validates :estimadoinicial, :numericality => true, :numericality => {:greater_than => 0}, :on => :update 
+    validates :estimadoinicial, :numericality => true, :numericality => {:greater_than => 0}, :on => :create, :on => :update
     validates :status, :presence => true
     
 end
