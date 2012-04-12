@@ -13,5 +13,49 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
 $('.dropdown-toggle').dropdown()
+
+
+function submitFilter(){
+     document.getElementById('filtrar').submit()
+}
+
+function addsprints(e) {
+	if (e.checked === true) {
+		var x = e.value;
+		var f = 'fp'+x;
+		var val = document.getElementsByClassName(f);
+		var res = val[0].innerHTML;
+		var valor = document.getElementById('fp-tot').innerHTML;
+		var suma = 0;
+			if (valor===""){
+				suma = parseInt(res);
+			} else {
+				suma = parseInt(valor) + parseInt(res);
+			}
+		document.getElementById('fp-tot').innerHTML = suma;
+	} else {
+		var x = e.value;
+		var f = 'fp'+x;
+		var val = document.getElementsByClassName(f);
+		var res = val[0].innerHTML;
+		var valor = document.getElementById('fp-tot').innerHTML;
+		var resta = 0;
+			if (valor===""){
+			} else {
+				resta = parseInt(valor) - parseInt(res) ;
+			}
+		document.getElementById('fp-tot').innerHTML = resta;
+			
+	}
+}
+
+function asignarsp(){
+	if (document.getElementById('fp-tot').innerHTML === "0" ) {
+		alert("Seleccione primero alguna Story");
+		return false;
+	} else {			
+		document.getElementById("addsprint_sprint").submit(); 
+		return false;
+	}
+}

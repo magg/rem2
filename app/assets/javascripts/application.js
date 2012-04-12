@@ -16,6 +16,10 @@
 $('.dropdown-toggle').dropdown()
 
 
+function submitFilter(){
+     document.getElementById('filter_form').submit()
+}
+
 function addsprints(e) {
 	if (e.checked === true) {
 		var x = e.value;
