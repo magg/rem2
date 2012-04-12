@@ -2,10 +2,21 @@ class Admin::StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    if params[:status] == nil
+      @stories = Story.all
+    else
+	if params[:status][:id]==""
+	  @stories = Story.all
+	else
+	  @statusid = params[:status][:id]
+          @stories = Story.where(:status_id => params[:status][:id])
+	  @statusid = params[:status][:id]
+        end
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }
+      format.json { render json: @statusid }
     end
   end
 
