@@ -1,15 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Nombre:</b>
+<h1>
   <%= @student.nombre %>
-</p>
+</h1>
 
-<p>
-  <b>Rol:</b>
+<h1>
   <%= @student.rol %>
-</p>
+</h1>
 
 
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Lista de Estudiantes'.html_safe, admin_students_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_admin_student_path(@student), :class => 'btn btn-info' %>
+</div>

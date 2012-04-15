@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @project.nombre %>
+</h1>
+
+<h1>
+  <%= @project.descripcion %>
+</h1>
+
+
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Lista de Proyectos'.html_safe, admin_projects_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_admin_projects_path(@project), :class => 'btn btn-info' %>
+</div>

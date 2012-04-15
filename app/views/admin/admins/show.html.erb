@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= @admin.nombre %>
+</h1
+
+<h1>
+  <%= @admin.appat %>
+</h1>
+
+<h1>
+  <%= @admin.apmat %>
+</h1>
+
+<div class="form-actions">
+<%= link_to '<i class="icon-chevron-left"></i> Lista de Administradores'.html_safe, admin_admins_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_admin_admin_path(@admin), :class => 'btn btn-info' %>
+</div>

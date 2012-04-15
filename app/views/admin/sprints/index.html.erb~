@@ -6,8 +6,6 @@
     <th style="text-align:center;">Descripción</th>
     <th style="text-align:center;">Fecha inicio</th>
     <th style="text-align:center;">Fecha fin</th>
-    <th></th>
-    <th></th>
   </tr>
 </thead>
 <tbody>
@@ -20,7 +18,3 @@
 <% end %>
 </tbody>
 </table>
-
-<br />
-
-<%= link_to '<i class="icon-pencil icon-white"></i> Agregar Sprint'.html_safe, new_admin_sprint_path, :class => 'btn btn-info' %>

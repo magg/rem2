@@ -1,0 +1,26 @@
+<h1>Listing admins</h1></br>
+<table class="table table-striped table-bordered table-condensed" style="width:50%;">
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido Paterno</th>
+    <th>Apellido Materno</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admins.each do |admin| %>
+  <tr>
+    <td><%= admin.nombre %></td>
+    <td><%= admin.appat %></td>
+    <td><%= admin.apmat %></td>
+   <td width="75"><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_admin_admin_path(admin), :class => 'btn btn-info' %></td>
+    <td width="87"><%= link_to '<i class="icon-trash icon-white"></i> Eliminar'.html_safe, admin_admin_path(admin), confirm: "¿Desea eliminar: #{admin.nombre}?", method: :delete, :class => 'btn btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to '<i class="icon-pencil icon-white"></i> Agregar Administradores'.html_safe, new_admin_admin_path, :class => 'btn btn-info' %>
