@@ -1,0 +1,26 @@
+<h1>Listing clients</h1></br>
+<table class="table table-striped table-bordered table-condensed" style="width:50%;">
+<table>
+    <tr>
+    <th>Nombre</th>
+    <th>Apellido Paterno</th>
+    <th>Apellido Materno</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clients.each do |client| %>
+  <tr>
+    <td><%= client.nombre %></td>
+    <td><%= client.appat %></td>
+    <td><%= client.apmat %></td>
+    <td width="75"><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_cliente_client_path(client), :class => 'btn btn-info' %></td>
+    <td width="87"><%= link_to '<i class="icon-trash icon-white"></i> Eliminar'.html_safe, cliente_client_path(client), confirm: "¿Desea eliminar: #{client.nombre}?", method: :delete, :class => 'btn btn-danger' %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

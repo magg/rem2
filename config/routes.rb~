@@ -1,5 +1,9 @@
 Rem2::Application.routes.draw do
-  resources :usuarios
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
 
 scope '(:locale)' do
 namespace :admin do
@@ -11,6 +15,12 @@ namespace :admin do
   resources :criterios
   resources :sprints
   resources :sprintstories
+  resources :projects
+  resources :teams
+  resources :usuarios
+  resources :clients
+  resources :admins
+
 end
 
 namespace :cliente do
@@ -20,7 +30,11 @@ end
 
 namespace :alumno do
   resources :stories
-  resources :tasks
+  resources :tasks do
+  collection do
+    get 'taskasign'
+  end
+end
   resources :workdetails
   resources :criterios
   resources :sprints do

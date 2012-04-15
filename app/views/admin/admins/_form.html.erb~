@@ -1,0 +1,32 @@
+<%= form_for([:admin, @admins],:html => { :class => "form-horizontal"}) do |f| %>
+  <% if @admin.errors.any? %>
+    <div id="error_explanation">
+     <h2><%= t('errors.template.header', :count=>@admin.errors.size,
+		:model=>t('activerecord.models.admin')) %>.</h2> <p><%= t('errors.template.body') %></p>
+      <ul>
+      <% @admin.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :appat %><br />
+    <%= f.text_field :appat %>
+  </div>
+  <div class="field">
+    <%= f.label :apmat %><br />
+    <%= f.text_field :apmat %>
+  </div>
+<div class="form-actions">
+<%= link_to 'Cancelar'.html_safe, admin_admins_path, :class => 'btn btn-danger' %>
+<%= link_to_function "Guardar",
+"javascript:document.getElementById(\"new_admin\").submit(); return
+false",:class => 'btn btn-primary' %>
+  </div>
+<% end %>

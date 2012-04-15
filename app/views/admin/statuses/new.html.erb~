@@ -3,6 +3,7 @@
 	<h1 align="center">Nuevo Estatus</h1></br>
 	</div>
 	<div id="cuerpo">
+	</br>
 	<%= render 'form' %>
 	</div>
 </div>
