@@ -68,6 +68,8 @@ es:
       story:        "story"
       status:       "estatus"
       sprint:       "sprint"
+      student:     "estudiante"
+      usuario:      "usuario"
     attributes:
       story:
         name: "Nombre"
@@ -78,6 +80,13 @@ es:
         descripcion: "Nombre"
       sprint:
         comentario: "Descripción"
+      student:
+          appat: "Apellido paterno"
+          apmat: "Apellido materno"
+      usuario:
+          password: "Password"
+          username: "Usuario"
+          password_digest: "Confirmación de password"
 #END:errors
 #END:model
 #START:errors
@@ -92,7 +101,7 @@ es:
       body:        "Hay problemas con los siguientes campos:"
       header:
         one:       "1 error ha impedido que este %{model} se guarde"
-        other:     "%{count} errores han impedido que esta %{model} se guarde"
+        other:     "%{count} errores han impedido que este %{model} se guarde"
 #END:errors
 
 #START:layout

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412203955) do
+ActiveRecord::Schema.define(:version => 20120415235029) do
 
   create_table "admins", :force => true do |t|
     t.string   "nombre"
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(:version => 20120412203955) do
     t.string   "appat"
     t.string   "apmat"
     t.string   "rol"
+    t.integer  "usuario_id"
   end
 
   create_table "tasks", :force => true do |t|

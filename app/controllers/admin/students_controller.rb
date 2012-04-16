@@ -24,8 +24,9 @@ class Admin::StudentsController < ApplicationController
   # GET /students/new
   # GET /students/new.json
   def new
+    @usuario = Usuario.new
     @student = Student.new
-
+    @student.usuario = @usuario
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @student }
@@ -34,14 +35,18 @@ class Admin::StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @student = Student.find(params[:id])
+    @usuario = Usuario.find(params[:id])
+    @student = @usuario.student
   end
 
   # POST /students
   # POST /students.json
   def create
+    @usuario = Usuario.new(params[:student][:usuario_attributes])
     @student = Student.new(params[:student])
-
+    #@usuario.student = @student
+    @student.usuario = @usuario
+    
     respond_to do |format|
       if @student.save
         format.html { redirect_to [:admin, @student], notice: 'Student was successfully created.' }
