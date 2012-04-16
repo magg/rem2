@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-	has_one :usuario
+	belongs_to :usuario
 	has_many :projects
         validates :nombre, :appat, :apmat, :presence => true
 end

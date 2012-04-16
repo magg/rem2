@@ -1,4 +1,4 @@
 class Admin < ActiveRecord::Base
-  has_one :usuario
+  belongs_to :usuario
   validates :nombre, :appat, :apmat, :presence => true
 end
