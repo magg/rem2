@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<br />
   <div class="control-group">
     <%= f.label :nombre, :class=>"control-label" %>
    <div class="controls">
@@ -35,11 +35,7 @@
     <%= f.text_field :rol %>
   </div>
   </div>
-
-
-
 <%= f.fields_for :usuario do |ef| %>
-
   <div class="control-group">
     <%= ef.label :Usuario, :class=>"control-label" %>
    <div class="controls">
@@ -59,7 +55,6 @@
     <%= ef.hidden_field :tipo , :value =>"Student"  %>
   </div>
 </div>
-
 <%- end %>
 
  <div class="form-actions">

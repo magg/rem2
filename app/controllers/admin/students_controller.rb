@@ -35,8 +35,8 @@ class Admin::StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @usuario = Usuario.find(params[:id])
-    @student = @usuario.student
+    @student = Student.find(params[:id])
+    @usuario = @student.usuario
   end
 
   # POST /students
@@ -64,7 +64,8 @@ class Admin::StudentsController < ApplicationController
     @student = Student.find(params[:id])
 
     respond_to do |format|
-      if @student.update_attributes(params[:student])
+      if @student.update_attributes(params[:student]) and
+        @student.usuario.update_attributes(params[:student][:usuario_attributes])
         format.html { redirect_to [:admin, @student], notice: 'Student was successfully updated.' }
         format.json { head :no_content }
       else
@@ -78,7 +79,9 @@ class Admin::StudentsController < ApplicationController
   # DELETE /students/1.json
   def destroy
     @student = Student.find(params[:id])
-    @student.destroy
+    id = @student.usuario_id
+    @usuario = Usuario.find(id)
+    @usuario.destroy
 
     respond_to do |format|
       format.html { redirect_to admin_students_url }

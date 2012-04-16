@@ -1,7 +1,7 @@
 class Usuario < ActiveRecord::Base
   has_one :admin
   has_one :client
-  has_one :student
+  has_one :student, :dependent => :destroy
   validates :username, :presence => true, :uniqueness => true
   has_secure_password
   attr_accessible :username, :password, :password_confirmation, :tipo
