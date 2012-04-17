@@ -1,4 +1,4 @@
 class Project < ActiveRecord::Base
-	has_one :client
+	belongs_to :client
 	validates :nombre, :descripcion, :periodo, :presence => true
 end
