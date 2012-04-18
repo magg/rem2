@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :authorize
   before_filter :set_i18n_locale_from_params
   protect_from_forgery
   
@@ -17,4 +18,12 @@ class ApplicationController < ActionController::Base
     def default_url_options
       { :locale => I18n.locale }
     end
+    
+    protected
+
+        def authorize
+          unless Usuario.find_by_id(session[:user_id])
+            redirect_to login_url, :notice => "Please log in"
+          end
+        end
 end
