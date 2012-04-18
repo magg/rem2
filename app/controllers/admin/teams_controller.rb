@@ -37,6 +37,7 @@ class Admin::TeamsController < ApplicationController
   # GET /teams/1/edit
   def edit
     @team = Team.find(params[:id])
+    @students = Student.where(:team_id => @team.id)
   end
 
   # POST /teams
@@ -46,7 +47,7 @@ class Admin::TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to [:admin, @team], notice: 'Team was successfully created.' }
+        format.html { redirect_to :action => "teamassign", :id => @team.id, notice: 'Team was successfully created.' }
         format.json { render json: @team, status: :created, location: @team }
       else
         format.html { render action: "new" }
@@ -62,7 +63,7 @@ class Admin::TeamsController < ApplicationController
 
     respond_to do |format|
       if @team.update_attributes(params[:team])
-        format.html { redirect_to [:admin, @team], notice: 'Team was successfully updated.' }
+        format.html { redirect_to edit_admin_team_path(@team)}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -71,10 +72,54 @@ class Admin::TeamsController < ApplicationController
     end
   end
 
+  def teamassign
+    @team = Team.find(params[:id])
+    @students = Student.where(:team_id => nil)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @students }
+      format.json { render json: @team }
+    end
+  end
+
+  def assignmember
+    @students = Student.find(params[:student])
+    @team = Team.find(params[:team_id])
+    @team.students << @students
+
+   @students.each do |student|
+      student.update_attributes(:team_id => @team.id)
+    end
+
+    respond_to do |format|
+      format.html { redirect_to admin_teams_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def unassignmember
+    @student = Student.find(params[:student_id])
+    @team_id = @student.team_id
+    @student.update_attributes(:team_id => nil)
+
+    respond_to do |format|
+      format.html { redirect_to :action => "edit", :id => @team_id}
+      format.json { head :no_content }
+    end
+  end
+
+
+
+
   # DELETE /teams/1
   # DELETE /teams/1.json
   def destroy
     @team = Team.find(params[:id])
+    @students = Student.where(:team_id => @team.id)
+    @students.each do |student|
+      student.update_attributes(:team_id => nil)
+    end
     @team.destroy
 
     respond_to do |format|
