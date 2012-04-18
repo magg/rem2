@@ -1,0 +1,26 @@
+<h1 align="center">Proyecto: <%= @team.nombre%></h1></br>
+<table class="table table-striped table-bordered table-condensed" style="table-layout:fixed;word-wrap:break-word;width:600px">
+<thead>
+  <tr>
+    <th style="text-align:center;">Nombre</th>
+    <th style="text-align:center;">Rol</th>
+    <th style="text-align:center;width:60px;">Asignar</th>
+  </tr>
+</thead>
+<tbody>
+<form accept-charset="UTF-8"  method="post" name="addstudent_team" id="addstudent_team" action="/es/admin/teams/assignmember">
+<input type="hidden" value="<%= @team.id %>" name="team_id" />
+<% @students.each do |student| %>
+  <tr>
+    <td style="text-align:center;"><%= student.nombre + " " + student.appat %></td>
+    <td style="text-align:center;"><%= student.rol %></td>
+    <td><%= check_box_tag('student[]', student.id, false) %></td>
+  </tr>
+<% end %>
+</form>
+</tbody>
+</table>
+
+<%= link_to_function "Asignar",
+"javascript:document.getElementById(\"addstudent_team\").submit(); return
+false",:class => 'btn btn-primary' %>

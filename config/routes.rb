@@ -19,7 +19,17 @@ namespace :admin do
   resources :sprints
   resources :sprintstories
   resources :projects
-  resources :teams
+  resources :teams do
+  collection do
+    get 'teamassign'
+  end
+  collection do
+    post :assignmember
+  end
+  collection do
+    post :unassignmember
+  end
+end
   resources :usuarios
   resources :clients
   resources :admins
