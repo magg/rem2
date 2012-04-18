@@ -6,7 +6,11 @@ class SessionsController < ApplicationController
   def create
     if user = Usuario.authenticate(params[:username], params[:password])
       if user.tipo == "Admin"
-         session[:user_id] = user.id
+          if params[:remember_me]
+           cookies.permanent[:auth_token] = user.auth_token
+         else
+           cookies[:auth_token] = user.auth_token  
+         end  
          redirect_to admin_admins_path
        elsif user.tipo == "Student"
          #session[:user_id] = user.id
@@ -17,7 +21,11 @@ class SessionsController < ApplicationController
          end         
          redirect_to alumno_students_path
        elsif user.tipo == "Client"
-         session[:user_id] = user.id
+         if params[:remember_me]
+           cookies.permanent[:auth_token] = user.auth_token
+         else
+           cookies[:auth_token] = user.auth_token  
+         end  
          redirect_to client_clients_path
       end
        else
