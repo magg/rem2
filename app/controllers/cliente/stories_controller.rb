@@ -90,7 +90,7 @@ class Cliente::StoriesController < ApplicationController
     def authorize_admin
       #unless Usuario.find_by_id(session[:user_id])
         admin = Usuario.find_by_auth_token( cookies[:auth_token])
-        if admin.tipo != "Cliente"
+        if admin.tipo != "Client"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
     end
