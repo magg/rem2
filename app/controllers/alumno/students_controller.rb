@@ -42,4 +42,3 @@ class Alumno::StudentsController < ApplicationController
         end
     end
 end
-end
