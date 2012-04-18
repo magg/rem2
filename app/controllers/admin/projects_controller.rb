@@ -1,5 +1,4 @@
 class Admin::ProjectsController < ApplicationController
-  skip_before_filter :authorize
   # GET /projects
   # GET /projects.json
   def index

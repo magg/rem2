@@ -69,12 +69,15 @@ a = Usuario.create(:username => 'johnny', :password => '12345', :tipo => 'studen
 b = Usuario.create(:username => 'george', :password => '12345', :tipo => 'student')
 c = Usuario.create(:username => 'richy', :password => '12345', :tipo => 'student')
 # . . .
-d = Student.create(:nombre => 'Juan', :appat => 'Salgado', :apmat => 'Perez', :rol => 'Desarrollador', :usuario_id => '1')
+d = Student.create(:nombre => 'Juan', :appat => 'Salgado', :apmat => 'Perez', :rol => 'Desarrollador')
 d.usuario = a
-e = Student.create(:nombre => 'Jorge', :appat => 'Estrada', :apmat => 'Cruz', :rol => 'Calidad', :usuario_id => '2')
+a.student = d
+e = Student.create(:nombre => 'Jorge', :appat => 'Estrada', :apmat => 'Cruz', :rol => 'Calidad')
 e.usuario = b
-f = Student.create(:nombre => 'Rafael', :appat => 'Rodriguez', :apmat => 'Cortez', :rol => 'Arquitecto', :usuario_id => '3')
+b.student = e
+f = Student.create(:nombre => 'Rafael', :appat => 'Rodriguez', :apmat => 'Cortez', :rol => 'Arquitecto')
 f.usuario = c
+c.student = f
 # . . .
 Criterio.create(:descripcion => 'Checar la Calidad', :story_id => '1')
 Criterio.create(:descripcion => 'Que sea Entendible', :story_id => '2')

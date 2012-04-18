@@ -1,5 +1,4 @@
 class Admin::AdminsController < ApplicationController
-  skip_before_filter :authorize
   # GET /admins
   # GET /admins.json
   def index
