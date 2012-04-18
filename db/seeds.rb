@@ -51,13 +51,13 @@ Story.create(:name => 'Conexion con Bancos', :status_id => '5', :descripcion => 
 
 Task.create(:descripcion => 'El cliente crea usuario y contrasena', :estimadoinicial => '132', :status => '2', :story_id => '1', :student_id => '2')
 
-Task.create(:descripcion => 'El cliente imprime estado de cuenta de hasta maximo 3 meses', :estimadoinicial => '49', :status => '2', :story_id => '2', :student_id => '4')
+Task.create(:descripcion => 'El cliente imprime estado de cuenta de hasta maximo 3 meses', :estimadoinicial => '49', :status => '2', :story_id => '2', :student_id => '1')
 
 Task.create(:descripcion => 'Monitorieo', :estimadoinicial => '123', :status => '2', :story_id => '3', :student_id => '3')
 
 Task.create(:descripcion => 'Desplegar Acciones del Cajero', :estimadoinicial => '93', :status => '5', :story_id => '4', :student_id => '1')
 
-Task.create(:descripcion => 'Configuracion de Servidores de Peticiones', :estimadoinicial => '12', :status => '4', :story_id => '5', :student_id => '5')
+Task.create(:descripcion => 'Configuracion de Servidores de Peticiones', :estimadoinicial => '12', :status => '4', :story_id => '5', :student_id => '2')
 # . . .
 Workdetail.create(:task_id => '1', :hrstrabajadas => '12', :hrsporterminar => '33' )
 Workdetail.create(:task_id => '2', :hrstrabajadas => '1', :hrsporterminar => '2' )
@@ -65,11 +65,19 @@ Workdetail.create(:task_id => '3', :hrstrabajadas => '32', :hrsporterminar => '1
 Workdetail.create(:task_id => '4', :hrstrabajadas => '6', :hrsporterminar => '8' )
 Workdetail.create(:task_id => '5', :hrstrabajadas => '2', :hrsporterminar => '8' )
 # . . .
-Student.create(:nombre => 'Brian Griffin', :rol => 'Desarrollador')
-Student.create(:nombre => 'Stewie Griffin', :rol => 'Analista')
-Student.create(:nombre => 'Brian Griffin', :rol => 'Arquitecto')
-Student.create(:nombre => 'Megg Griffin', :rol => 'Evaluador')
-Student.create(:nombre => 'Quag Mire', :rol => 'Desarrollador')
+a = Usuario.create(:username => 'johnny', :password => '12345', :tipo => 'student')
+b = Usuario.create(:username => 'george', :password => '12345', :tipo => 'student')
+c = Usuario.create(:username => 'richy', :password => '12345', :tipo => 'student')
+# . . .
+d = Student.create(:nombre => 'Juan', :appat => 'Salgado', :apmat => 'Perez', :rol => 'Desarrollador')
+d.usuario = a
+a.student = d
+e = Student.create(:nombre => 'Jorge', :appat => 'Estrada', :apmat => 'Cruz', :rol => 'Calidad')
+e.usuario = b
+b.student = e
+f = Student.create(:nombre => 'Rafael', :appat => 'Rodriguez', :apmat => 'Cortez', :rol => 'Arquitecto')
+f.usuario = c
+c.student = f
 # . . .
 Criterio.create(:descripcion => 'Checar la Calidad', :story_id => '1')
 Criterio.create(:descripcion => 'Que sea Entendible', :story_id => '2')
@@ -80,3 +88,4 @@ Sprint.create(:comentario => 'Segunda Entrega', :fechainicio => Date.parse("2012
 Sprint.create(:comentario => 'Tercera Entrega', :fechainicio => Date.parse("2012/08/13"), :fechafin => Date.parse("2012/09/12"))
 # . . .
 
+\
