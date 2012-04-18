@@ -53,8 +53,6 @@ Task.create(:descripcion => 'El cliente crea usuario y contrasena', :estimadoini
 
 Task.create(:descripcion => 'El cliente imprime estado de cuenta de hasta maximo 3 meses', :estimadoinicial => '49', :status => '2', :story_id => '2', :student_id => '1')
 
-Task.create(:descripcion => 'Monitorieo', :estimadoinicial => '123', :status => '2', :story_id => '3', :student_id => '3')
-
 Task.create(:descripcion => 'Desplegar Acciones del Cajero', :estimadoinicial => '93', :status => '5', :story_id => '4', :student_id => '1')
 
 Task.create(:descripcion => 'Configuracion de Servidores de Peticiones', :estimadoinicial => '12', :status => '4', :story_id => '5', :student_id => '2')
@@ -67,7 +65,7 @@ Workdetail.create(:task_id => '5', :hrstrabajadas => '2', :hrsporterminar => '8'
 # . . .
 a = Usuario.create(:username => 'johnny', :password => '12345', :tipo => 'Student')
 b = Usuario.create(:username => 'george', :password => '12345', :tipo => 'Student')
-c = Usuario.create(:username => 'richy', :password => '12345', :tipo => 'Student')
+c = Usuario.create(:username => 'richy', :password => '12345', :tipo => 'Admin')
 # . . .
 d = Student.create(:nombre => 'Juan', :appat => 'Salgado', :apmat => 'Perez', :rol => 'Desarrollador')
 d.usuario = a
@@ -75,9 +73,9 @@ a.student = d
 e = Student.create(:nombre => 'Jorge', :appat => 'Estrada', :apmat => 'Cruz', :rol => 'Calidad')
 e.usuario = b
 b.student = e
-f = Student.create(:nombre => 'Rafael', :appat => 'Rodriguez', :apmat => 'Cortez', :rol => 'Arquitecto')
+f = Admin.create(:nombre => 'Rafael', :appat => 'Rodriguez', :apmat => 'Cortez')
 f.usuario = c
-c.student = f
+c.admin = f
 # . . .
 Criterio.create(:descripcion => 'Checar la Calidad', :story_id => '1')
 Criterio.create(:descripcion => 'Que sea Entendible', :story_id => '2')
