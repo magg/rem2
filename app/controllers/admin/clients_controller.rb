@@ -37,9 +37,6 @@ class Admin::ClientsController < ApplicationController
   def edit
     @client = Client.find(params[:id])
     @usuario = @client.usuario
-    @client.usuario = @usuario
-    
-    
   end
 
   # POST /clients
@@ -47,7 +44,8 @@ class Admin::ClientsController < ApplicationController
   def create
     @usuario = Usuario.new(params[:client][:usuario_attributes])
     @client = Client.new(params[:client])
-
+    @client.usuario = @usuario
+    
     respond_to do |format|
       if @client.save
         format.html { redirect_to [:admin, @client], notice: 'Client was successfully created.' }

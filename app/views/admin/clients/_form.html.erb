@@ -46,9 +46,10 @@
     <%= ef.label :password_confirmation, :class=>"control-label" %>
    <div class="controls">
     <%= ef.password_field :password_confirmation %>
-    <%= ef.hidden_field :tipo , :value =>"Admin"  %>
+    <%= ef.hidden_field :tipo , :value =>"Client"  %>
   </div>
 </div>
+<% end %>
 <div class="form-actions">
 <%= link_to 'Cancelar'.html_safe, admin_clients_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",

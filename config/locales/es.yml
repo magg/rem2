@@ -71,6 +71,7 @@ es:
       student:     "estudiante"
       usuario:      "usuario"
       admin:        "administrador"
+      client:       "cliente"
     attributes:
       story:
         name: "Nombre"
@@ -87,6 +88,9 @@ es:
       admin:
           appat: "Apellido paterno"
           apmat: "Apellido materno"
+      client:
+        appat: "Apellido paterno"
+        apmat: "Apellido materno"
       usuario:
           password: "Password"
           username: "Usuario"
