@@ -104,4 +104,12 @@ class Alumno::SprintsController < ApplicationController
         format.json { render json: @notice }
     end
   end
+ protected
+    def authorize_admin
+      #unless Usuario.find_by_id(session[:user_id])
+        admin = Usuario.find_by_auth_token( cookies[:auth_token])
+        if admin.tipo != "Alumno"
+          redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
+        end
+    end
 end
