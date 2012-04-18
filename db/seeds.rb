@@ -30,6 +30,11 @@ Workdetail.delete_all
 Student.delete_all
 Criterio.delete_all
 Sprint.delete_all
+Usuario.delete_all
+Project.delete_all
+Client.delete_all
+Admin.delete_all
+Team.delete_all
 # . . .
 Status.create(:descripcion => 'No Iniciado')
 Status.create(:descripcion => 'Iniciado')
@@ -63,19 +68,41 @@ Workdetail.create(:task_id => '3', :hrstrabajadas => '32', :hrsporterminar => '1
 Workdetail.create(:task_id => '4', :hrstrabajadas => '6', :hrsporterminar => '8' )
 Workdetail.create(:task_id => '5', :hrstrabajadas => '2', :hrsporterminar => '8' )
 # . . .
-a = Usuario.create(:username => 'johnny', :password => '12345', :tipo => 'Student')
-b = Usuario.create(:username => 'george', :password => '12345', :tipo => 'Student')
-c = Usuario.create(:username => 'richy', :password => '12345', :tipo => 'Admin')
+a = Usuario.create(:username => 'lorena', :password => '12345', :tipo => 'Admin')
+b = Usuario.create(:username => 'laura', :password => '12345', :tipo => 'Client')
+c = Usuario.create(:username => 'juan', :password => '12345', :tipo => 'Client')
+d = Usuario.create(:username => 'alex', :password => '12345', :tipo => 'Client')
+e = Usuario.create(:username => 'castas', :password => '12345', :tipo => 'Student')
+f = Usuario.create(:username => 'mike', :password => '12345', :tipo => 'Student')
+g = Usuario.create(:username => 'robert', :password => '12345', :tipo => 'Student')
+h = Usuario.create(:username => 'many', :password => '12345', :tipo => 'Student')
 # . . .
-d = Student.create(:nombre => 'Juan', :appat => 'Salgado', :apmat => 'Perez', :rol => 'Desarrollador')
-d.usuario = a
-a.student = d
-e = Student.create(:nombre => 'Jorge', :appat => 'Estrada', :apmat => 'Cruz', :rol => 'Calidad')
-e.usuario = b
-b.student = e
-f = Admin.create(:nombre => 'Rafael', :appat => 'Rodriguez', :apmat => 'Cortez')
-f.usuario = c
-c.admin = f
+i = Student.create(:nombre => 'Manuel', :appat => 'Castaneda', :apmat => 'Frias', :rol => 'Bases de Datos')
+i.usuario = e
+e.student = i
+j = Student.create(:nombre => 'Miguel', :appat => 'Gonzalez', :apmat => 'Gonzalez', :rol => 'Desarrollador')
+j.usuario = f
+f.student = j
+k = Student.create(:nombre => 'Roberto', :appat => 'Trevino', :apmat => 'Lozano', :rol => 'Desarrollador')
+k.usuario = g
+g.student = k
+l = Student.create(:nombre => 'Emmanuel', :appat => 'Casas', :apmat => 'Bayona', :rol => 'Admin de Proyectos')
+l.usuario = h
+h.student = l
+# . . .
+m = Admin.create(:nombre => 'Lorena Guadalupe', :appat => 'Gomez', :apmat => 'Martinez')
+m.usuario = a
+a.admin = m
+# . . .
+n = Client.create(:nombre => 'Laura', :appat => 'Escamilla', :apmat => 'Escamilla')
+n.usuario = b
+b.client = n
+o = Client.create(:nombre => 'Juan Carlos', :appat => 'Lavariega', :apmat => 'Jarquin')
+o.usuario = c
+c.client = o
+p = Client.create(:nombre => 'Alejandro', :appat => 'Parra', :apmat => 'Briones')
+p.usuario = d
+d.client = p
 # . . .
 Criterio.create(:descripcion => 'Checar la Calidad', :story_id => '1')
 Criterio.create(:descripcion => 'Que sea Entendible', :story_id => '2')
@@ -85,5 +112,20 @@ Sprint.create(:comentario => 'Primera Entrega', :fechainicio => Date.parse("2012
 Sprint.create(:comentario => 'Segunda Entrega', :fechainicio => Date.parse("2012/07/13"), :fechafin => Date.parse("2012/08/12"))
 Sprint.create(:comentario => 'Tercera Entrega', :fechainicio => Date.parse("2012/08/13"), :fechafin => Date.parse("2012/09/12"))
 # . . .
+aa = Project.create(:nombre => 'Cloud Azure', :descripcion => 'Migrar aplicaciones de SQL Server a Cloud Azuere', :periodo => 'Ene-May 2012')
+#aa.client = n
+#n.project = aa
+bb = Project.create(:nombre => 'Nat64', :descripcion => 'Traducir ips V4 a ips V6', :periodo => 'Ene-May 2012')
+#bb.client = o
+#c.project = bb
+cc = Project.create(:nombre => 'ITIL', :descripcion => 'Sistema Experto de las Etapas de ITIL', :periodo => 'Ene-May 2012')
+#cc.client = p
+#d.project = cc
+# . . .
+aaa = Team.create(:nombre => 'PHPreload')
+aaa.project = aa
+bbb = Team.create(:nombre => 'REM2')
+bbb.project = bb
+ccc = Team.create(:nombre => 'PMP')
+ccc.project = cc
 
-\

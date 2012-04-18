@@ -18,7 +18,11 @@ namespace :admin do
   resources :criterios
   resources :sprints
   resources :sprintstories
-  resources :projects
+  resources :projects do
+    collection do
+      post :assignteam
+    end
+  end
   resources :teams do
   collection do
     get 'teamassign'

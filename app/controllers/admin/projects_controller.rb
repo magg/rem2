@@ -82,6 +82,18 @@ class Admin::ProjectsController < ApplicationController
     end
   end
   
+  def assignteam
+    @project = Project.find(params[:project_id])
+    @team = Team.find(params[:team_id])
+    @team.update_attributes(:project_id => @project.id)
+    
+
+    respond_to do |format|
+      format.html { redirect_to [:admin, @project] }
+      format.json
+    end
+  end
+  
   protected
      def authorize_admin
        #unless Usuario.find_by_id(session[:user_id])
