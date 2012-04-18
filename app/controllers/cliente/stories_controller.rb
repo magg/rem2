@@ -1,4 +1,5 @@
 class Cliente::StoriesController < ApplicationController
+  before_filter :authorize_client
   # GET /stories
   # GET /stories.json
   def index
@@ -87,7 +88,7 @@ class Cliente::StoriesController < ApplicationController
     end
   end
  protected
-    def authorize_admin
+    def authorize_client
       #unless Usuario.find_by_id(session[:user_id])
         admin = Usuario.find_by_auth_token( cookies[:auth_token])
         if admin.tipo != "Client"

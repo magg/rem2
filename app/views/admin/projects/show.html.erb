@@ -1,12 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= @project.nombre %>
-</h1>
+<h2>
+  Asignar equipo al proyecto <%= @project.nombre %>
+</h2>
 
-<h1>
+<h3>
   <%= @project.descripcion %>
-</h1>
+</h3>
+
+
+
+	<form accept-charset="UTF-8"  method="post" name="ass_project" id="ass_project" action="/es/admin/projects/<%= @project.id %>">
+
+	<div class="control-group">
+    <label class="control-label" for="team_id">Equipos sin proyecto</label>	   
+	<div class="controls">
+	    <%= select("team", "team_id", Team.where(:project_id => nil).collect {|p| [ p.descripcion, p.id ] })%>
+	  </div>
+	</div>
+	<%= link_to_function "Guardar",
+	"javascript:document.getElementById(ass_project).submit(); return
+	false",:class => 'btn btn-primary' %>				
+	</form>
+
 
 
 <div class="form-actions">

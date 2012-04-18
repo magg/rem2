@@ -1,4 +1,5 @@
 class Alumno::CriteriosController < ApplicationController
+  before_filter :authorize_student
   # GET /criterios/new
   # GET /criterios/new.json
   def new
@@ -61,7 +62,7 @@ class Alumno::CriteriosController < ApplicationController
   end
 	
   protected
-    def authorize_admin
+    def authorize_student
       #unless Usuario.find_by_id(session[:user_id])
         admin = Usuario.find_by_auth_token( cookies[:auth_token])
         if admin.tipo != "Student"

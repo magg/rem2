@@ -1,4 +1,5 @@
 class Cliente::ClientsController < ApplicationController
+  before_filter :authorize_client
   # GET /clients
   # GET /clients.json
   def index
@@ -81,7 +82,7 @@ class Cliente::ClientsController < ApplicationController
     end
   end
  protected
-    def authorize_admin
+    def authorize_client
       #unless Usuario.find_by_id(session[:user_id])
         admin = Usuario.find_by_auth_token( cookies[:auth_token])
         if admin.tipo != "Client"

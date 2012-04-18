@@ -1,4 +1,5 @@
 class Alumno::WorkdetailsController < ApplicationController
+  before_filter :authorize_student
   # GET /workdetails
   # GET /workdetails.json
   def index
@@ -81,7 +82,7 @@ class Alumno::WorkdetailsController < ApplicationController
     end
   end
  protected
-    def authorize_admin
+    def authorize_student
       #unless Usuario.find_by_id(session[:user_id])
         admin = Usuario.find_by_auth_token( cookies[:auth_token])
         if admin.tipo != "Alumno"
