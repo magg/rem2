@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417005104) do
+ActiveRecord::Schema.define(:version => 20120418024015) do
 
   create_table "admins", :force => true do |t|
     t.string   "nombre"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120417005104) do
     t.string   "apmat"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "usuario_id"
   end
 
   create_table "clients", :force => true do |t|
@@ -27,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20120417005104) do
     t.string   "apmat"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "usuario_id"
+    t.integer  "project_id"
   end
 
   create_table "criterios", :force => true do |t|
@@ -84,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20120417005104) do
     t.string   "apmat"
     t.string   "rol"
     t.integer  "usuario_id"
+    t.integer  "team_id"
   end
 
   create_table "tasks", :force => true do |t|
@@ -100,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20120417005104) do
     t.string   "nombre"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "project_id"
   end
 
   create_table "usuarios", :force => true do |t|
