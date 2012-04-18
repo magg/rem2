@@ -19,10 +19,11 @@ class ApplicationController < ActionController::Base
       { :locale => I18n.locale }
     end
     
-  protected
-    def authorize
-      unless Usuario.find_by_id(session[:user_id])
-        redirect_to login_url, :notice => "Please log in"
-      end
-    end
+    protected
+
+        def authorize
+          unless Usuario.find_by_id(session[:user_id])
+            redirect_to login_url, :notice => "Please log in"
+          end
+        end
 end

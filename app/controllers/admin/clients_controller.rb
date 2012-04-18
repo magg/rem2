@@ -1,5 +1,4 @@
 class Admin::ClientsController < ApplicationController
-  skip_before_filter :authorize
   # GET /clients
   # GET /clients.json
   def index

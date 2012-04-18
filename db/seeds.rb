@@ -65,9 +65,9 @@ Workdetail.create(:task_id => '3', :hrstrabajadas => '32', :hrsporterminar => '1
 Workdetail.create(:task_id => '4', :hrstrabajadas => '6', :hrsporterminar => '8' )
 Workdetail.create(:task_id => '5', :hrstrabajadas => '2', :hrsporterminar => '8' )
 # . . .
-a = Usuario.create(:username => 'johnny', :password => '12345', :tipo => 'student')
-b = Usuario.create(:username => 'george', :password => '12345', :tipo => 'student')
-c = Usuario.create(:username => 'richy', :password => '12345', :tipo => 'student')
+a = Usuario.create(:username => 'johnny', :password => '12345', :tipo => 'Student')
+b = Usuario.create(:username => 'george', :password => '12345', :tipo => 'Student')
+c = Usuario.create(:username => 'richy', :password => '12345', :tipo => 'Student')
 # . . .
 d = Student.create(:nombre => 'Juan', :appat => 'Salgado', :apmat => 'Perez', :rol => 'Desarrollador')
 d.usuario = a

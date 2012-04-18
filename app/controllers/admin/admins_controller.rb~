@@ -1,4 +1,5 @@
 class Admin::AdminsController < ApplicationController
+  
   # GET /admins
   # GET /admins.json
   def index
@@ -24,8 +25,9 @@ class Admin::AdminsController < ApplicationController
   # GET /admins/new
   # GET /admins/new.json
   def new
+    @usuario = Usuario.new
     @admin = Admin.new
-
+    @admin.usuario = @usuario
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @admin }
@@ -35,12 +37,15 @@ class Admin::AdminsController < ApplicationController
   # GET /admins/1/edit
   def edit
     @admin = Admin.find(params[:id])
+    @usuario = @admin.usuario
   end
 
   # POST /admins
   # POST /admins.json
   def create
+    @usuario = Usuario.new(params[:admin][:usuario_attributes])
     @admin = Admin.new(params[:admin])
+    @admin.usuario = @usuario
 
     respond_to do |format|
       if @admin.save
@@ -59,7 +64,8 @@ class Admin::AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
 
     respond_to do |format|
-      if @admin.update_attributes(params[:admin])
+      if @admin.update_attributes(params[:admin]) and
+        @admin.usuario.update_attributes(params[:admin][:usuario_attributes])
         format.html { redirect_to [:admin, @admin], notice: 'Admin was successfully updated.' }
         format.json { head :no_content }
       else
@@ -73,10 +79,12 @@ class Admin::AdminsController < ApplicationController
   # DELETE /admins/1.json
   def destroy
     @admin = Admin.find(params[:id])
-    @admin.destroy
-
+    id = @admin.usuario_id
+    @usuario = Usuario.find(id)
+    @usuario.destroy
+    
     respond_to do |format|
-      format.html { redirect_to admins_url }
+      format.html { redirect_to admin_admins_url }
       format.json { head :no_content }
     end
   end
