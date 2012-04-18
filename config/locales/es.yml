@@ -70,6 +70,7 @@ es:
       sprint:       "sprint"
       student:     "estudiante"
       usuario:      "usuario"
+      admin:        "administrador"
     attributes:
       story:
         name: "Nombre"
@@ -81,6 +82,9 @@ es:
       sprint:
         comentario: "Descripción"
       student:
+          appat: "Apellido paterno"
+          apmat: "Apellido materno"
+      admin:
           appat: "Apellido paterno"
           apmat: "Apellido materno"
       usuario:
