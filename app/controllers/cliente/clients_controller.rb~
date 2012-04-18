@@ -1,4 +1,4 @@
-class Admin::ClientsController < ApplicationController
+class Cliente::ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
@@ -44,7 +44,7 @@ class Admin::ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to [:admin, @client], notice: 'Client was successfully created.' }
+        format.html { redirect_to [:cliente, @client], notice: 'Client was successfully created.' }
         format.json { render json: @client, status: :created, location: @client }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Admin::ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.update_attributes(params[:client])
-        format.html { redirect_to [:admin, @client], notice: 'Client was successfully updated.' }
+        format.html { redirect_to [:cliente, @client], notice: 'Client was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class Admin::ClientsController < ApplicationController
     @client.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_clients_url }
+      format.html { redirect_to cliente_clients_url }
       format.json { head :no_content }
     end
   end
