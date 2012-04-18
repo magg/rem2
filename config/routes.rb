@@ -4,8 +4,9 @@ Rem2::Application.routes.draw do
    get 'login' => :new
    post 'login' => :create
    delete 'logout' => :destroy
-end
-
+  end
+  
+resources :password_resets
 
 scope '(:locale)' do
 namespace :admin do

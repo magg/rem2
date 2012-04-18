@@ -21,7 +21,8 @@ class ApplicationController < ActionController::Base
     
   protected
     def authorize
-      unless Usuario.find_by_id(session[:user_id])
+      #unless Usuario.find_by_id(session[:user_id])
+      unless Usuario.find_by_auth_token( cookies[:auth_token]) or cookies[:auth_token]
         redirect_to login_url, :notice => "Please log in"
       end
     end

@@ -6,6 +6,14 @@ class Usuario < ActiveRecord::Base
   has_secure_password
   attr_accessible :username, :password, :password_confirmation, :tipo
   validates_presence_of :password, :on => :create
+  before_create { generate_token(:auth_token) }
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while Usuario.exists?(column => self[column])
+  end
+  
   def self.authenticate(username, password)
     find_by_username(username).try(:authenticate, password)
   end
