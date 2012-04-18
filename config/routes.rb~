@@ -1,9 +1,12 @@
 Rem2::Application.routes.draw do
-  get "sessions/new"
-
-  get "sessions/create"
-
-  get "sessions/destroy"
+ 
+  controller :sessions do
+   get 'login' => :new
+   post 'login' => :create
+   delete 'logout' => :destroy
+  end
+  
+resources :password_resets
 
 scope '(:locale)' do
 namespace :admin do
@@ -16,7 +19,17 @@ namespace :admin do
   resources :sprints
   resources :sprintstories
   resources :projects
-  resources :teams
+  resources :teams do
+  collection do
+    get 'teamassign'
+  end
+  collection do
+    post :assignmember
+  end
+  collection do
+    post :assignmember
+  end
+end
   resources :usuarios
   resources :clients
   resources :admins
@@ -26,10 +39,12 @@ end
 namespace :cliente do
   resources :stories
   resources :criterios
+  resources :clients
 end
 
 namespace :alumno do
   resources :stories
+  resources :students
   resources :tasks do
   collection do
     get 'taskasign'
