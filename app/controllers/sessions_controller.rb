@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
          else
            cookies[:auth_token] = user.auth_token  
          end  
-         redirect_to client_clients_path
+         redirect_to cliente_clients_path
       end
        else
          redirect_to login_url, :alert => "Invalid user/password combination"
