@@ -50,6 +50,13 @@
     <%= ef.hidden_field :tipo , :value =>"Admin"  %>
   </div>
 </div>
+<div class="control-group">
+    <%= ef.label :email, :class=>"control-label" %>
+   <div class="controls">
+    <%= ef.text_field :email %>
+  </div>
+</div>
+<%- end %>
 <div class="form-actions">
 <%= link_to 'Cancelar'.html_safe, admin_admins_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",
