@@ -1,0 +1,8 @@
+class AddEmail < ActiveRecord::Migration
+  def up
+	add_column :email, :string
+  end
+
+  def down
+  end
+end
