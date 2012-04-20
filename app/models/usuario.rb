@@ -4,7 +4,7 @@ class Usuario < ActiveRecord::Base
   has_one :student, :dependent => :destroy
   validates :username, :presence => true, :uniqueness => true
   has_secure_password
-  attr_accessible :username, :password, :password_confirmation, :tipo
+  attr_accessible :username, :password, :password_confirmation, :tipo, :email
   validates_presence_of :password, :on => :create
   before_create { generate_token(:auth_token) }
 
