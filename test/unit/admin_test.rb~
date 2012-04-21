@@ -7,7 +7,7 @@ class AdminTest < ActiveSupport::TestCase
 	assert usuario.errors[:nombre].any?
 	assert usuario.errors[:appat].any?
 	assert usuario.errors[:apmat].any?
-	#assert usuario.errors[:usuario_id].any?
+	assert usuario.errors[:usuario_id].any?
 
 end
 end

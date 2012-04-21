@@ -1,15 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  username: MyString
-  password_digest: MyString
-  nombre: MyString
-  apellido: MyString
-  tipo: MyString
+  username: fulanito
+  password_digest: 12345
+  email: fulanitoxmiswebs@gmail.com
+  tipo: Student
 
 two:
-  username: MyString
-  password_digest: MyString
-  nombre: MyString
-  apellido: MyString
-  tipo: MyString
+  username: magg
+  password_digest: 12345
+  email: maggonz@gmail.com
+  tipo: Cliente
