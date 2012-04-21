@@ -11,12 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420054821) do
+ActiveRecord::Schema.define(:version => 20120421182813) do
 
   create_table "admins", :force => true do |t|
     t.string   "nombre"
-    t.string   "appat"
-    t.string   "apmat"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "usuario_id"
@@ -24,8 +22,6 @@ ActiveRecord::Schema.define(:version => 20120420054821) do
 
   create_table "clients", :force => true do |t|
     t.string   "nombre"
-    t.string   "appat"
-    t.string   "apmat"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "usuario_id"
@@ -77,14 +73,13 @@ ActiveRecord::Schema.define(:version => 20120420054821) do
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
     t.text     "comentarios"
+    t.integer  "project_id"
   end
 
   create_table "students", :force => true do |t|
     t.string   "nombre"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "appat"
-    t.string   "apmat"
     t.string   "rol"
     t.integer  "usuario_id"
     t.integer  "team_id"
