@@ -77,30 +77,30 @@ f = Usuario.create(:username => 'mike', :password => '12345', :tipo => 'Student'
 g = Usuario.create(:username => 'robert', :password => '12345', :tipo => 'Student')
 h = Usuario.create(:username => 'many', :password => '12345', :tipo => 'Student')
 # . . .
-i = Student.create(:nombre => 'Manuel', :appat => 'Castaneda', :apmat => 'Frias', :rol => 'Bases de Datos')
+i = Student.create(:nombre => 'Manuel',  :rol => 'Bases de Datos')
 i.usuario = e
 e.student = i
-j = Student.create(:nombre => 'Miguel', :appat => 'Gonzalez', :apmat => 'Gonzalez', :rol => 'Desarrollador')
+j = Student.create(:nombre => 'Miguel',  :rol => 'Desarrollador')
 j.usuario = f
 f.student = j
-k = Student.create(:nombre => 'Roberto', :appat => 'Trevino', :apmat => 'Lozano', :rol => 'Desarrollador')
+k = Student.create(:nombre => 'Roberto', :rol => 'Desarrollador')
 k.usuario = g
 g.student = k
-l = Student.create(:nombre => 'Emmanuel', :appat => 'Casas', :apmat => 'Bayona', :rol => 'Admin de Proyectos')
+l = Student.create(:nombre => 'Emmanuel',:rol => 'Admin de Proyectos')
 l.usuario = h
 h.student = l
 # . . .
-m = Admin.create(:nombre => 'Lorena Guadalupe', :appat => 'Gomez', :apmat => 'Martinez')
+m = Admin.create(:nombre => 'Lorena Guadalupe')
 m.usuario = a
 a.admin = m
 # . . .
-n = Client.create(:nombre => 'Laura', :appat => 'Escamilla', :apmat => 'Escamilla')
+n = Client.create(:nombre => 'Laura')
 n.usuario = b
 b.client = n
-o = Client.create(:nombre => 'Juan Carlos', :appat => 'Lavariega', :apmat => 'Jarquin')
+o = Client.create(:nombre => 'Juan Carlos')
 o.usuario = c
 c.client = o
-p = Client.create(:nombre => 'Alejandro', :appat => 'Parra', :apmat => 'Briones')
+p = Client.create(:nombre => 'Alejandro')
 p.usuario = d
 d.client = p
 # . . .

@@ -28,30 +28,22 @@
           </a>
           <a class="brand" href="#">REM2</a>
           <div class="nav-collapse">
+
 		<%= render "menu" %>
-            <p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>
+		
+            <%= render "session" %>
           </div><!--/.nav-collapse -->
 
         </div>
       </div>
     </div>
 <div id="layout">
-<div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3" style="width:200px;">
-          <div class="well sidebar-nav">
 		<%= render "options" %>
-          </div><!--/.well -->
-        </div><!--/span-->
-
-        <div class="span9">
-          <div class="hero-unit" style="width:900px;">
-		<%= yield %>
-          </div>
-          </div>
-            </div><!--/span-->
-          </div><!--/row-->
+<%= render "layout" %>
 </div>
 <%= javascript_include_tag 'bootstrap-collapse' %>
+<%= javascript_include_tag 'bootstrap-modal' %>
+<%= javascript_include_tag 'jquery','application'  %>
+<%= javascript_include_tag 'jquery','bootstrap-transition','bootstrap-dropdown','application'%>
 </body>
 </html>

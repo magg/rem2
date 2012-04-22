@@ -1,10 +1,10 @@
 class Admin::AdminsController < ApplicationController
   before_filter :authorize_admin
+  
   # GET /admins
   # GET /admins.json
   def index
     @admins = Admin.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @admins }
@@ -43,9 +43,6 @@ class Admin::AdminsController < ApplicationController
   # POST /admins
   # POST /admins.json
   def create
-    
-    UserMailer.password_sent(params[:admin][:usuario_attributes][:password],params[:admin][:usuario_attributes][:username],params[:admin][:usuario_attributes][:email]).deliver
-    
     @usuario = Usuario.new(params[:admin][:usuario_attributes])
     @admin = Admin.new(params[:admin])
     @admin.usuario = @usuario
@@ -95,10 +92,10 @@ class Admin::AdminsController < ApplicationController
   protected
     def authorize_admin
       #unless Usuario.find_by_id(session[:user_id])
-        admin = Usuario.find_by_auth_token( cookies[:auth_token])
-        if admin.tipo != "Admin"
+      @projects = Project.all
+        @admin = Usuario.find_by_auth_token( cookies[:auth_token])
+        if @admin.tipo != "Admin"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
-        end
+        end   
     end
-  
 end
