@@ -19,6 +19,20 @@ Rem2::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
+  config.action_mailer.delivery_method = :smtp  
+  
+   config.action_mailer.smtp_settings = {
+      :address        => "smtp.gmail.com",
+      :port           => 587,
+      :domain        =>  "fulanitoxmiswebs@gmail.com",       
+      :user_name      => "fulanitoxmiswebs@gmail.com",
+      :password       => "perrenganito",
+      :authentication => "plain",
+      :enable_starttls_auto => true
+  }
+  
+  config.action_mailer.raise_delivery_errors = true
+  
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 

@@ -88,6 +88,7 @@ es:
       admin:
           appat: "Apellido paterno"
           apmat: "Apellido materno"
+          nombre: "Nombre completo"
       client:
         appat: "Apellido paterno"
         apmat: "Apellido materno"

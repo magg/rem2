@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
          else
            cookies[:auth_token] = user.auth_token  
          end  
-         redirect_to admin_admins_path
+         redirect_to admin_stories_path
        elsif user.tipo == "Student"
          #session[:user_id] = user.id
          if params[:remember_me]
@@ -19,14 +19,14 @@ class SessionsController < ApplicationController
          else
            cookies[:auth_token] = user.auth_token  
          end         
-         redirect_to alumno_students_path
+         redirect_to alumno_stories_path
        elsif user.tipo == "Client"
          if params[:remember_me]
            cookies.permanent[:auth_token] = user.auth_token
          else
            cookies[:auth_token] = user.auth_token  
          end  
-         redirect_to cliente_clients_path
+         redirect_to cliente_stories_path
       end
        else
          redirect_to login_url, :alert => "Invalid user/password combination"

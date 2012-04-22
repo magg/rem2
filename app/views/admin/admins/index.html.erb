@@ -11,7 +11,7 @@
 <tbody>
 <% @admins.each do |admin| %>
   <tr>
-   <td style="text-align:center;"><%= admin.nombre + " " + admin.appat + " " + admin.apmat %></td>
+   <td style="text-align:center;"><%= admin.nombre %></td>
    <td style="text-align:center;"><%= admin.usuario.username %></td>
    <td width="75"><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_admin_admin_path(admin), :class => 'btn btn-info' %></td>
     <td width="87"><%= link_to '<i class="icon-trash icon-white"></i> Eliminar'.html_safe, admin_admin_path(admin), confirm: "¿Desea eliminar: #{admin.nombre}?", method: :delete, :class => 'btn btn-danger' %></td>
