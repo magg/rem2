@@ -7,3 +7,7 @@ one:
   tipo: Student
 
 two:
+  username: magg
+  password_digest: 12345
+  email: maggonz@gmail.com
+  tipo: Cliente
