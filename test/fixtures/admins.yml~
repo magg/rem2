@@ -1,10 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  nombre: Laura Escamilla
-  usuario_id: 3
-
+  nombre: Manuel Castaneda 
+  usuario_id: 1
 
 two:
-  nombre: Juan Carlos Lavariega
-  usuario_id: 4
+  nombre: Miguel Gonzalez
+  usuario_id: 2
