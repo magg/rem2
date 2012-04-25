@@ -1,6 +1,6 @@
 class Student < ActiveRecord::Base
   has_many :tasks
-  has_one :team
+  belongs_to :team
   belongs_to :usuario
   attr_accessible :nombre, :rol, :usuario_attributes, :team_id
   validates :nombre, :rol,:presence => true

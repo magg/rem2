@@ -1,0 +1,12 @@
+require 'test_helper'
+
+class AdminTest < ActiveSupport::TestCase
+fixtures :ruby, :ruby2
+  test "admins attributes must not be empty" do
+	usuario = Admin.new
+	assert usuario.invalid?
+	assert usuario.errors[:nombre].any?
+	assert usuario.errors[:usuario_id].any?
+
+end
+end

@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  nombre: MyString
-  appat: MyString
-  apmat: MyString
+ruby:
+  nombre: Manuel Castaneda 
+  usuario_id: 1
 
-two:
-  nombre: MyString
-  appat: MyString
-  apmat: MyString
+ruby2:
+  nombre: Miguel Gonzalez
+  usuario_id: 2
