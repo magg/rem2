@@ -1,5 +1,6 @@
 class Admin::TeamsController < ApplicationController
   before_filter :authorize_admin
+  layout "admin"
   
   # GET /teams
   # GET /teams.json
@@ -89,7 +90,7 @@ class Admin::TeamsController < ApplicationController
     @team.students << @students
 
    @students.each do |student|
-      student.update_attributes(:team_id => @team.id)
+      student.update_attribute(:team_id,@team.id)
     end
 
     respond_to do |format|
@@ -101,7 +102,7 @@ class Admin::TeamsController < ApplicationController
   def unassignmember
     @student = Student.find(params[:student_id])
     @team_id = @student.team_id
-    @student.update_attributes(:team_id => nil)
+    @student.update_attribute(:team_id, nil)
 
     respond_to do |format|
       format.html { redirect_to :action => "edit", :id => @team_id}
@@ -118,7 +119,7 @@ class Admin::TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @students = Student.where(:team_id => @team.id)
     @students.each do |student|
-      student.update_attributes(:team_id => nil)
+      student.update_attribute(:team_id, nil)
     end
     @team.destroy
 
@@ -131,8 +132,9 @@ class Admin::TeamsController < ApplicationController
   protected
      def authorize_admin
        #unless Usuario.find_by_id(session[:user_id])
-         admin = Usuario.find_by_auth_token( cookies[:auth_token])
-         if admin.tipo != "Admin"
+         @projects = Project.all
+         @session_admin = Usuario.find_by_auth_token( cookies[:auth_token])
+         if @session_admin.tipo != "Admin"
            redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
          end
      end

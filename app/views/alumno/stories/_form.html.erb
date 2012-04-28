@@ -41,6 +41,8 @@
     <%= f.number_field :functionpts %>
   </div>
   </div>
+  <%= f.hidden_field :project_id,:value => @project_id %>
+
  <div class="form-actions">
 <%= link_to 'Cancelar'.html_safe, alumno_stories_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",

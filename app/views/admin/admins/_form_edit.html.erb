@@ -1,7 +1,7 @@
 <%= form_for([:admin, @admin],:html => { :class => "form-horizontal"}) do |f| %>
   <% if @admin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t('errors.template.header', :count=>@admins.errors.size,
+      <h2><%= t('errors.template.header', :count=>@admin.errors.size,
         :model=>t('activerecord.models.admin')) %>.</h2>
       <p><%= t('errors.template.body') %></p>
       <ul>
@@ -16,18 +16,6 @@
     <%= f.label :nombre, :class=>"control-label" %>
    <div class="controls">
     <%= f.text_field :nombre %>
-  </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :appat, :class=>"control-label" %>
-   <div class="controls">
-    <%= f.text_field :appat %>
-  </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :apmat, :class=>"control-label" %>
-   <div class="controls">
-    <%= f.text_field :apmat %>
   </div>
   </div>
 <%= f.fields_for :usuario do |ef| %>

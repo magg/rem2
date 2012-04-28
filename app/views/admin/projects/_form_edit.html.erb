@@ -27,7 +27,7 @@
 <div class="control-group">
     <%= f.label :Cliente, :class=>"control-label" %>
    <div class="controls">
-    <%= f.select :client_id, Client.all.collect {|p| [ p.nombre+" "+p.appat+" "+ p.apmat, p.id ] }  %>
+    <%= f.select :client_id, Client.all.collect {|p| [ p.nombre, p.id ] }  %>
   </div>
 </div>
  <div class="form-actions">

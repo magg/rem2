@@ -1,5 +1,6 @@
 class Admin::ClientsController < ApplicationController
   before_filter :authorize_admin
+  layout "admin"
   # GET /clients
   # GET /clients.json
   def index
@@ -64,8 +65,7 @@ class Admin::ClientsController < ApplicationController
     @client = Client.find(params[:id])
 
     respond_to do |format|
-      if @client.update_attributes(params[:client]) and
-        @client.usuario.update_attributes(params[:client][:usuario_attributes])
+      if @client.update_attributes(params[:client])
         format.html { redirect_to [:admin, @client], notice: 'Client was successfully updated.' }
         format.json { head :no_content }
       else
@@ -92,8 +92,9 @@ class Admin::ClientsController < ApplicationController
   protected
      def authorize_admin
        #unless Usuario.find_by_id(session[:user_id])
-         admin = Usuario.find_by_auth_token( cookies[:auth_token])
-         if admin.tipo != "Admin"
+         @projects = Project.all
+         @session_admin = Usuario.find_by_auth_token( cookies[:auth_token])
+         if @session_admin.tipo != "Admin"
            redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
          end
      end

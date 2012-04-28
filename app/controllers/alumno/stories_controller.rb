@@ -1,10 +1,12 @@
 class Alumno::StoriesController < ApplicationController
   before_filter :authorize_student
+  layout "student"
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
-
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team = Team.where(:id => @student.team_id).first
+    @stories = Story.where(:project_id => @team.project_id)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }
@@ -30,7 +32,9 @@ class Alumno::StoriesController < ApplicationController
   # GET /stories/new.json
   def new
     @story = Story.new
-
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team = Team.where(:id => @student.team_id).first
+    @project_id = @team.project_id
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @story }
@@ -90,8 +94,8 @@ class Alumno::StoriesController < ApplicationController
  protected
     def authorize_student
       #unless Usuario.find_by_id(session[:user_id])
-        admin = Usuario.find_by_auth_token( cookies[:auth_token])
-        if admin.tipo != "Student"
+        @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
+        if @session_student.tipo != "Student"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
     end

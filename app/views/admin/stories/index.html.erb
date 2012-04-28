@@ -2,6 +2,7 @@
 </br>
 <%= form_tag(admin_stories_path, :method => "get",:id=>'filter_form') do %>
   <%= label_tag(:q, "Filtrar por:") %>
+  <%= hidden_field_tag 'project_id', @project_id %>
   <%= select("status", "id", [['Todas','']]+ Status.all.collect {|p| [ p.descripcion, p.id ] },{:selected =>  @statusid},{:onchange => 'submitFilter()'}
 )%>
 <% end %>

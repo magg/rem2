@@ -11,7 +11,7 @@
 <tbody>
 <% @students.each do |student| %>
   <tr>
-    <td style="text-align:center;"><%= student.nombre + " " + student.appat + " " + student.apmat %></td>
+    <td style="text-align:center;"><%= student.nombre %></td>
     <td style="text-align:center;"><%= student.rol %></td>
     <td style="text-align:center;"><%= student.usuario.username %></td>
 	<% if @id == student.usuario_id %>

@@ -1,8 +1,0 @@
-<%= javascript_include_tag 'jquery','application'  %>
-<%= javascript_include_tag 'jquery','bootstrap-transition','bootstrap-dropdown','application'%>
-
-           <ul class="nav nav-list">
-              <li class="nav-header">Mis proyectos</li>
-              <li><a href="#">Proyecto 1</a></li>
-	      <li><a href="#">Proyecto 2</a></li>
-            </ul>

@@ -15,7 +15,7 @@
     <td style="text-align:center;"><%= link_to project.nombre, [:admin, project]  %></td>
     <td style="text-align:center;"><%= project.descripcion %></td>
 	<% if project.client_id != nil %>
-    <td style="text-align:center;"><%= project.client.nombre+" "+project.client.appat+" "+project.client.apmat %></td>
+    <td style="text-align:center;"><%= project.client_id %></td>
 	<% else  %>
 	<td style="text-align:center;"></td>
 	<% end  %>

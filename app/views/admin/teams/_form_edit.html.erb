@@ -23,14 +23,14 @@
   <tr>
     <th style="text-align:center;">Nombre</th>
     <th style="text-align:center;">Rol</th>
-    <th style="width:75px;"></th>
+    <th style="width:87px;"></th>
   </tr>
 </thead>
 <tbody>
 <% @students.each do |student| %>
 		<tr>
 		<td style="width:80px;">
-			<%= student.nombre + " " + student.appat %>
+			<%= student.nombre %>
 		</td>
 		<td style="width:80px;" >
 			<%= student.rol %>
