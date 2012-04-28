@@ -351,25 +351,20 @@ st55=Story.create(:name	=> 'Nombre del Story con id: 56; y pertenece al Proyecto
 st56=Story.create(:name	=> 'Nombre del Story con id: 57; y pertenece al Proyecto: 8', :status_id => '1	', :descripcion => 'Descripcion del Story con id: 57	', :functionpts	 => '	', :prioridad => 'Alta	', :usuario => 'Admin	', :comentarios => 'Comentarios del Story 57	', :project_id => '8')
 st57=Story.create(:name	=> 'Nombre del Story con id: 58; y pertenece al Proyecto: 8', :status_id => '2	', :descripcion => 'Descripcion del Story con id: 58	', :functionpts => '40', :prioridad => 'Baja	', :usuario => 'Cliente	', :comentarios => 'Comentarios del Story 58	', :project_id => '8')
 # . . .
-sp1=Sprint.create(:comentario	=> 'Sprint 1 de Proyecto 1', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
-sp2=Sprint.create(:comentario	=> 'Sprint 2 de Proyecto 1', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
-sp3=Sprint.create(:comentario	=> 'Sprint 3 de Proyecto 1', :fechainicio=> Date.parse("2012/7/14"), :fechafin=> Date.parse("2012/7/29"))
-sp4=Sprint.create(:comentario	=> 'Sprint 4 de Proyecto 1', :fechainicio=> Date.parse("2012/7/30"), :fechafin=> Date.parse("2012/8/14"))
-sp5=Sprint.create(:comentario	=> 'Sprint 1 de Proyecto 2', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
-sp6=Sprint.create(:comentario	=> 'Sprint 2 de Proyecto 2', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
-sp7=Sprint.create(:comentario	=> 'Sprint 3 de Proyecto 2', :fechainicio=> Date.parse("2012/7/14"), :fechafin=> Date.parse("2012/7/29"))
-sp8=Sprint.create(:comentario	=> 'Sprint 1 de Proyecto 3', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
-sp9=Sprint.create(:comentario	=> 'Sprint 2 de Proyecto 3', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
-sp10=Sprint.create(:comentario	=> 'Sprint 1 de Proyecto 4', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
-sp11=Sprint.create(:comentario	=> 'Sprint 2 de Proyecto 4', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
-sp12=Sprint.create(:comentario	=> 'Sprint 1 de Proyecto 5', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
-sp13=Sprint.create(:comentario	=> 'Sprint 2 de Proyecto 5', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
-sp14=Sprint.create(:comentario	=> 'Sprint 1 de Proyecto 6', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
-sp15=Sprint.create(:comentario	=> 'Sprint 2 de Proyecto 6', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
-sp16=Sprint.create(:comentario	=> 'Sprint 1 de Proyecto 7', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
-sp17=Sprint.create(:comentario	=> 'Sprint 2 de Proyecto 7', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
-sp18=Sprint.create(:comentario	=> 'Sprint 1 de Proyecto 8', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
-sp19=Sprint.create(:comentario	=> 'Sprint 2 de Proyecto 8', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
+sp1=Sprint.create(:comentario	=> 'Sprint 1 de S1,P1', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
+sp2=Sprint.create(:comentario	=> 'Sprint 2 de S1,P1', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
+sp3=Sprint.create(:comentario	=> 'Sprint 3 de S1,P1', :fechainicio=> Date.parse("2012/7/14"), :fechafin=> Date.parse("2012/7/29"))
+sp4=Sprint.create(:comentario	=> 'Sprint 4 de S2,P1', :fechainicio=> Date.parse("2012/7/30"), :fechafin=> Date.parse("2012/8/14"))
+sp5=Sprint.create(:comentario	=> 'Sprint 1 de S13,P2', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
+sp6=Sprint.create(:comentario	=> 'Sprint 2 de S13,P2', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
+sp7=Sprint.create(:comentario	=> 'Sprint 3 de S13,P2', :fechainicio=> Date.parse("2012/7/14"), :fechafin=> Date.parse("2012/7/29"))
+sp8=Sprint.create(:comentario	=> 'Sprint 1 de S25,P3', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
+sp9=Sprint.create(:comentario	=> 'Sprint 2 de S25,P3', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
+sp10=Sprint.create(:comentario	=> 'Sprint 1 de S32,P4', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
+sp11=Sprint.create(:comentario	=> 'Sprint 2 de S32,P4', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
+sp12=Sprint.create(:comentario	=> 'Sprint 1 de S42,P5', :fechainicio=> Date.parse("2012/6/12"), :fechafin=> Date.parse("2012/6/27"))
+sp13=Sprint.create(:comentario	=> 'Sprint 2 de S42,P5', :fechainicio=> Date.parse("2012/6/28"), :fechafin=> Date.parse("2012/7/13"))
+
 # . . .
 t1=Task.create(:descripcion => '	Tarea 1 de Story 1	', :estimadoinicial => '	10	', :status => '	No comenzada	', :story_id => '	1	', :student_id => '	1	')
 t2=Task.create(:descripcion => '	Tarea 2 de Story 1	', :estimadoinicial => '	20	', :status => '	Terminada		1	', :story_id => '	1	', :student_id => '	2	')
@@ -609,4 +604,51 @@ p7=Project.create(:nombre => 'Desarrollo de agentes inteligentes para la detecci
 p8=Project.create(:nombre => 'Propuesta de metricas de evaluacion de sistemas de software para sisteams industriales de gran escala', :descripcion => 'Descripcion del proyecto: Propuesta de metricas de evaluacion de sistemas de software para sisteams industriales de gran escala', :periodo => 'Ene-Mayo2011')
 p9=Project.create(:nombre => 'Analisis de estrategias para la competitividad en los equipos de trabajo dentro del ciclo de vidad del desarrollo de software', :descripcion => 'Descripcion del proyecto: Analisis de estrategias para la competitividad en los equipos de trabajo dentro del ciclo de vidad del desarrollo de software', :periodo => 'Ago-Dic2012')
 p10=Project.create(:nombre => 'Evaluacion del desempeno de dispositivos de redes de alta velocidad', :descripcion => 'Descripcion del proyecto: Evaluacion del desempeno de dispositivos de redes de alta velocidad', :periodo => 'Ago-Dic2012')
-
+# . . .TEAMS RELATIONS
+t1.project = p1
+p1.team = t1
+t2.project = p2
+p2.team = t2
+t3.project = p3
+p3.team = t3
+t4.project = p4
+p4.team = t4
+t5.project = p5
+p5.team = t5
+t6.project = p6
+p6.team = t6
+t7.project = p7
+p7.team = t7
+t8.project = p8
+p8.team = t8
+# . . .PROJECT RELATIONS
+p1.client = cl1
+p1.save
+p2.client = cl2
+p2.save
+p3.client = cl1
+p3.save
+p4.client = cl2
+p4.save
+p5.client = cl1
+p5.save
+p6.client = cl2
+p6.save
+p7.client = cl1
+p7.save
+p8.client = cl2
+p8.save
+# . . .SPRINTSTORIES
+sp1.stories	<<	st1
+sp2.stories 	<<	st1
+sp3.stories 	<<	st1
+sp4.stories 	<<	st2
+sp5.stories 	<<	st13
+sp6.stories 	<<	st13
+sp7.stories 	<<	st13
+sp8.stories 	<<	st25
+sp9.stories 	<<	st25
+sp10.stories 	<<	st32
+sp11.stories 	<<	st32
+sp12.stories 	<<	st42
+sp13.stories 	<<	st42

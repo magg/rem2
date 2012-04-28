@@ -1,6 +1,0 @@
-           <ul class="nav nav-list">
-              <li class="nav-header">Mis proyectos</li>
-              <li><a href="http://localhost:3000/es/alumno/stories">Product Backlog</a></li>
-	      <li><a href="#">Sprint Backlog</a></li>
-	      <li><a href="http://localhost:3000/es/alumno/tasks">Task Assignment</a></li>
-            </ul>

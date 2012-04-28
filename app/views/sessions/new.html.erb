@@ -1,6 +1,31 @@
 <% if flash[:alert] %>
 <p id="notice" ><%= flash[:alert] %></p>
 <% end %>
+<h2>Bienvenido a nuestro proyecto de administración </h2>
+</br></br></br>
+<div id="myCarousel" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="item active">
+                <%= image_tag("productbacklog.png") %>
+                <div class="carousel-caption">
+                  <h4>Product Backlog</h4>
+                  <p>Administra y lleva un registro eficiente de tus proyectos</p>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag("sprints.png") %>
+                <div class="carousel-caption">
+                  <h4>Sprints</h4>
+                  <p>Administra de manera eficiente tus Sprints</p>
+                </div>
+              </div>
+            </div>
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          </div>
+
+
+
 <div id="myModal" class="modal hide fade">
             <div class="modal-header">
               <a class="close" data-dismiss="modal" >&times;</a>
@@ -23,10 +48,10 @@
 			</div>
 			</div>
 
-			<p><%= link_to "forgotten password?", new_password_reset_path %></p>
+			<p><%= link_to "¿Olvidaste tu contraseña?", new_password_reset_path %></p>
 
 			<div class="control-group">
-			  <%= label_tag :remember_me %> 
+			  <%= label_tag :Recuerdame %> 
 			  <%= check_box_tag :remember_me, 1, params[:remember_me] %>
 
 			 <div class="controls">
@@ -34,7 +59,7 @@
 			</div>
             </div>
             <div class="modal-footer">
-              <a href="#" class="btn" data-dismiss="modal" >Close</a>
+              <a href="#" class="btn" data-dismiss="modal" >Cerrar</a>
 				<%= submit_tag "Iniciar sesión",:class => 'btn btn-info' %>
             </div>
 			<% end %>

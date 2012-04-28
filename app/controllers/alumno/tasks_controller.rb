@@ -1,10 +1,13 @@
 class Alumno::TasksController < ApplicationController
   before_filter :authorize_student
+  layout "student"
   # GET /tasks
   # GET /tasks.json
   def index
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team = Team.where(:id => @student.team_id).first
     @status_id = Status.where("descripcion = ?",'Listo')
-    @stories = Story.where("status_id != ?", @status_id);
+    @stories = Story.where("status_id != ? AND project_id = ?", @status_id,@team.project_id);
 
     respond_to do |format|
       format.html # index.html.erb
@@ -31,6 +34,9 @@ class Alumno::TasksController < ApplicationController
     @story = Story.find(params[:id])
     @stat = Status.where(:id => @story.status_id).first.descripcion
     @task = Task.new
+    
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team_id = @student.team_id    
     respond_to do |format|
       format.html # taskasign.html.erb
       format.json { render json: @task }
@@ -88,8 +94,8 @@ class Alumno::TasksController < ApplicationController
  protected
     def authorize_student
       #unless Usuario.find_by_id(session[:user_id])
-        admin = Usuario.find_by_auth_token( cookies[:auth_token])
-        if admin.tipo != "Alumno"
+        @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
+        if @session_student.tipo != "Student"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
     end

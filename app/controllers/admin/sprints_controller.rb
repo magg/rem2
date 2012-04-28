@@ -1,10 +1,11 @@
 class Admin::SprintsController < ApplicationController
   before_filter :authorize_admin
+  layout "admin"
   # GET /sprints
   # GET /sprints.json
   def index
-    @sprints = Sprint.all
-
+    @project_id = params[:project_id]
+    @sprints = Sprint.joins(:stories).where(:stories => {:project_id => @project_id})
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sprints }
@@ -15,9 +16,10 @@ class Admin::SprintsController < ApplicationController
   # GET /sprints/1.json
   def show
    @sprint = Sprint.find(params[:id])
-   @stat = Status.find(5)
+   @stat = Status.find(4)
    @stories = Story.where("status_id = ?", @stat.id)
    @examples = @sprint.stories 
+   @project_id = @examples.first.project_id
 
     respond_to do |format|
       format.html # show.html.erb
@@ -88,8 +90,9 @@ class Admin::SprintsController < ApplicationController
   protected
      def authorize_admin
        #unless Usuario.find_by_id(session[:user_id])
-         admin = Usuario.find_by_auth_token( cookies[:auth_token])
-         if admin.tipo != "Admin"
+         @projects = Project.all
+         @session_admin = Usuario.find_by_auth_token( cookies[:auth_token])
+         if @session_admin.tipo != "Admin"
            redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
          end
      end

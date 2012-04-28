@@ -1,5 +1,6 @@
 class Cliente::ClientsController < ApplicationController
   before_filter :authorize_client
+  layout "client"
   # GET /clients
   # GET /clients.json
   def index
@@ -47,9 +48,11 @@ class Cliente::ClientsController < ApplicationController
  protected
     def authorize_client
       #unless Usuario.find_by_id(session[:user_id])
-        admin = Usuario.find_by_auth_token( cookies[:auth_token])
-        if admin.tipo != "Client"
+        @session_client = Usuario.find_by_auth_token( cookies[:auth_token])
+        if @session_client.tipo != "Client"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
+        @client = Client.where(:usuario_id => @session_client.id).first
+        @projects = Project.where(:client_id => @client.id)
     end
 end

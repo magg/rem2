@@ -12,7 +12,7 @@
 <input type="hidden" value="<%= @team.id %>" name="team_id" />
 <% @students.each do |student| %>
   <tr>
-    <td style="text-align:center;"><%= student.nombre + " " + student.appat %></td>
+    <td style="text-align:center;"><%= student.nombre %></td>
     <td style="text-align:center;"><%= student.rol %></td>
     <td><%= check_box_tag('student[]', student.id, false) %></td>
   </tr>

@@ -12,7 +12,7 @@
 <tbody>
 <% @students.each do |student| %>
   <tr>
-    <td style="text-align:center;"><%= student.nombre + " " + student.appat + " " + student.apmat %></td>
+    <td style="text-align:center;"><%= student.nombre %></td>
     <td style="text-align:center;"><%= student.rol %></td>
     <td style="text-align:center;"><%= student.usuario.username %></td>
      <td ><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_admin_student_path(student), :class => 'btn btn-info' %></td>

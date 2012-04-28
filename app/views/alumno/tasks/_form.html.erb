@@ -31,7 +31,7 @@
   <div class="control-group">
     <%= f.label :Responsable %>
   <div class="controls">
-    <%= select("task", "student_id", Student.all.collect {|p| [ p.nombre, p.id ] })%>
+    <%= select("task", "student_id", Student.where(:team_id => @team_id).collect {|p| [ p.nombre, p.id ] })%>
   </div></div>
   <div class="controls">
 <%= link_to_function "Asignar",

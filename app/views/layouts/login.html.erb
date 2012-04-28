@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REM2</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+    <style type="text/css">
+      body {
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+	width:170px;
+      }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">REM2</a>
+          <div class="nav-collapse">
+		<p class="pull-right">
+
+			<a data-toggle="modal" href="#myModal" class="btn btn-primary">Iniciar Sesión</a>
+
+		</p>
+          </div><!--/.nav-collapse -->
+
+        </div>
+      </div>
+    </div>
+<div id="layout">
+		<div class="span9">
+		  <div class="hero-unit" style="width:1050px;">
+		<%= yield %>
+		  </div>
+		  </div>
+</div>
+<%= javascript_include_tag 'bootstrap-collapse' %>
+<%= javascript_include_tag 'bootstrap-modal' %>
+<%= javascript_include_tag 'bootstrap-transition' %>
+<%= javascript_include_tag 'bootstrap-dropdown' %>
+<%= javascript_include_tag 'bootstrap-carousel' %>
+</body>
+</html>

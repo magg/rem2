@@ -3,15 +3,13 @@
 <thead>
     <tr>
     <th style="text-align:center;">Nombre</th>
-    <th style="text-align:center;">Proyecto</th>
     <th></th>
   </tr>
 </thead>
 <tbody>
 <% @clients.each do |client| %>
   <tr>
-    <td style="text-align:center;"><%= client.nombre + " " + client.appat + " " + client.apmat %></td>
-    <td style="text-align:center;"></td>
+    <td style="text-align:center;"><%= client.nombre %></td>
 	<% if @id == client.usuario_id %>
     <td width="75"><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_cliente_client_path(client), :class => 'btn btn-info' %></td>
 		<% else %>

@@ -1,10 +1,16 @@
 class Cliente::StoriesController < ApplicationController
   before_filter :authorize_client
+  layout "client"
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
-
+    @project_id = params[:project_id]
+    if params[:project_id] == nil
+      @first_project = @projects.first
+      @stories = Story.where(:project_id => @first_project.id)
+    else
+    @stories = Story.where(:project_id => @project_id)
+  end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }
@@ -90,9 +96,11 @@ class Cliente::StoriesController < ApplicationController
  protected
     def authorize_client
       #unless Usuario.find_by_id(session[:user_id])
-        admin = Usuario.find_by_auth_token( cookies[:auth_token])
-        if admin.tipo != "Client"
+        @session_client = Usuario.find_by_auth_token( cookies[:auth_token])
+        if @session_client.tipo != "Client"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
+        @client = Client.where(:usuario_id => @session_client.id).first
+        @projects = Project.where(:client_id => @client.id)
     end
 end

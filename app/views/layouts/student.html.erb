@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REM2</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <style type="text/css">
+    body {
+      padding-bottom: 40px;
+    }
+    .sidebar-nav {
+      padding: 9px 0;
+    }
+  </style>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">REM2</a>
+			<div class="btn-group pull-right" style="padding-right:80px;">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="icon-user"></i> <%= @session_student.username %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%=link_to 'Logout'.html_safe, logout_path, :method => :delete%></li>
+            </ul>
+          </div>
+
+          <div class="nav-collapse">
+            <ul class="nav">
+
+              <li><a href="#">Administrar Proyecto</a></li>
+              <li><a href="#">Reportes</a></li>
+            </ul>
+
+
+          </div><!--/.nav-collapse -->
+
+        </div>
+      </div>
+    </div>
+<div id="layout">
+	<div class="span3" style="width:200px;">
+	  <div class="well sidebar-nav">
+           <ul class="nav nav-list">
+              <li class="nav-header">Mi proyecto</li>
+              <li><%=link_to "Product Backlog", :controller => "stories", :action => "index"%></li>
+	      <li><%=link_to "Sprint Backlog", :controller => "sprints", :action => "index"%></li>
+	      <li><%=link_to "Task Assignment", :controller => "tasks", :action => "index"%></li>
+            </ul>
+	</div>
+	</div>
+		<div class="span9">
+		  <div class="hero-unit" style="width:800px;">
+		<%= yield %>
+		  </div>
+		  </div>
+</div>
+<%= javascript_include_tag 'bootstrap-collapse' %>
+<%= javascript_include_tag 'bootstrap-modal' %>
+<%= javascript_include_tag 'bootstrap-transition' %>
+<%= javascript_include_tag 'bootstrap-dropdown' %>
+</body>
+</html>

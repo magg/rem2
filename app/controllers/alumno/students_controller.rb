@@ -1,5 +1,6 @@
 class Alumno::StudentsController < ApplicationController
   before_filter :authorize_student
+  layout "student"
   # GET /students
   # GET /students.json
   def index
@@ -50,8 +51,8 @@ class Alumno::StudentsController < ApplicationController
  protected
     def authorize_student
       #unless Usuario.find_by_id(session[:user_id])
-        admin = Usuario.find_by_auth_token( cookies[:auth_token])
-        if admin.tipo != "Student"
+        @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
+        if @session_student.tipo != "Student"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
     end

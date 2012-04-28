@@ -1,17 +1,18 @@
 class Admin::StoriesController < ApplicationController
   before_filter :authorize_admin
-  
+  layout "admin"
   # GET /stories
   # GET /stories.json
   def index
+    @project_id = params[:project_id]
     if params[:status] == nil
-      @stories = Story.all
+      @stories = Story.where(:project_id => @project_id)
     else
 	if params[:status][:id]==""
-	  @stories = Story.all
+	  @stories = Story.where(:project_id => @project_id)
 	else
 	  @statusid = params[:status][:id]
-          @stories = Story.where(:status_id => params[:status][:id])
+          @stories = Story.where("status_id = ? AND project_id = ?", params[:status][:id], @project_id)
 	  @statusid = params[:status][:id]
         end
     end
@@ -40,8 +41,9 @@ class Admin::StoriesController < ApplicationController
   protected
      def authorize_admin
        #unless Usuario.find_by_id(session[:user_id])
-         admin = Usuario.find_by_auth_token( cookies[:auth_token])
-         if admin.tipo != "Admin"
+         @projects = Project.all
+         @session_admin = Usuario.find_by_auth_token( cookies[:auth_token])
+         if @session_admin.tipo != "Admin"
            redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
          end
      end

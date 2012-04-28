@@ -1,11 +1,15 @@
 class Alumno::SprintsController < ApplicationController
   before_filter :authorize_student
+  layout "student"
   
   # GET /sprints
   # GET /sprints.json
   def index
     @sprints = Sprint.all
-
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team = Team.where(:id => @student.team_id).first
+    @sprints = Sprint.joins(:stories).where(:stories => {:project_id => @team.project_id})
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sprints }
@@ -16,7 +20,7 @@ class Alumno::SprintsController < ApplicationController
   # GET /sprints/1.json
   def show
    @sprint = Sprint.find(params[:id])
-   @stat = Status.find(5)
+   @stat = Status.find(4)
    @stories = Story.where("status_id = ?", @stat.id)
    @examples = @sprint.stories 
 
@@ -81,7 +85,7 @@ class Alumno::SprintsController < ApplicationController
     @sprint = Sprint.find(params[:id])
     @stories = @sprint.stories
     @stories.each do |story|
-      story.update_attributes(:status_id => 5)
+      story.update_attribute(:status_id , 4)
     end
     @sprint.destroy
 
@@ -97,7 +101,7 @@ class Alumno::SprintsController < ApplicationController
     @sprint.stories << @stories
     @notice = 'El Sprint se actualizo correctamente.'
     @stories.each do |story|
-      story.update_attributes(:status_id => 2)
+      story.update_attribute(:status_id , 2)
     end
     
     respond_to do |format|
@@ -109,8 +113,8 @@ class Alumno::SprintsController < ApplicationController
  protected
     def authorize_student
       #unless Usuario.find_by_id(session[:user_id])
-        admin = Usuario.find_by_auth_token( cookies[:auth_token])
-        if admin.tipo != "Student"
+        @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
+        if @session_student.tipo != "Student"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
     end
