@@ -1,5 +1,6 @@
 <h1 align="center">PRODUCT BACKLOG</h1>
 </br>
+<% if  @team != nil %>
 <table class="table table-striped table-bordered table-condensed" style="table-layout:fixed;word-wrap:break-word;">
 <thead>
   <tr>
@@ -34,3 +35,6 @@
 <br />
 
 <%= link_to '<i class="icon-pencil icon-white"></i> Agregar Story'.html_safe, new_alumno_story_path, :class => 'btn btn-info' %>
+<% else %>
+<h2>Todavía no tienes un equipo asignado</h2>
+<% end %>

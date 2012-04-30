@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bootstrap-sass'
 gem 'rails', '3.2.2'
-
+gem "prawn", "~> 0.12.0"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
