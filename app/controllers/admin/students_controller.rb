@@ -102,7 +102,7 @@ class Admin::StudentsController < ApplicationController
        @parsed_file=CSV.parse(data)
        n=0
        @parsed_file.each  do |row|
-       stu = Student.new(:nombre => row[0], :rol => 'Desarrollador')
+       stu = Student.new(:nombre => row[0])
        user = Usuario.new(:username => row[1], :password => row[1], :tipo => 'Student', :email => row[2])
        stu.usuario = user       
        if stu.save
