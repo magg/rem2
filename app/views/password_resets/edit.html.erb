@@ -6,19 +6,23 @@
       <h2>Form is invalid</h2>
       <ul>
         <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
+          <li><%= raw message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= f.label :password %>
+  <div class="control-group">
+    <%= f.label :password, :class=>"control-label" %>
+   <div class="controls">
     <%= f.password_field :password %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
+</div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class=>"control-label" %>
+   <div class="controls">
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="actions"><%= f.submit "Update Password" %></div>
+</div>
+  <div class="actions"><%= f.submit "Update Password",:class => 'btn btn-primary' %></div>
 <% end %>
 

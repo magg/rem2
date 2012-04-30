@@ -30,6 +30,14 @@
     <%= f.select :client_id, Client.all.collect {|p| [ p.nombre, p.id ] }  %>
   </div>
 </div>
+<%= f.fields_for :team do |ef| %>
+  <div class="control-group">
+    <%= ef.label :Equipo, :class=>"control-label" %>
+   <div class="controls">
+	<%= ef.select :team_id, Team.all.collect {|p| [ p.nombre, p.id ] }  %>
+  </div>
+</div>
+<% end %>
  <div class="form-actions">
 <%= link_to 'Cancelar'.html_safe, admin_projects_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",

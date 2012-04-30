@@ -1,3 +1,7 @@
+<% o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten  
+   string  =  (0..50).map{ o[rand(o.length)]  }.join
+%>
+
 <%= form_for([:admin, @student],:html => { :class => "form-horizontal"}) do |f| %>
   <% if @student.errors.any? %>
     <div id="error_explanation">
@@ -30,17 +34,13 @@
     <%= ef.text_field :username %>
   </div>
 </div>
-  <div class="control-group">
-    <%= ef.label :password, :class=>"control-label" %>
-   <div class="controls">
-    <%= ef.password_field :password %>
-  </div>
-</div>
-  <div class="control-group">
-    <%= ef.label :password_confirmation, :class=>"control-label" %>
-   <div class="controls">
-    <%= ef.password_field :password_confirmation %>
+<div class="control-group">
+   <%= ef.label :email, :class=>"control-label" %>
+  <div class="controls">
+   <%= ef.text_field :email %>
     <%= ef.hidden_field :tipo , :value =>"Student"  %>
+	<%= ef.hidden_field :password, :value => string %>
+	<%= ef.hidden_field :password_confirmation, :value => string %>
   </div>
 </div>
 <%- end %>

@@ -50,6 +50,7 @@ class Admin::ClientsController < ApplicationController
     
     respond_to do |format|
       if @client.save
+        UserMailer.password_sent(params[:client][:usuario_attributes][:password],params[:client][:usuario_attributes][:username],params[:client][:usuario_attributes][:email]).deliver
         format.html { redirect_to [:admin, @client], notice: 'Client was successfully created.' }
         format.json { render json: @client, status: :created, location: @client }
       else
@@ -65,7 +66,8 @@ class Admin::ClientsController < ApplicationController
     @client = Client.find(params[:id])
 
     respond_to do |format|
-      if @client.update_attributes(params[:client])
+      if @client.update_attributes(params[:client]) and 
+        @client.usuario.update_attributes(params[:client][:usuario_attributes])
         format.html { redirect_to [:admin, @client], notice: 'Client was successfully updated.' }
         format.json { head :no_content }
       else

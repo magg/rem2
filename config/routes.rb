@@ -14,26 +14,27 @@ namespace :admin do
   resources :statuses
   resources :tasks
   resources :workdetails
-  resources :students
+  resources :students do
+    collection do
+      get :upload
+      post :csv_import
+    end
+  end 
   resources :criterios
   resources :sprints
-  resources :sprintstories
-  resources :projects do
+  resources :graphics
+  resources :projects
+  resources :teams do
     collection do
-      post :assignteam
+      get 'teamassign'
+    end
+    collection do
+      post :assignmember
+    end
+  collection do
+      post :unassignmember
     end
   end
-  resources :teams do
-  collection do
-    get 'teamassign'
-  end
-  collection do
-    post :assignmember
-  end
-  collection do
-    post :unassignmember
-  end
-end
   resources :usuarios
   resources :clients
   resources :admins

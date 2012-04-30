@@ -1,11 +1,15 @@
+<% o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten  
+   string  =  (0..50).map{ o[rand(o.length)]  }.join
+%>
 <%= form_for([:admin, @client],:html => { :class => "form-horizontal"}) do |f| %>
   <% if @client.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@client.errors.count, "error") %> prohibited this client from being saved:</h2>
+     <h2><%= t('errors.template.header', :count=>@client.errors.size,
+		:model=>t('activerecord.models.client')) %>.</h2> <p><%= t('errors.template.body') %></p>
 
       <ul>
       <% @client.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><%= raw msg %></li>
       <% end %>
       </ul>
     </div>
@@ -24,17 +28,13 @@
     <%= ef.text_field :username %>
   </div>
 </div>
-  <div class="control-group">
-    <%= ef.label :password, :class=>"control-label" %>
-   <div class="controls">
-    <%= ef.password_field :password %>
-  </div>
-</div>
-  <div class="control-group">
-    <%= ef.label :password_confirmation, :class=>"control-label" %>
-   <div class="controls">
-    <%= ef.password_field :password_confirmation %>
+<div class="control-group">
+   <%= ef.label :email, :class=>"control-label" %>
+  <div class="controls">
+   <%= ef.text_field :email %>
     <%= ef.hidden_field :tipo , :value =>"Client"  %>
+	<%= ef.hidden_field :password, :value => string %>
+	<%= ef.hidden_field :password_confirmation, :value => string %>
   </div>
 </div>
 <% end %>

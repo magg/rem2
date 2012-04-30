@@ -6,7 +6,7 @@ class Usuario < ActiveRecord::Base
   validates :email, :presence => true, :uniqueness => true
   has_secure_password
   attr_accessible :username, :password, :password_confirmation, :tipo, :email
-  validates_presence_of :password, :on => :create, :on => :update
+  validates_presence_of :password, :on => :create
   before_create { generate_token(:auth_token) }
 
   def generate_token(column)
@@ -19,11 +19,10 @@ class Usuario < ActiveRecord::Base
     find_by_username(username).try(:authenticate, password)
   end
   
-    def send_password_reset
-     generate_token(:password_reset_token)
-     self.password_reset_sent_at = Time.zone.now
-      save!
-     UserMailer.password_reset(self).deliver
-    end
-    
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    UserMailer.password_reset(self).deliver
+  end    
 end

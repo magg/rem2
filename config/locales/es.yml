@@ -85,17 +85,20 @@ es:
       student:
           appat: "Apellido paterno"
           apmat: "Apellido materno"
+          nombre: "Nombre completo"
       admin:
           appat: "Apellido paterno"
           apmat: "Apellido materno"
           nombre: "Nombre completo"
       client:
-        appat: "Apellido paterno"
-        apmat: "Apellido materno"
+          appat: "Apellido paterno"
+          apmat: "Apellido materno"
+          nombre: "Nombre completo"
+          password_confirmation: "Confirmación de password"
       usuario:
           password: "Password"
           username: "Usuario"
-          password_digest: "Confirmación de password"
+          password_confirmation: "Confirmación de password"
 #END:errors
 #END:model
 #START:errors
@@ -105,6 +108,7 @@ es:
         blank:     "no puede quedar en blanco"
         not_a_number: "no es un número"
         too_short: "es muy corto"
+        invalid: "inválido"
   errors:
     template:
       body:        "Hay problemas con los siguientes campos:"

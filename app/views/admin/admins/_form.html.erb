@@ -9,11 +9,12 @@
 		:model=>t('activerecord.models.admin')) %>.</h2> <p><%= t('errors.template.body') %></p>
       <ul>
       <% @admin.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <li><%= raw msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
+<br />
   <div class="control-group">
     <%= f.label :nombre, :class=>"control-label" %>
    <div class="controls">
@@ -34,8 +35,6 @@
     <%= ef.hidden_field :tipo , :value =>"Admin"  %>
 	<%= ef.hidden_field :password, :value => string %>
 	<%= ef.hidden_field :password_confirmation, :value => string %>
-    
-
   </div>
 </div>
 <%- end %>
