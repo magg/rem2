@@ -1,7 +1,7 @@
 <%= form_for([:cliente, @client],:html => { :class => "form-horizontal"}) do |f| %>
   <% if @client.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t('errors.template.header', :count=>@clients.errors.size,
+      <h2><%= t('errors.template.header', :count=>@client.errors.size,
         :model=>t('activerecord.models.client')) %>.</h2>
       <p><%= t('errors.template.body') %></p>
       <ul>
@@ -11,18 +11,39 @@
       </ul>
     </div>
   <% end %>
- <div class="field">
-    <%= f.label :nombre %><br />
+<br />
+  <div class="control-group">
+    <%= f.label :nombre, :class=>"control-label" %>
+   <div class="controls">
     <%= f.text_field :nombre %>
   </div>
-  <div class="field">
-    <%= f.label :appat %><br />
-    <%= f.text_field :appat %>
   </div>
-  <div class="field">
-    <%= f.label :apmat %><br />
-    <%= f.text_field :apmat %>
+<%= f.fields_for :usuario do |ef| %>
+  <div class="control-group">
+    <%= ef.label :Usuario, :class=>"control-label" %>
+   <div class="controls">
+    <%= ef.text_field :username %>
   </div>
+</div>
+  <div class="control-group">
+    <%= ef.label :password, :class=>"control-label" %>
+   <div class="controls">
+    <%= ef.password_field :password %>
+  </div>
+</div>
+  <div class="control-group">
+    <%= ef.label :password_confirmation, :class=>"control-label" %>
+   <div class="controls">
+    <%= ef.password_field :password_confirmation %>
+  </div>
+</div>
+<div class="control-group">
+    <%= ef.label :email, :class=>"control-label" %>
+   <div class="controls">
+    <%= ef.text_field :email %>
+  </div>
+</div>
+<%- end %>
 <div class="form-actions">
 <%= link_to 'Cancelar'.html_safe, cliente_clients_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",

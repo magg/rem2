@@ -49,4 +49,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'therubyracer'
 gem 'execjs'
 
+gem 'google_visualr', '>= 2.1'
+
 

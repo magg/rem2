@@ -1,0 +1,22 @@
+<h1>Reporte de Proyectos</h1>
+<br />
+<%
+i=0 
+tot = @charts.length
+tot.times do	 
+%>
+<div id=<%= 'chart' + i.to_s %>> </div> <br />
+<% i+=1 %>
+<% end %>
+
+<%
+j=0 
+tot = @charts.length
+tot.times do	 
+%>
+
+<%= render_chart @charts[j], 'chart'+j.to_s %>
+<% j+=1 %>
+<% end %>
+
+

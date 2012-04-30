@@ -43,13 +43,12 @@ class Admin::AdminsController < ApplicationController
   # POST /admins
   # POST /admins.json
   def create
-    UserMailer.password_sent(params[:admin][:usuario_attributes][:password],params[:admin][:usuario_attributes][:username],params[:admin][:usuario_attributes][:email]).deliver
     @usuario = Usuario.new(params[:admin][:usuario_attributes])
     @admin = Admin.new(params[:admin])
     @admin.usuario = @usuario
-
     respond_to do |format|
       if @admin.save
+        UserMailer.password_sent(params[:admin][:usuario_attributes][:password],params[:admin][:usuario_attributes][:username],params[:admin][:usuario_attributes][:email]).deliver
         format.html { redirect_to [:admin, @admin], notice: 'Admin was successfully created.' }
         format.json { render json: @admin, status: :created, location: @admin }
       else

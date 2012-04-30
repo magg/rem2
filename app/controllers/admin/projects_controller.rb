@@ -46,7 +46,7 @@ class Admin::ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to [:admin, @project], notice: 'Project was successfully created.' }
+        format.html { redirect_to admin_projects_url, notice: 'Project was successfully created.' }
         format.json { render json: @project, status: :created, location: @project }
       else
         format.html { render action: "new" }
@@ -58,11 +58,16 @@ class Admin::ProjectsController < ApplicationController
   # PUT /projects/1
   # PUT /projects/1.json
   def update
+    t = params[:project][:team]
+    team_id = t[:team_id]
+    @team = Team.find(team_id)
     @project = Project.find(params[:id])
+    params[:project].delete :team
 
     respond_to do |format|
-      if @project.update_attributes(params[:project])
-        format.html { redirect_to [:admin, @project], notice: 'Project was successfully updated.' }
+      if @project.update_attributes(params[:project]) and 
+        @team.update_attribute(:project_id,@project.id)
+        format.html { redirect_to admin_projects_url, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

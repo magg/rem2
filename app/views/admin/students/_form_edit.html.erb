@@ -1,7 +1,7 @@
 <%= form_for([:admin, @student],:html => { :class => "form-horizontal"}) do |f| %>
   <% if @student.errors.any? %>
     <div id="error_explanation">
-      <h2><%= t('errors.template.header', :count=>@students.errors.size,
+      <h2><%= t('errors.template.header', :count=>@student.errors.size,
         :model=>t('activerecord.models.student')) %>.</h2>
       <p><%= t('errors.template.body') %></p>
       <ul>
@@ -42,7 +42,12 @@
     <%= ef.label :password_confirmation, :class=>"control-label" %>
    <div class="controls">
     <%= ef.password_field :password_confirmation %>
-    <%= ef.hidden_field :tipo , :value =>"Student"  %>
+  </div>
+</div>
+<div class="control-group">
+    <%= ef.label :email, :class=>"control-label" %>
+   <div class="controls">
+    <%= ef.text_field :email %>
   </div>
 </div>
 <%- end %>
