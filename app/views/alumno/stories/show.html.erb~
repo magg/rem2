@@ -77,8 +77,8 @@
 <thead>
   <tr>
     <th style="text-align:center">Descripción</th>
-    <th style="width:75px"></th>
-    <th style="width:87px"></th>
+    <th style="width:85px"></th>
+    <th style="width:97px"></th>
   </tr>
 </thead>
 <tbody>
@@ -99,22 +99,23 @@
 		</h3>
 	</div>
 </br>
-<table class="table table-striped table-bordered table-condensed" style="width:800px;table-layout:fixed;word-wrap:break-word;">
+<table class="table table-striped table-bordered table-condensed" style="width:700px;table-layout:fixed;word-wrap:break-word;">
 <thead>
   <tr>
     <th style="text-align:center">Descripción</th>
-    <th style="text-align:center">Estimado Inicial</th>
+    <th style="text-align:center;width:80px;">Estimado Inicial</th>
     <th style="text-align:center">Estatus</th>
     <th style="text-align:center">Responsable</th>
 <% if  @stat != 'Listo' %>
-    <th style="width:75px"></th>
-    <th style="width:87px"></th>
+    <th style="width:85px"></th>
+    <th style="width:97px"></th>
 <% end %>
   </tr>
 </thead>
 <tbody>
 <% @tasks.each do |task| %>
   <tr>
+    <td><%= link_to task.descripcion%></td>
     <td><%= task.descripcion %></td>
     <td style="text-align:center"><%= task.estimadoinicial %></td>
     <td style="text-align:center"><%= task.status %></td>
@@ -134,4 +135,4 @@
 <div class="form-actions">
 <%= link_to '<i class="icon-chevron-left"></i> Volver al Product Backlog'.html_safe, alumno_stories_path, :class => 'btn btn-info' %>
 </div>
-
+</div>

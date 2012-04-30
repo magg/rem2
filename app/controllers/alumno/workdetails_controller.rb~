@@ -1,8 +1,10 @@
 class Alumno::WorkdetailsController < ApplicationController
+  before_filter :authorize_student
+  layout "student"
   # GET /workdetails
   # GET /workdetails.json
   def index
-    @workdetails = Workdetail.all
+     @workdetails = Workdetail.where("task_id = ?", params[:id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,11 +15,12 @@ class Alumno::WorkdetailsController < ApplicationController
   # GET /workdetails/1
   # GET /workdetails/1.json
   def show
-    @workdetail = Workdetail.find(params[:id])
+    @workdetails = Workdetail.where("task_id = ?", params[:id])
+
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @workdetail }
+      format.json { render json: @workdetails }
     end
   end
 
@@ -25,6 +28,7 @@ class Alumno::WorkdetailsController < ApplicationController
   # GET /workdetails/new.json
   def new
     @workdetail = Workdetail.new
+    @task_id = params[:task_id]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -76,8 +80,16 @@ class Alumno::WorkdetailsController < ApplicationController
     @workdetail.destroy
 
     respond_to do |format|
-      format.html { redirect_to workdetails_url }
+      format.html { redirect_to alumno_workdetails_url }
       format.json { head :no_content }
     end
   end
+ protected
+    def authorize_student
+      #unless Usuario.find_by_id(session[:user_id])
+        @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
+        if @session_student.tipo != "Student"
+          redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
+        end
+    end
 end
