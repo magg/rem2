@@ -2,7 +2,6 @@
   <% if @workdetail.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@workdetail.errors.count, "error") %> prohibited this workdetail from being saved:</h2>
-
       <ul>
       <% @workdetail.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,7 +9,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :task_id %><br />
     <%= f.number_field :task_id %>
@@ -24,9 +22,10 @@
     <%= f.number_field :hrsporterminar %>
   </div>
   <div class="form-actions">
-<%= link_to 'Cancelar'.html_safe, alumno_stories_path, :class => 'btn btn-danger' %>
+    <%= f.hidden_field :task_id,:value=> @task_id %>
+<%= link_to 'Cancelar'.html_safe, alumno_workdetails_path, :class => 'btn btn-danger' %>
 <%= link_to_function "Guardar",
-"javascript:document.getElementById(\"new_story\").submit(); return
+"javascript:document.getElementById(\"new_workdetail\").submit(); return
 false",:class => 'btn btn-primary' %>
   </div>
 

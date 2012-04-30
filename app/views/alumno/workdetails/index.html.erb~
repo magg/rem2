@@ -1,27 +1,29 @@
-<h1>Listing workdetails</h1>
-
-<table>
+<h1 align="center">REGISTRO DE TAREAS</h1>
+</br>
+<table class="table table-striped table-bordered table-condensed" style="table-layout:fixed;word-wrap:break-word;">
+<thead>
   <tr>
-    <th>Task</th>
-    <th>Hrstrabajadas</th>
-    <th>Hrsporterminar</th>
+    <th style="text-align:center;">Tarea</th>
+    <th style="text-align:center;">Horas Trabajadas</th>
+    <th style="text-align:center;">Horas Restantes Estimadas</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+</thead>
+<tbody>
 <% @workdetails.each do |workdetail| %>
   <tr>
-    <td><%= workdetail.task_id %></td>
-    <td><%= workdetail.hrstrabajadas %></td>
-    <td><%= workdetail.hrsporterminar %></td>
-    <td><%= link_to 'Show', workdetail %></td>
-    <td><%= link_to 'Edit', edit_workdetail_path(workdetail) %></td>
-    <td><%= link_to 'Destroy', workdetail, confirm: 'Are you sure?', method: :delete %></td>
+    <td style="text-align:center;"><%= workdetail.task_id %></td>
+    <td style="text-align:center;"><%= workdetail.hrstrabajadas %></td>
+   <td style="text-align:center;"><%= workdetail.hrsporterminar %></td>
+    <td><%= link_to '<i class="icon-edit icon-white"></i> Editar'.html_safe, edit_alumno_workdetail_path(workdetail), :class => 'btn btn-info' %></td>
+    <td><%= link_to '<i class="icon-trash icon-white"></i> Eliminar'.html_safe, alumno_workdetail_path(workdetail), confirm: "¿Desea eliminar: #{workdetail.task_id}?", method: :delete, :class => 'btn btn-danger' %></td>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
 
-<%= link_to 'New Workdetail', new_alumno_workdetail_path %>
+<%= link_to '<i class="icon-pencil icon-white"></i> Agregar Story'.html_safe, new_alumno_workdetail_path, :class => 'btn btn-info' %>
