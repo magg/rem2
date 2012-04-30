@@ -48,6 +48,17 @@ namespace :cliente do
 end
 
 namespace :alumno do
+  resources :reports do
+  collection do
+    get 'productbacklog'
+  end
+  collection do
+    get 'criterios'
+  end
+collection do
+    get 'sprints'
+  end
+end
   resources :stories
   resources :students
   resources :tasks do

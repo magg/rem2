@@ -4,9 +4,10 @@ class Alumno::StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @student = Student.where(:usuario_id => @session_student.id).first
-    @team = Team.where(:id => @student.team_id).first
+    if @team == nil
+    else
     @stories = Story.where(:project_id => @team.project_id)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }
@@ -95,6 +96,8 @@ class Alumno::StoriesController < ApplicationController
     def authorize_student
       #unless Usuario.find_by_id(session[:user_id])
         @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
+        @student = Student.where(:usuario_id => @session_student.id).first
+        @team = Team.where(:id => @student.team_id).first
         if @session_student.tipo != "Student"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end

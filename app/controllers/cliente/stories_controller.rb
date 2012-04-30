@@ -4,6 +4,8 @@ class Cliente::StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
+    if(@projects.count > 0)
+    
     @project_id = params[:project_id]
     if params[:project_id] == nil
       @first_project = @projects.first
@@ -11,6 +13,7 @@ class Cliente::StoriesController < ApplicationController
     else
     @stories = Story.where(:project_id => @project_id)
   end
+end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stories }

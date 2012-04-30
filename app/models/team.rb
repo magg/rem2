@@ -3,5 +3,5 @@ class Team < ActiveRecord::Base
 	belongs_to :project
  	validates :nombre, :presence => true
  	validates :project_id, :uniqueness => true
- 	attr_accessible :project_id 
+ 	attr_accessible :project_id, :nombre 
 end
