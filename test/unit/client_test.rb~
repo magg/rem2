@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class AdminTest < ActiveSupport::TestCase
-test "admin form" do
-product = Admin.new
+class ClientTest < ActiveSupport::TestCase
+ test "Client form" do
+product = Product.new
 assert product.invalid?
 assert product.errors[:nombre].any?
 end

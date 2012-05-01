@@ -1,11 +1,12 @@
 require 'test_helper'
 class UsuarioTest < ActiveSupport::TestCase
+test "product attributes must not be empty" do
+product = Usuario.new
+assert product.invalid?
+assert product.errors[:username].any?
+assert product.errors[:password].any?
+assert product.errors[:tipo].any?
+assert product.errors[:email].any?
+end
 
-test "usuario attributes must not be empty" do
-	usuario = Usuario.new
-	assert usuario.invalid?
-	assert usuario.errors[:username].any?
-	assert usuario.errors[:password].any?
-	assert usuario.errors[:email].any?
-	end
 end

@@ -5,7 +5,7 @@ test "student form" do
 	user=Usuario.new(:username => 'student01', :password => 'student01', :tipo => 'Student', :email => 'student01@mail.com')
 	student= Student.new(:nombre => 'AVILA TELLO, MARTA', :rol => 'Desarrollador')
 	student.usuario=user
-	assert student.valid?
+	assert product.valid?
 
 end
 end

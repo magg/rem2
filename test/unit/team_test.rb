@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class TeamTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "team form" do
+product = Team.new
+assert product.invalid?
+assert product.errors[:nombre].any?
+end
+
 end
