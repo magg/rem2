@@ -40,14 +40,13 @@
 
           <div class="nav-collapse">
             <ul class="nav">
-
-              <li><a href="#">Administrar Proyecto</a></li>
 			    <li class="dropdown">
 			      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Reportes <b class="caret"></b></a>
 			      <ul id="menu1" class="dropdown-menu">
 			        <li><%= link_to "Product Backlog", :controller => "reports", :action => "productbacklog" %></li>
 			        <li><%= link_to "Sprint Backlog", :controller => "reports", :action => "sprints" %></li>
 			        <li><%= link_to "Criterios de aceptación", :controller => "reports", :action => "criterios" %></li>
+					<li><%= link_to "Burndown chart", :controller => "graphics", :action => "index" %></li>
 			      </ul>
 			    </li>           
 			 </ul>
