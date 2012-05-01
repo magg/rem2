@@ -16,7 +16,6 @@ class Alumno::GraphicsController < ApplicationController
         @tasks = Task.where(:story_id => s.id)
         @tasks.each do |t|
           task += t.estimadoinicial
-          @works = Workdetail.where(:task_id => t.id)
         end
       end
       
@@ -26,23 +25,45 @@ class Alumno::GraphicsController < ApplicationController
        data_table.new_column('number', 'Trabajo remanente')
        data_table.add_rows(@as.length)
        i=0
-       
-       tot =  task / Float(@as.length)
-       @var = date2
+       work=0
+       workt=0
+       diff=0
+       tot =  task / Float(@as.length-1)       
        last=@as.last
        @as.each do |a|
-       data_table.set_cell(i, 0, a.to_s)
-       if i == 0 
-        data_table.set_cell(i, 1, task)
-       elsif a == last 
-        data_table.set_cell(i, 1, 0)
-       else    
-        data_table.set_cell(i, 1, task-=tot)
-       end
+         
+         @stories.each do |s|
+           @tasks = Task.where(:story_id => s.id)
+           @tasks.each do |t|
+             @works = Workdetail.where("task_id = ? AND fecha = ?", t.id, a)
+             @works.each do |w|
+               work += w.hrsporterminar
+               workt += w.hrstrabajadas
+             end
+           end
+         end
+         
+         diff = work - workt
+                  
+         data_table.set_cell(i, 0, a.to_s)
+         if i == 0 
+           data_table.set_cell(i, 1, task)
+           suma = task + diff
+           data_table.set_cell(i, 2, suma)
+         elsif a == last 
+           data_table.set_cell(i, 1, 0)
+           data_table.set_cell(i, 2, 0)
+         else    
+           data_table.set_cell(i, 1, task-=tot)
+           suma = task + diff
+           data_table.set_cell(i, 2, suma) 
+         end
         i+=1
+        work=0
+        workt=0
        end
        
-       opts = { :width => 600, :height => 400, :title => 'Burndown chart', :legend => 'bottom' }
+       opts = { :width => 600, :height => 400, :title => 'Burndown chart', :legend => 'right',:backgroundColor => '#f5f5f5', :vAxis => {:title => "Esfuerzo"}, :hAxis => {:title => "Tiempo" } }
        @chart = GoogleVisualr::Interactive::LineChart.new(data_table, opts)
     
     respond_to do |format|
