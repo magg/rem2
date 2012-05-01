@@ -6,6 +6,8 @@ product = Workdetail.new
 assert product.invalid?
 assert product.errors[:hrstrabajadas].any?
 assert product.errors[:hrsporterminar].any?
+assert product.errors[:fecha].any?
+
 end
 
 end

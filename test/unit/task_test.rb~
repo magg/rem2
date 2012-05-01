@@ -6,6 +6,8 @@ product = Task.new
 assert product.invalid?
 assert product.errors[:descripcion].any?
 assert product.errors[:estimadoinicial].any?
+assert product.errors[:status].any?
+
 end
 
 end
