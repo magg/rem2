@@ -32,7 +32,7 @@
   <div class="control-group">
     <%= f.label :Prioridad , :class=>"control-label"%>
    <div class="controls">
-    <%= f.text_field :prioridad %>
+    <%= select( "story", "prioridad", { "Alta" => "Alta", "Media" => "Media", "Baja" => "Baja"}) %>
   </div>
   </div>
   <div class="control-group">
