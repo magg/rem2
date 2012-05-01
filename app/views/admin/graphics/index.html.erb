@@ -1,11 +1,14 @@
-<h1>Reporte de Proyectos</h1>
-<br />
+<div id="contenido">
+	<div id="encabezado">
+	<h1 align="center">Reporte de Proyectos</h1></br>
+	</div>
+<div id="cuerpo"> 
 <%
 i=0 
 tot = @charts.length
 tot.times do	 
 %>
-<div id=<%= 'chart' + i.to_s %>> </div> <br />
+<div id="encabezado"><div id=<%= 'chart' + i.to_s %>> </div> </div>  <br />
 <% i+=1 %>
 <% end %>
 
@@ -18,5 +21,10 @@ tot.times do
 <%= render_chart @charts[j], 'chart'+j.to_s %>
 <% j+=1 %>
 <% end %>
+
+</div >
+	</br>
+
+</div>
 
 

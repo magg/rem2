@@ -61,6 +61,7 @@ collection do
 end
   resources :stories
   resources :students
+  resources :graphics
   resources :tasks do
   collection do
     get 'taskasign'

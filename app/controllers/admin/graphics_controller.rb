@@ -26,7 +26,7 @@ class Admin::GraphicsController < ApplicationController
           cont+=s.length
           i+=1
         end
-        opts = { :width => 600, :height => 400, :title => p.nombre + ' - Total Features: '+ cont.to_s, :colors => ['#dc3912', '#109618', '#ff9900', '#3366cc'], :is3D => true }
+        opts = { :width => 600, :height => 400, :title => p.nombre + ' - Total Features: '+ cont.to_s, :colors => ['#dc3912', '#109618', '#ff9900', '#3366cc'], :is3D => true, :backgroundColor => '#f5f5f5' }
         @charts[j] = GoogleVisualr::Interactive::PieChart.new(graphs[j], opts)
         i = 0
         cont = 0
