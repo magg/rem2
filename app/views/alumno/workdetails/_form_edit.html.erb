@@ -10,10 +10,6 @@
       </ul>
     </div>
   <% end %>
-<div class="field">
-    <%= f.label :task_id %><br />
-    <%= f.number_field :task_id %>
-  </div>
   <div class="field">
     <%= f.label :hrstrabajadas %><br />
     <%= f.number_field :hrstrabajadas %>
@@ -23,9 +19,10 @@
     <%= f.number_field :hrsporterminar %>
   </div>
   <div class="form-actions">
-<%= link_to 'Cancelar'.html_safe, [:alumno,Workdetail.where(:id=>@workdetail.task_id).first], :class => 'btn btn-danger' %>
+    <%= f.hidden_field :task_id,:value=> @taskid %>
+<%= link_to 'Cancelar'.html_safe, {:action => "show", :controller => "workdetails", :id => @taskid}, :class => 'btn btn-danger' %>
 <%= link_to_function "Actualizar",
-"javascript:document.getElementById(\"new_workdetail\").submit(); return
+"javascript:document.getElementById(\"edit_workdetail_#{@workdetail.id}\").submit(); return
 false",:class => 'btn btn-primary' %>
   </div>
 
