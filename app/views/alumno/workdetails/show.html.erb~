@@ -1,9 +1,7 @@
 <div id="contenido">
 	<div id="encabezado">
 		<p id="notice"><%= notice %></p>
-		<h1>
-		"Bitacora de Tareas"
-		</h1>
+		<h1>Bitacora de Tareas</h1>
 		</br>
 	</div>
 <div id="cuerpo">
@@ -28,5 +26,5 @@
 <% end %>
 </tbody>
 </table>
-<%= link_to '<i class="icon-pencil icon-white"></i> Agregar Tarea'.html_safe, new_alumno_workdetail_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-pencil icon-white"></i> Agregar Tarea'.html_safe, {:action => "new", :controller => "workdetails", :task_id => @taskid}, :class => 'btn btn-info' %>
 <%= link_to '<i class="icon-pencil icon-white"></i> Regresar a Stories'.html_safe, alumno_stories_path, :class => 'btn btn-info' %>
