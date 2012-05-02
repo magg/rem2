@@ -8,6 +8,7 @@ class Alumno::SprintsController < ApplicationController
     @sprints = Sprint.all
     @student = Student.where(:usuario_id => @session_student.id).first
     @team = Team.where(:id => @student.team_id).first
+    @proyecto = Project.where(:id=>@team.project_id).first
     @sprints = Sprint.joins(:stories).where(:stories => {:project_id => @team.project_id})
     
     respond_to do |format|
@@ -21,7 +22,9 @@ class Alumno::SprintsController < ApplicationController
   def show
    @sprint = Sprint.find(params[:id])
    @stat = Status.find(4)
-   @stories = Story.where("status_id = ?", @stat.id)
+   @student = Student.where(:usuario_id => @session_student.id).first
+   @team = Team.where(:id => @student.team_id).first
+   @stories = Story.where("status_id = ? AND project_id = ?", @stat.id, @team.project_id)
    @examples = @sprint.stories 
 
     respond_to do |format|

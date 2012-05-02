@@ -6,6 +6,7 @@ class Alumno::TasksController < ApplicationController
   def index
     @student = Student.where(:usuario_id => @session_student.id).first
     @team = Team.where(:id => @student.team_id).first
+    @proyecto = Project.where(:id=>@team.project_id).first
     @status_id = Status.where("descripcion = ?",'Listo')
     @stories = Story.where("status_id != ? AND project_id = ?", @status_id,@team.project_id);
 
@@ -53,6 +54,8 @@ class Alumno::TasksController < ApplicationController
   def create
     @task = Task.new(params[:task])
     @story = Story.find(@task.story_id)
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team_id = @student.team_id
     respond_to do |format|
       if @task.save
         format.html { redirect_to [:alumno, @task], notice: 'La tarea se creo correctamente' }

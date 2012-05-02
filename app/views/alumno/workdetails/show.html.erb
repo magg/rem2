@@ -26,5 +26,5 @@
 <% end %>
 </tbody>
 </table>
-<%= link_to '<i class="icon-pencil icon-white"></i> Agregar Tarea'.html_safe, {:action => "new", :controller => "workdetails", :task_id => @taskid}, :class => 'btn btn-info' %>
-<%= link_to '<i class="icon-pencil icon-white"></i> Regresar a Stories'.html_safe, alumno_stories_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-plus-sign"></i>'.html_safe, {:action => "new", :controller => "workdetails", :task_id => @taskid}, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-pencil icon-white"></i> Regresar a Stories'.html_safe, {:controller => "stories", :action => "show", :id => @storyid} , :class => 'btn btn-info' %>

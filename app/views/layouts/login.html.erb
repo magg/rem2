@@ -5,16 +5,15 @@
   <title>REM2</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-    <style type="text/css">
-      body {
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-	width:170px;
-      }
-    </style>
+  <script src='http://www.google.com/jsapi'></script> 
+  <style type="text/css">
+    body {
+      padding-bottom: 40px;
+    }
+    .sidebar-nav {
+      padding: 9px 0;
+    }
+  </style>
 </head>
 <body>
     <div class="navbar navbar-fixed-top">
@@ -26,21 +25,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">REM2</a>
-          <div class="nav-collapse">
-		<p class="pull-right">
-
+          <a class="brand" href="#"></a>
+			<div class="btn-group pull-right" style="padding-right:80px;">
 			<a data-toggle="modal" href="#myModal" class="btn btn-primary">Iniciar Sesión</a>
+          </div>
 
-		</p>
+          <div class="nav-collapse">
           </div><!--/.nav-collapse -->
 
         </div>
       </div>
     </div>
 <div id="layout">
+	<div class="span3" style="width:200px;">
+		<%= image_tag("rem2logo.png", :size => "100x100") %>
+
+	</div>
 		<div class="span9">
-		  <div class="hero-unit" style="width:1050px;">
+		  <div class="hero-unit" style="width:800px;">
 		<%= yield %>
 		  </div>
 		  </div>
@@ -50,5 +52,6 @@
 <%= javascript_include_tag 'bootstrap-transition' %>
 <%= javascript_include_tag 'bootstrap-dropdown' %>
 <%= javascript_include_tag 'bootstrap-carousel' %>
+
 </body>
 </html>
