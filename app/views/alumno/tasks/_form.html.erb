@@ -40,7 +40,7 @@ false",:class => 'btn btn-primary' %>
  <div class="form-actions">
 <%= f.hidden_field :story_id,:value=>@story.id %>
 <%= link_to '<i class="icon-chevron-left"></i>Volver a Asignación de tareas'.html_safe, alumno_tasks_path, :class => 'btn btn-info' %>
-<a href="http://localhost:3000/es/alumno/stories/<%= @story.id %>" class='btn btn-info'><i class="icon-chevron-left"></i>Volver a Story</a>
+<a href="http://easecrum.herokuapp.com/es/alumno/stories/<%= @story.id %>" class='btn btn-info'><i class="icon-chevron-left"></i>Volver a Story</a>
   </div>
 
 <% end %>
