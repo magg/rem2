@@ -4,15 +4,28 @@
 	</div>
 <br />
 <div id="cuerpo"> 
+	<%
+	i=0 
+	tot = @charts.length
+	tot.times do	 
+	%>
+	<div id="encabezado"><div id=<%= 'chart' + i.to_s %>> </div> </div>  <br />
+	<% i+=1 %>
+	<% end %>
 
-<div id="encabezado">
-	<div id='chart'></div></div>  <br />
-	
- <%= render_chart @chart, 'chart' %>	
-</div >
-	</br>
-<span>
-</span>
-</div>
+	<%
+	j=0 
+	tot = @charts.length
+	tot.times do	 
+	%>
+
+	<%= render_chart @charts[j], 'chart'+j.to_s %>
+	<% j+=1 %>
+	<% end %>
+
+	</div >
+		</br>
+
+	</div>
 
 

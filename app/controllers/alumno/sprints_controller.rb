@@ -22,7 +22,9 @@ class Alumno::SprintsController < ApplicationController
   def show
    @sprint = Sprint.find(params[:id])
    @stat = Status.find(4)
-   @stories = Story.where("status_id = ?", @stat.id)
+   @student = Student.where(:usuario_id => @session_student.id).first
+   @team = Team.where(:id => @student.team_id).first
+   @stories = Story.where("status_id = ? AND project_id = ?", @stat.id, @team.project_id)
    @examples = @sprint.stories 
 
     respond_to do |format|
