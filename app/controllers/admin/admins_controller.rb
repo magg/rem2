@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::AdminsController < ApplicationController
   before_filter :authorize_admin
   layout "admin"
@@ -81,18 +82,26 @@ class Admin::AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
     id = @admin.usuario_id
     @usuario = Usuario.find(id)
+    @id_usuario = @usuario.id
     @usuario.destroy
-    
+    if @id_usuario==@session_admin.id
+      respond_to do |format|
+        format.html { redirect_to login_url,:alert => "Su cuenta ya no es válida" }
+        format.json { head :no_content }
+      end
+    else
     respond_to do |format|
       format.html { redirect_to admin_admins_url }
       format.json { head :no_content }
     end
+  end
   end
   
   protected
     def authorize_admin
       #unless Usuario.find_by_id(session[:user_id])
         @projects = Project.all
+        @projects.sort! { |a,b| a.nombre.downcase <=> b.nombre.downcase }
         @session_admin = Usuario.find_by_auth_token( cookies[:auth_token])
         if @session_admin.tipo != "Admin"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"

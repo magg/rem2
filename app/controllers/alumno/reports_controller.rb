@@ -19,19 +19,20 @@ class Alumno::ReportsController < ApplicationController
   private 
   def generate_pdf_productbacklog
     pdf = Prawn::Document.new
+    @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team = Team.where(:id => @student.team_id).first
+    @proyecto = Project.where(:id=>@team.project_id).first
+    @stories = Story.where(:project_id => @team.project_id)
           pdf.text "Documento de especificación", :align => :right,:style => :italic
           pdf.text "de requerimientos", :align => :right,:style => :italic
           pdf.move_down 20
-          pdf.font_size(20) {pdf.text "Herramienta para administrar proyectos de", :align => :center,:style => :bold_italic}
-          pdf.font_size(20) {pdf.text "SCRUM", :align => :center,:style => :bold_italic}
+          pdf.font_size(20) {pdf.text @proyecto.nombre, :align => :center,:style => :bold_italic}
           pdf.move_down 40
-          @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
-          @student = Student.where(:usuario_id => @session_student.id).first
-          @team = Team.where(:id => @student.team_id).first
-          @stories = Story.where(:project_id => @team.project_id)
           @stories.each_with_index do |story,index|
             pdf.span(350, :position => :center) do
-            pdf.text "Req. " + (index+1).to_s + ".- " + story.descripcion, :size => 14
+            pdf.text "Req "+ (index+1).to_s + ".- " + story.name, :size => 14,:style => :italic
+            pdf.text story.descripcion, :size => 14
             pdf.move_down 50
           end
         end
@@ -43,15 +44,16 @@ class Alumno::ReportsController < ApplicationController
 
   def generate_pdf_criterios
     pdf = Prawn::Document.new
+    @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team = Team.where(:id => @student.team_id).first
+    @proyecto = Project.where(:id=>@team.project_id).first
+    @stories = Story.where(:project_id => @team.project_id)
           pdf.text "Especificación de Criterios de aceptación", :align => :right,:style => :italic
           pdf.move_down 20
-          pdf.font_size(20) {pdf.text "Herramienta para administrar proyectos de", :align => :center,:style => :bold_italic}
-          pdf.font_size(20) {pdf.text "SCRUM", :align => :center,:style => :bold_italic}
+          pdf.font_size(20) {pdf.text @proyecto.nombre, :align => :center,:style => :bold_italic}
           pdf.move_down 40
-          @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
-          @student = Student.where(:usuario_id => @session_student.id).first
-          @team = Team.where(:id => @student.team_id).first
-          @stories = Story.where(:project_id => @team.project_id)
+
           @stories.each_with_index do |story,index|
             pdf.span(350, :position => :center) do
             pdf.text story.descripcion, :size => 14
@@ -74,17 +76,19 @@ class Alumno::ReportsController < ApplicationController
   
   def generate_pdf_sprints
     pdf = Prawn::Document.new
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team = Team.where(:id => @student.team_id).first
+    @proyecto = Project.where(:id=>@team.project_id).first
+    
           pdf.text "Relación de Stories y Sprints", :align => :right,:style => :italic
           pdf.move_down 20
-          pdf.font_size(20) {pdf.text "Herramienta para administrar proyectos de", :align => :center,:style => :bold_italic}
-          pdf.font_size(20) {pdf.text "SCRUM", :align => :center,:style => :bold_italic}
+          pdf.font_size(20) {pdf.text @proyecto.nombre, :align => :center,:style => :bold_italic}
           pdf.move_down 40
-          @student = Student.where(:usuario_id => @session_student.id).first
-          @team = Team.where(:id => @student.team_id).first
+
           @sprints = Sprint.joins(:stories).where(:stories => {:project_id => @team.project_id})
           pdf.span(350, :position => :center) do
           @sprints.each_with_index do |sprint,index|
-            pdf.text sprint.comentario, :size => 14
+            pdf.text sprint.comentario, :size => 14,:style=> :bold
             pdf.move_down 10
             @stories = Story.joins(:sprints).where(:sprints => {:id => sprint.id})
             @stories.each do |story|

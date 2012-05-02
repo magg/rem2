@@ -1,12 +1,14 @@
-<%= form_for :dump, :url=>"/es/admin/students/csv_import",:html => { :multipart => true , :class => "form-horizontal"} do |f| %>
+<%= form_for :dump, :url=>"/es/admin/students/csv_import",:html => { :multipart => true , :class => "form-horizontal",:id=> "formupload",:name=> "formupload"} do |f| %>
+
 <div class="control-group">  
-    <label for="dump_file">
-        Select a CSV File :
+    <label class="control-label">
+       Selecciona archivo CSV:
       </label>
 <div class="controls">
 	<%= f.file_field :file %>
 	</div>
   </div>
   <br />
-  <%= submit_tag "Subir" ,:class => 'btn btn-primary' %>
-<% end %>
+<%= link_to_function "Cargar",
+"javascript:document.getElementById(\"formupload\").submit(); return
+false",:class => 'btn btn-primary' %><% end %>

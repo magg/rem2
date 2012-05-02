@@ -55,6 +55,7 @@ class Admin::GraphicsController < ApplicationController
      def authorize_admin
        #unless Usuario.find_by_id(session[:user_id])
          @projects = Project.all
+         @projects.sort! { |a,b| a.nombre.downcase <=> b.nombre.downcase }
          @session_admin = Usuario.find_by_auth_token( cookies[:auth_token])
          if @session_admin.tipo != "Admin"
            redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
