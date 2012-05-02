@@ -54,6 +54,8 @@ class Alumno::TasksController < ApplicationController
   def create
     @task = Task.new(params[:task])
     @story = Story.find(@task.story_id)
+    @student = Student.where(:usuario_id => @session_student.id).first
+    @team_id = @student.team_id
     respond_to do |format|
       if @task.save
         format.html { redirect_to [:alumno, @task], notice: 'La tarea se creo correctamente' }
