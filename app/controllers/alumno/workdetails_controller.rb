@@ -17,7 +17,8 @@ class Alumno::WorkdetailsController < ApplicationController
   def show
     @workdetails = Workdetail.where("task_id = ?", params[:id])
     @taskid = params[:id]
-
+    @task = Task.where(:id => @taskid).first
+    @storyid = @task.story_id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @workdetails }
