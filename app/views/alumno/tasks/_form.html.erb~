@@ -18,7 +18,7 @@
   </div>
 </div>
   <div class="control-group">
-    <%= f.label :estimado_inicial %>
+	<%= label(:estimado_inicial, :"Estimado Inicial (Horas)") %>
   <div class="controls">
     <%= f.number_field :estimadoinicial %>
   </div></div>
@@ -26,20 +26,21 @@
   <div class="control-group">
     <%= f.label :Estatus %>
   <div class="controls">
-    <%= f.text_field :status %>
-  </div></div>
+    <%= select( "task", "status", { "Comenzada" => "Comenzada", "Terminada" => "Terminada", "Aprobada" => "Aprobada"}) %>  </div></div>
   <div class="control-group">
     <%= f.label :Responsable %>
   <div class="controls">
-    <%= select("task", "student_id", Student.all.collect {|p| [ p.nombre, p.id ] })%>
+    <%= select("task", "student_id", Student.where(:team_id => @team_id).collect {|p| [ p.nombre, p.id ] })%>
+  </div></div>
+  <div class="controls">
+<%= link_to_function "Asignar",
+"javascript:document.getElementById(\"new_task\").submit(); return
+false",:class => 'btn btn-primary' %>
   </div></div>
  <div class="form-actions">
 <%= f.hidden_field :story_id,:value=>@story.id %>
 <%= link_to '<i class="icon-chevron-left"></i>Volver a Asignación de tareas'.html_safe, alumno_tasks_path, :class => 'btn btn-info' %>
-<a href="http://localhost:3000/es/alumno/stories/<%= @story.id %>" class='btn btn-info'><i class="icon-chevron-left"></i>Volver a Story</a>
-<%= link_to_function "Asignar",
-"javascript:document.getElementById(\"new_task\").submit(); return
-false",:class => 'btn btn-primary' %>
+<a href="http://easecrum.herokuapp.com/es/alumno/stories/<%= @story.id %>" class='btn btn-info'><i class="icon-chevron-left"></i>Volver a Story</a>
   </div>
 
 <% end %>
