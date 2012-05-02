@@ -6,6 +6,7 @@ class Alumno::TasksController < ApplicationController
   def index
     @student = Student.where(:usuario_id => @session_student.id).first
     @team = Team.where(:id => @student.team_id).first
+    @proyecto = Project.where(:id=>@team.project_id).first
     @status_id = Status.where("descripcion = ?",'Listo')
     @stories = Story.where("status_id != ? AND project_id = ?", @status_id,@team.project_id);
 

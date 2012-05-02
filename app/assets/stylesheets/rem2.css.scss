@@ -2,6 +2,16 @@
 @import 'bootstrap-responsive';
 
 
+  div.botright{
+    display:block;
+
+    /*set the div in the bottom right corner*/
+    float:right;
+    bottom:0;
+    right:0;
+    width:200px;
+  }
+
 textarea{
   height:200px;
 }

@@ -6,7 +6,26 @@ class Alumno::StoriesController < ApplicationController
   def index
     if @team == nil
     else
-    @stories = Story.where(:project_id => @team.project_id)
+      if params[:status] == nil
+        @stories = Story.where(:project_id => @team.project_id)
+        @stories.sort! { |a,b| a.prioridad <=> b.prioridad }
+        @proyecto = Project.where(:id=>@team.project_id).first
+        
+      else
+  	if params[:status][:id]==""
+  	  @stories = Story.where(:project_id => @team.project_id)
+  	  @stories.sort! { |a,b| a.prioridad <=> b.prioridad }
+      @proyecto = Project.where(:id=>@team.project_id).first
+
+  	else
+  	  @statusid = params[:status][:id]
+      @stories = Story.where("status_id = ? AND project_id = ?", params[:status][:id], @team.project_id)
+  	  @statusid = params[:status][:id]
+  	  @stories.sort! { |a,b| a.prioridad <=> b.prioridad }
+      @proyecto = Project.where(:id=>@team.project_id).first
+
+          end
+      end
     end
     respond_to do |format|
       format.html # index.html.erb

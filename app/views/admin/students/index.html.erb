@@ -27,3 +27,5 @@
 <br />
 
 <%= link_to '<i class="icon-pencil icon-white"></i> Agregar Estudiantes'.html_safe, new_admin_student_path, :class => 'btn btn-info' %>
+<%= link_to '<i class="icon-folder-open"></i> Cargar Estudiantes desde archivo'.html_safe, {:controller=> "students", :action=>"upload"}, :class => 'btn btn-info' %>
+

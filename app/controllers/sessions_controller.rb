@@ -1,3 +1,4 @@
+# encoding: utf-8
 class SessionsController < ApplicationController
   layout "login"
   skip_before_filter :authorize
@@ -30,7 +31,7 @@ class SessionsController < ApplicationController
          redirect_to cliente_stories_path
       end
        else
-         redirect_to login_url, :alert => "Invalid user/password combination"
+         redirect_to login_url, :alert => "Usuario y/o contraseña invalidos"
        end
   end
 

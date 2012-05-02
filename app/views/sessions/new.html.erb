@@ -1,31 +1,63 @@
 <% if flash[:alert] %>
-<p id="notice" ><%= flash[:alert] %></p>
+<p id="notice" style="color:red"><%= flash[:alert] %></p>
 <% end %>
-<h2>Bienvenido a nuestro proyecto de administración </h2>
+<h1>Easecrum</h1></br>
+<h2>Administración àgil para el desarrollo ágil</h2>
 </br></br></br>
 <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
               <div class="item active">
-                <%= image_tag("productbacklog.png") %>
+                <%= image_tag("usuarios.png") %>
                 <div class="carousel-caption">
-                  <h4>Product Backlog</h4>
-                  <p>Administra y lleva un registro eficiente de tus proyectos</p>
+                  <h4>Administración de usuarios</h4>
+                  <p>Gestione todos los usuarios del sistema en un solo lugar
+				</p>
                 </div>
               </div>
               <div class="item">
-                <%= image_tag("sprints.png") %>
+                <%= image_tag("tareas.png") %>
                 <div class="carousel-caption">
-                  <h4>Sprints</h4>
-                  <p>Administra de manera eficiente tus Sprints</p>
+                  <h4>Asignación de tareas</h4>
+                  <p>Administra y gestiona las tareas de todo tu equipo de trabajo
+				</p>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag("avancegrupal.png") %>
+                <div class="carousel-caption">
+                  <h4>Avance Grupal</h4>
+                  <p>Visualice el avance de todos los proyectos en en tiempo real
+				</p>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag("burndown.png") %>
+                <div class="carousel-caption">
+                  <h4>Burndown chart</h4>
+                  <p>Visualiza el esfuerzo realizado y el esfuerzo remanente por Sprint para administrar eficientemente tu trabajo
+				</p>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag("equipos.png") %>
+                <div class="carousel-caption">
+                  <h4>Equipos de trabajo</h4>
+                  <p>Gestiona y asigna equipos de trabajo de una forma sencilla
+				</p>
+                </div>
+              </div>
+              <div class="item">
+                <%= image_tag("proyectos.png") %>
+                <div class="carousel-caption">
+                  <h4>Gestión de Proyectos</h4>
+                  <p>Gestiona la información que la herramienta te ayudará a administrar
+				</p>
                 </div>
               </div>
             </div>
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
             <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
           </div>
-
-
-
 <div id="myModal" class="modal hide fade">
             <div class="modal-header">
               <a class="close" data-dismiss="modal" >&times;</a>
