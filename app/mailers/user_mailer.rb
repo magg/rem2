@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "ScrumRem2 <notifications@scrummy.com>"
+  default from: "EaseCrum <notifications@easecrum.com>"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -14,6 +14,6 @@ class UserMailer < ActionMailer::Base
   def password_sent(pass, user, email)
     @user = user
     @pass = pass
-    mail :to => email, :subject => "Cuenta ScrumRem2"
+    mail :to => email, :subject => "Cuenta EaseCrum"
   end
 end

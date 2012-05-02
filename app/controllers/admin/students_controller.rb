@@ -102,17 +102,19 @@ class Admin::StudentsController < ApplicationController
        @parsed_file=CSV.parse(data)
        n=0
        @parsed_file.each  do |row|
-       stu = Student.new(:nombre => row[0])
-       user = Usuario.new(:username => row[1], :password => row[1], :tipo => 'Student', :email => row[2])
-       stu.usuario = user       
-       if stu.save
-         UserMailer.password_sent(row[1],row[1],row[2]).deliver
-          n=n+1
-          GC.start if n%50==0
-       end
+         stu = Student.new(:nombre => row[0])
+         o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten  
+         string  =  (0..50).map{ o[rand(o.length)]  }.join
+         user = Usuario.new(:username => row[1], :password => string, :tipo => 'Student', :email => row[2])
+         stu.usuario = user       
+         if stu.save
+           UserMailer.password_sent(string,row[1],row[2]).deliver
+           n=n+1
+           GC.start if n%50==0
+         end
      end
      respond_to do |format|
-       format.html { redirect_to admin_students_url, notice: "CSV Import Successful,  #{n} new records added to data base" }
+       format.html { redirect_to admin_students_url, notice: "Archivo CSV procesado,  #{n} estudiantes han sido agregados" }
        format.json { render json: @student, status: :created, location: @student }
      end
    end
