@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Admin::StudentsController < ApplicationController
   before_filter :authorize_admin
   layout "admin"
@@ -97,9 +98,8 @@ class Admin::StudentsController < ApplicationController
   end
 
   require 'csv'  
-  def csv_import 
-       data = params[:dump][:file].read
-       @parsed_file=CSV.parse(data)
+  def csv_import        
+       @parsed_file=CSV.read(params[:dump][:file].tempfile, :encoding => 'windows-1251:utf-8')
        n=0
        @parsed_file.each  do |row|
          stu = Student.new(:nombre => row[0])

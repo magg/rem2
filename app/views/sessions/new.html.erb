@@ -1,8 +1,7 @@
 <% if flash[:alert] %>
 <p id="notice" style="color:red"><%= flash[:alert] %></p>
 <% end %>
-<h1>Easecrum</h1></br>
-<h2>Administración àgil para el desarrollo ágil</h2>
+<h2>Administración ágil para el desarrollo ágil</h2>
 </br></br></br>
 <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
@@ -64,7 +63,7 @@
               <h3>Iniciar Sesión</h3>
             </div>
             <div class="modal-body">
-			<%= form_tag(:html => { :class => "form-horizontal"}) do %>
+			<%= form_tag(:controller => "sessions", :action => "create") do %>
 
 			<div class="control-group">
 			  <%= label_tag :Nombre %>

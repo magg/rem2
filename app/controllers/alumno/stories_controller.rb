@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Alumno::StoriesController < ApplicationController
   before_filter :authorize_student
   layout "student"
@@ -40,6 +41,8 @@ class Alumno::StoriesController < ApplicationController
     @stat = Status.where(:id => @story.status_id).first.descripcion
     @criterios = Criterio.where(:story_id => @story.id)
     @tasks = Task.where(:story_id => @story.id)
+    @proyecto = Project.where(:id=>@team.project_id).first
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @story }
@@ -117,6 +120,10 @@ class Alumno::StoriesController < ApplicationController
         @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
         @student = Student.where(:usuario_id => @session_student.id).first
         @team = Team.where(:id => @student.team_id).first
+        if @team != nil 
+        @proyecto = Project.where(:id=>@team.project_id).first
+      end
+        
         if @session_student.tipo != "Student"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end

@@ -68,7 +68,9 @@ class Alumno::CriteriosController < ApplicationController
       @session_student = Usuario.find_by_auth_token( cookies[:auth_token])
       @student = Student.where(:usuario_id => @session_student.id).first
       @team = Team.where(:id => @student.team_id).first
-        if @session_student.tipo != "Student"
+        if @team != nil 
+        @proyecto = Project.where(:id=>@team.project_id).first
+      end        if @session_student.tipo != "Student"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
     end

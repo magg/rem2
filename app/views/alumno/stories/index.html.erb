@@ -1,7 +1,6 @@
 <h1 align="center">PRODUCT BACKLOG</h1>
 </br>
 <% if  @team != nil %>
-<h2>Proyecto: <%= @proyecto.nombre %></h2></br>
 <%= form_tag(alumno_stories_path, :method => "get",:id=>'filter_form') do %>
   <%= label_tag(:q, "Filtrar por:") %>
   <%= select("status", "id", [['Todas','']]+ Status.all.collect {|p| [ p.descripcion, p.id ] },{:selected =>  @statusid},{:onchange => 'submitFilter()'}
