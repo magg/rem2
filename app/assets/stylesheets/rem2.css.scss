@@ -1,16 +1,12 @@
 @import 'bootstrap';
-@import 'bootstrap-responsive';
 
+body {
+  padding-bottom: 40px;
+}
 
-  div.botright{
-    display:block;
-
-    /*set the div in the bottom right corner*/
-    float:right;
-    bottom:0;
-    right:0;
-    width:200px;
-  }
+.sidebar-nav {
+  padding: 9px 0;
+}
 
 textarea{
   height:200px;
@@ -28,23 +24,4 @@ input#task_descripcion,#task_estimadoinicial,#task_status,#task_student_id,#task
 
 select#story_status_id{
 width:61%;
-}
-
-#layout{
-        padding-top: 60px;}
-
-#contenido{
-	margin-left: auto;
-	margin-right: auto;
-	width:80%;
-}
-
-#encabezado{
-  	border-bottom: 2px solid;
-	color:$blue;
-	text-align:center;
-}
-
-#cuerpo{
-text-align:left;
 }

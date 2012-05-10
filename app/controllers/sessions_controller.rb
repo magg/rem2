@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
          redirect_to cliente_stories_path
       end
        else
-         redirect_to login_url, :alert => "Usuario y/o contraseña invalidos"
+         redirect_to login_url, :alert => "Usuario y/o contraseña inválidos"
        end
   end
 

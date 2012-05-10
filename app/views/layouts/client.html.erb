@@ -5,14 +5,6 @@
   <title>REM2</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <style type="text/css">
-    body {
-      padding-bottom: 40px;
-    }
-    .sidebar-nav {
-      padding: 9px 0;
-    }
-  </style>
 </head>
 <body>
     <div class="navbar navbar-fixed-top">
@@ -24,8 +16,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">REM2</a>
-			<div class="btn-group pull-right" style="padding-right:80px;">
+          <a class="brand" href="#">Easecrum</a>
+			<div class="btn-group pull-right" style="padding-right:100px;">
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
               <i class="icon-user"></i> <%= @session_client.username %>
               <span class="caret"></span>
@@ -43,8 +35,9 @@
         </div>
       </div>
     </div>
-<div id="layout">
-	<div class="span3" style="width:200px;">
+    <div class="container-fluid" style="margin-top:50px;">
+      <div class="row-fluid">
+		<div class="span3" style="width:200px;">
 	  <div class="well sidebar-nav">
 		           <ul class="nav nav-list">
 		              <li class="nav-header">menu</li>
@@ -64,10 +57,19 @@
 		<%= yield %>
 		  </div>
 		  </div>
+		  </div>
+		<hr>
+
+		<footer>
+		  <p class="pull-right"><%= image_tag("rem2logo.png", :size => "100x100") %>
+			</p>
+		</footer>
 </div>
+
 <%= javascript_include_tag 'bootstrap-collapse' %>
 <%= javascript_include_tag 'bootstrap-modal' %>
 <%= javascript_include_tag 'bootstrap-transition' %>
 <%= javascript_include_tag 'bootstrap-dropdown' %>
+
 </body>
 </html>

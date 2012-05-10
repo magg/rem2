@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 2.0.2'
 gem 'rails', '3.2.2'
 gem "prawn", "~> 0.12.0"
 
