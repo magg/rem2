@@ -104,7 +104,8 @@ class Alumno::TasksController < ApplicationController
       @team = Team.where(:id => @student.team_id).first
         if @team != nil 
         @proyecto = Project.where(:id=>@team.project_id).first
-      end              if @session_student.tipo != "Student"
+      end           
+         if @session_student.tipo != "Student"
           redirect_to login_url, :alert => "Usted no tiene permisos suficientes"
         end
     end
