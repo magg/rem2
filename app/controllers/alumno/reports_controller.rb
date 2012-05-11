@@ -24,8 +24,9 @@ class Alumno::ReportsController < ApplicationController
     @team = Team.where(:id => @student.team_id).first
     @proyecto = Project.where(:id=>@team.project_id).first
     @stories = Story.where(:project_id => @team.project_id)
-          pdf.text "Documento de especificación", :align => :right,:style => :italic
-          pdf.text "de requerimientos", :align => :right,:style => :italic
+          pdf.font_size(10) {pdf.text "Documento de especificación", :align => :right
+          pdf.text "de requerimientos", :align => :right}
+          pdf.image "app/assets/images/rem2logo.png",:scale => 0.5
           pdf.move_down 20
           pdf.font_size(20) {pdf.text @proyecto.nombre, :align => :center,:style => :bold_italic}
           pdf.move_down 40
@@ -49,7 +50,9 @@ class Alumno::ReportsController < ApplicationController
     @team = Team.where(:id => @student.team_id).first
     @proyecto = Project.where(:id=>@team.project_id).first
     @stories = Story.where(:project_id => @team.project_id)
-          pdf.text "Especificación de Criterios de aceptación", :align => :right,:style => :italic
+          pdf.font_size(10) {pdf.text "Especificación de Criterios de aceptación", :align => :right}
+          pdf.image "app/assets/images/rem2logo.png",:scale => 0.5
+          
           pdf.move_down 20
           pdf.font_size(20) {pdf.text @proyecto.nombre, :align => :center,:style => :bold_italic}
           pdf.move_down 40
@@ -80,7 +83,9 @@ class Alumno::ReportsController < ApplicationController
     @team = Team.where(:id => @student.team_id).first
     @proyecto = Project.where(:id=>@team.project_id).first
     
-          pdf.text "Relación de Stories y Sprints", :align => :right,:style => :italic
+          pdf.font_size(10) {pdf.text "Relación de Stories y Sprints", :align => :right}
+          pdf.image "app/assets/images/rem2logo.png",:scale => 0.5
+          
           pdf.move_down 20
           pdf.font_size(20) {pdf.text @proyecto.nombre, :align => :center,:style => :bold_italic}
           pdf.move_down 40
